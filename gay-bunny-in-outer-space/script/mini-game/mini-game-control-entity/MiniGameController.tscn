@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dh8tmgdxygam2"]
+
+[ext_resource type="Script" uid="uid://dctc30hokcc67" path="res://script/mini-game/mini-game-control-entity/MiniGameController.gd" id="1_lrnva"]
+
+[node name="MiniGameController" type="Node"]
+script = ExtResource("1_lrnva")
+metadata/_custom_type_script = "uid://dctc30hokcc67"

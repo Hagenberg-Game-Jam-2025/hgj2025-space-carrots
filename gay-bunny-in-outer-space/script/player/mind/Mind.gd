@@ -21,8 +21,11 @@ func _physics_process(delta: float) -> void:
 	self.global_rotation = possessed_control_entity.anchor.camera_anchor.global_rotation
 
 func possess(control_entity : ControlEntity) -> void:
-	if possessed_control_entity.player != null:
+	if control_entity.player != null:
 		return
+	print("fuck")
+		
+	var last_possessed_control_entity : ControlEntity = possessed_control_entity
 	
 	if current_controller != null:
 		current_controller.queue_free()
@@ -31,6 +34,8 @@ func possess(control_entity : ControlEntity) -> void:
 
 	if self is Player:
 		controller_script = load(control_entity.controller_reference)
+
+	print(control_entity)
 
 	var controller_instance : Controller = controller_script.instantiate()
 	controller_instance.control_entity = control_entity
@@ -48,3 +53,4 @@ func possess(control_entity : ControlEntity) -> void:
 	self.rotation = self.possessed_control_entity.anchor.camera_anchor.global_rotation
 
 	possessed.emit(control_entity)
+	control_entity.possessed.emit(self, last_possessed_control_entity)

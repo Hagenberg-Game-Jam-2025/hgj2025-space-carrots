@@ -2,6 +2,8 @@ extends CharacterBody3D
 
 class_name ControlEntity
 
+signal possessed(mind : Mind, last_control_entity : ControlEntity)
+
 @export_category("Anchor")
 
 @export

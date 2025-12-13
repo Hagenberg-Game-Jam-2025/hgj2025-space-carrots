@@ -16,10 +16,8 @@ var mouse_sensitivity : float = 0.01
 var twist_input : float = 0.0
 var pitch_input : float = 0.0
 
-@export_category("Control Entity")
-
-@export
-var control_entity : ControlEntity
+func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _process(delta: float) -> void:
 	if control_entity is Creature:
