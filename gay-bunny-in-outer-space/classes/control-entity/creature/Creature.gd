@@ -17,7 +17,7 @@ func _ready() -> void:
 	
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
-
+		
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -31,9 +31,7 @@ func _physics_process(delta: float) -> void:
 	
 func move(input : Vector2) -> void:
 	var direction : Vector3 = (anchor.twist_pivot.global_transform.basis * Vector3(input.x, 0, input.y)).normalized()
-	
-	print(direction)
-	
+		
 	velocity.x = direction.x * move_speed
 	velocity.z = direction.z * move_speed
 	

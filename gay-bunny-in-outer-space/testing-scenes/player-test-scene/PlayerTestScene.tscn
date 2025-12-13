@@ -56,3 +56,14 @@ transform = Transform3D(0.32444572, 0.7810655, -0.53354627, 0, 0.56405944, 0.825
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_qyabp")
+
+[node name="Floor2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9396687, -0.34208575, 0, 0.34208575, 0.9396687, 0, 0, -5.9639482)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor2"]
+transform = Transform3D(3.105, 0, 0, 0, 3.105, 0, 0, 0, 3.105, 0, 0, 0)
+mesh = SubResource("PlaneMesh_nwjs2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor2"]
+transform = Transform3D(3.105, 0, 0, 0, 3.105, 0, 0, 0, 3.105, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_7g5yr")
