@@ -8,6 +8,8 @@ var creature_look_command : CreatureLookCommand = CreatureLookCommand.new()
 var creature_start_running_command : CreatureStartRunningCommand = CreatureStartRunningCommand.new()
 var creature_stop_running_command : CreatureStopRunningCommand = CreatureStopRunningCommand.new()
 
+var creature_interact_command : CreatureInteractCommand = CreatureInteractCommand.new()
+
 
 @export_category("Control Settings")
 @export
@@ -35,7 +37,9 @@ func _process(delta: float) -> void:
 		
 		if (Input.is_action_just_released("creature_run")):
 			creature_stop_running_command.execute(control_entity)
-			
+		
+		if (Input.is_action_just_pressed("creature_interact")):
+			creature_interact_command.execute(control_entity)
 
 	pitch_input = 0
 	twist_input = 0
