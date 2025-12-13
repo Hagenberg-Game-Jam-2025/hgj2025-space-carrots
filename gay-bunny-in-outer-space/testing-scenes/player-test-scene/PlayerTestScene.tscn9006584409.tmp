@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dwnhj0pi7lhf5"]
+[gd_scene load_steps=7 format=3 uid="uid://dwnhj0pi7lhf5"]
 
 [ext_resource type="PackedScene" uid="uid://3wafjvrbrsnu" path="res://scenes/player/Player.tscn" id="1_w5oua"]
 [ext_resource type="PackedScene" uid="uid://swutdc1evgl4" path="res://scenes/lagomorph/Lagomorph.tscn" id="2_6j6x2"]
@@ -12,15 +12,6 @@ data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6j6x2"]
 points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w5oua"]
-
-[sub_resource type="Sky" id="Sky_6j6x2"]
-sky_material = SubResource("ProceduralSkyMaterial_w5oua")
-
-[sub_resource type="Environment" id="Environment_qyabp"]
-background_mode = 2
-sky = SubResource("Sky_6j6x2")
 
 [node name="PlayerTestScene" type="Node3D"]
 
@@ -36,10 +27,9 @@ transform = Transform3D(3.105, 0, 0, 0, 3.105, 0, 0, 0, 3.105, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_7g5yr")
 
 [node name="Lagomorph" parent="." instance=ExtResource("2_6j6x2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38078985, 0.8373318, -1.6212304)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38078985, 0, -1.6212304)
 
 [node name="Player" parent="." node_paths=PackedStringArray("possessed_control_entity") instance=ExtResource("1_w5oua")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.82149583, 0)
 possessed_control_entity = NodePath("../Lagomorph")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
@@ -50,9 +40,3 @@ mesh = SubResource("BoxMesh_w5oua")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 shape = SubResource("ConvexPolygonShape3D_6j6x2")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.32444572, 0.7810655, -0.53354627, 0, 0.56405944, 0.8257342, 0.9459043, -0.26790592, 0.18300667, -7.602596, 2.1128106, 0)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_qyabp")

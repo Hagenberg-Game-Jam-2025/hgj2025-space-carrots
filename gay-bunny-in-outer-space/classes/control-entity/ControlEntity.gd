@@ -7,6 +7,13 @@ class_name ControlEntity
 @export
 var anchor : Anchor
 
+@export_category("Controller")
+
+@export
+var controller_reference : StringName
+
+var player : Player
+
 func _ready() -> void:
 	pass
 	

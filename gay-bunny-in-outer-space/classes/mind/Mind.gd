@@ -21,4 +21,34 @@ func _physics_process(delta: float) -> void:
 	self.global_rotation = possessed_control_entity.anchor.camera_anchor.global_rotation
 
 func possess(control_entity : ControlEntity) -> void:
-	pass
+	if possessed_control_entity.player != null:
+		return
+	
+	if current_controller != null:
+		current_controller.queue_free()
+	
+	var controller_script : PackedScene
+
+	if self is Player:
+		controller_script = load(control_entity.controller_reference)
+
+	var controller_instance : Controller = controller_script.instantiate()
+	controller_instance.control_entity = control_entity
+	add_child(controller_instance)
+	
+	print(control_entity)
+	
+	current_controller = controller_instance
+
+	self.possessed_control_entity.player = null
+	self.possessed_control_entity = control_entity
+	self.possessed_control_entity.player = self
+
+	reparent.call_deferred(control_entity.anchor.camera_anchor)
+	
+	print(control_entity.anchor.camera_anchor)
+	
+	self.position = self.possessed_control_entity.anchor.camera_anchor.global_position
+	self.rotation = self.possessed_control_entity.anchor.camera_anchor.global_rotation
+
+	possessed.emit(control_entity)

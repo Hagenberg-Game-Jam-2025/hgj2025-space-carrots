@@ -27,12 +27,15 @@ func _physics_process(delta: float) -> void:
 	
 	is_moving = false
 	
-func move(input : Vector2) -> void:
-	var direction : Vector3 = (anchor.camera_anchor.transform.basis * Vector3(input.x, 0, input.y)).normalized()
+	move_and_slide()
 	
-	if direction:
-		velocity.x = direction.x * move_speed
-		velocity.z = direction.z * move_speed
+func move(input : Vector2) -> void:
+	var direction : Vector3 = (anchor.twist_pivot.global_transform.basis * Vector3(input.x, 0, input.y)).normalized()
+	
+	print(direction)
+	
+	velocity.x = direction.x * move_speed
+	velocity.z = direction.z * move_speed
 	
 	is_moving = true
 	
