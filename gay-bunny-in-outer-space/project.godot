@@ -33,10 +33,15 @@ version_control/autoload_on_startup=true
 
 folder_colors={
 "res://scene/component/character-controller/": "red",
+"res://scene/component/interaction/": "purple",
 "res://scene/component/player/": "red",
+"res://scene/component/ui/": "purple",
+"res://scene/test-scene/interaction-test-scene/": "purple",
 "res://scene/test-scene/player-test-scene/": "red",
 "res://script/character-controller/": "red",
-"res://script/player/": "red"
+"res://script/interaction/": "purple",
+"res://script/player/": "red",
+"res://script/ui/": "purple"
 }
 
 [input]
@@ -72,6 +77,15 @@ creature_run={
 , Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":128,"position":Vector2(158, 29),"global_position":Vector2(167, 77),"factor":1.0,"button_index":8,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
+creature_interact={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+
+[layer_names]
+
+3d_physics/layer_10="Interactions"
 
 [physics]
 
@@ -85,4 +99,3 @@ camera/depth_of_field/depth_of_field_bokeh_quality=2
 anti_aliasing/quality/msaa_2d=2
 anti_aliasing/quality/msaa_3d=2
 anti_aliasing/quality/screen_space_aa=2
-anti_aliasing/quality/use_taa=true
