@@ -12,10 +12,10 @@ var move_speed : float :
 			return base_move_speed
 
 @export_range(0, 10, 0.1, "or_greater")
-var base_move_speed : float
+var base_move_speed : float = 1
 
 @export_range(0, 10, 0.1, "or_greater")
-var jump_speed : float
+var jump_speed : float = 5
 
 @export_range(1, 5, 0.1, "or_greater")
 var run_multiplier : float

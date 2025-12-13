@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dgaiow2sc2cmm"]
 
-[ext_resource type="Script" uid="uid://d23cc70he1n5n" path="res://classes/controller/creature-controller/lagomorph-controller/LagomorphController.gd" id="1_uml64"]
+[ext_resource type="Script" uid="uid://d23cc70he1n5n" path="res://script/character-controller/controller/creature-controller/lagomorph-controller/LagomorphController.gd" id="1_uml64"]
 
 [node name="LagomorphController" type="Node"]
 script = ExtResource("1_uml64")
