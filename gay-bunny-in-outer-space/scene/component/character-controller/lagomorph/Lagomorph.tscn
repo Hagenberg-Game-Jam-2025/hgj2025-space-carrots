@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://swutdc1evgl4"]
+
+[ext_resource type="Script" uid="uid://b2dqrn10o6r1b" path="res://script/character-controller/control-entity/creature/lagomorph/Lagomorph.gd" id="1_gy7kd"]
+[ext_resource type="PackedScene" uid="uid://dv23arb0ouqtm" path="res://scene/component/character-controller/anchor/Anchor.tscn" id="2_sqlxm"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gy7kd"]
+
+[node name="Lagomorph" type="CharacterBody3D" node_paths=PackedStringArray("anchor")]
+script = ExtResource("1_gy7kd")
+anchor = NodePath("Anchor")
+controller_reference = &"res://scene/component/character-controller/lagomorph/LagomorphController.tscn"
+metadata/_custom_type_script = "uid://b2dqrn10o6r1b"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_gy7kd")
+
+[node name="Anchor" parent="." instance=ExtResource("2_sqlxm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7768486, 0)
+enable_pitch_limit = true
+pitch_limit = 90.0
