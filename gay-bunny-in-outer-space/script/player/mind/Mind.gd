@@ -35,9 +35,7 @@ func possess(control_entity : ControlEntity) -> void:
 	var controller_instance : Controller = controller_script.instantiate()
 	controller_instance.control_entity = control_entity
 	add_child(controller_instance)
-	
-	print(control_entity)
-	
+		
 	current_controller = controller_instance
 
 	self.possessed_control_entity.player = null
@@ -45,9 +43,7 @@ func possess(control_entity : ControlEntity) -> void:
 	self.possessed_control_entity.player = self
 
 	reparent.call_deferred(control_entity.anchor.camera_anchor)
-	
-	print(control_entity.anchor.camera_anchor)
-	
+		
 	self.position = self.possessed_control_entity.anchor.camera_anchor.global_position
 	self.rotation = self.possessed_control_entity.anchor.camera_anchor.global_rotation
 
