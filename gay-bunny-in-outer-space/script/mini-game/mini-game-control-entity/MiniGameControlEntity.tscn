@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://dy2sxq1cdcmah" path="res://script/mini-game/mini-game-control-entity/MiniGameControlEntity.gd" id="1_43ak4"]
 [ext_resource type="PackedScene" uid="uid://dv23arb0ouqtm" path="res://scene/component/character-controller/anchor/Anchor.tscn" id="2_mm0ua"]
 [ext_resource type="Script" uid="uid://dw4md2ba7bjs2" path="res://script/mini-game/MiniGameScreenQuadMesh.gd" id="3_gba5q"]
-[ext_resource type="PackedScene" uid="uid://liyvav4jx5vb" path="res://script/mini-game/MiniGame.tscn" id="4_bhdh6"]
 [ext_resource type="PackedScene" uid="uid://davy0pnn4hbg6" path="res://scene/component/interaction/InteractionTarget.tscn" id="5_bhdh6"]
+[ext_resource type="PackedScene" uid="uid://eqspe556yfhw" path="res://scene/test-scene/mini-game-test-scene/test.tscn" id="6_l8rvm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_285ce"]
 
@@ -29,11 +29,10 @@ size = Vector2(1, 0.675)
 [sub_resource type="BoxShape3D" id="BoxShape3D_gba5q"]
 size = Vector3(5.1506195, 2.9722443, 0.67456055)
 
-[node name="MiniGameControlEntity" type="CharacterBody3D" node_paths=PackedStringArray("mini_game", "mini_game_subviewport", "mini_game_interaction_area", "mini_game_quad_mesh", "interaction_target", "anchor")]
+[node name="MiniGameControlEntity" type="CharacterBody3D" node_paths=PackedStringArray("mini_game_subviewport", "mini_game_interaction_area", "mini_game_quad_mesh", "interaction_target", "anchor")]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_43ak4")
-mini_game = NodePath("SubViewport/MiniGame")
 mini_game_subviewport = NodePath("SubViewport")
 mini_game_interaction_area = NodePath("MeshInstance3D2/Area3D")
 mini_game_quad_mesh = NodePath("MeshInstance3D2")
@@ -75,4 +74,4 @@ shape = SubResource("BoxShape3D_gba5q")
 physics_object_picking = true
 size = Vector2i(512, 320)
 
-[node name="MiniGame" parent="SubViewport" instance=ExtResource("4_bhdh6")]
+[node name="Test" parent="SubViewport" instance=ExtResource("6_l8rvm")]

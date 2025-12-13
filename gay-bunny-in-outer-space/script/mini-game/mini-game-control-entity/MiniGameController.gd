@@ -30,9 +30,11 @@ func _process(delta: float) -> void:
 
 func _mouse_entered_area() -> void:
 	is_mouse_inside = true
+	mini_game_subviewport.notification(NOTIFICATION_VP_MOUSE_ENTER)
 
 func _mouse_exited_area() -> void:
 	is_mouse_inside = false
+	mini_game_subviewport.notification(NOTIFICATION_VP_MOUSE_EXIT)
 
 ## THANK YOU RANDOM INTERNET PERSON <3
 
@@ -106,6 +108,6 @@ func _mouse_input_event(_camera: Camera3D, event: InputEvent, event_position: Ve
 
 	# Update last_event_time to current time.
 	last_event_time = now
-
+			
 	# Finally, send the processed input event to the viewport.
 	mini_game_subviewport.push_input(event)
