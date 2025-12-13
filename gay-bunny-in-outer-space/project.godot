@@ -32,13 +32,19 @@ version_control/autoload_on_startup=true
 [file_customization]
 
 folder_colors={
+"res://resource/mesh/buttons/": "red",
+"res://resource/mesh/doors/": "red",
+"res://scene/component/button/": "red",
 "res://scene/component/character-controller/": "red",
+"res://scene/component/door/": "red",
 "res://scene/component/interaction/": "purple",
 "res://scene/component/player/": "red",
+"res://scene/test-scene/door-test-scene/": "red",
 "res://scene/test-scene/interaction-test-scene/": "purple",
 "res://scene/test-scene/mini-game-test-scene/": "red",
 "res://scene/test-scene/player-test-scene/": "red",
 "res://script/character-controller/": "red",
+"res://script/door/": "red",
 "res://script/interaction/": "purple",
 "res://script/mini-game/": "red",
 "res://script/player/": "red",
