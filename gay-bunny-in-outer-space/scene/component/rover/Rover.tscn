@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://ci3k23agf4oer"]
+
+[ext_resource type="Shape3D" uid="uid://dqkgoapq033ex" path="res://resource/shape/rover_coll_shape.tres" id="1_j35im"]
+[ext_resource type="PackedScene" uid="uid://davy0pnn4hbg6" path="res://scene/component/interaction/InteractionTarget.tscn" id="2_m05ai"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dmkyo"]
+size = Vector3(0.8, 0.3, 0.5)
+
+[node name="Rover" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_dmkyo")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = ExtResource("1_j35im")
+
+[node name="InteractionTarget" parent="." instance=ExtResource("2_m05ai")]
+collision_mask = 512
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionTarget"]
+shape = ExtResource("1_j35im")
