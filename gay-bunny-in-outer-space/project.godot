@@ -27,7 +27,8 @@ gdscript/warnings/missing_tool=2
 [file_customization]
 
 folder_colors={
-"res://classes/": "red"
+"res://classes/": "red",
+"res://testing-scenes/": "orange"
 }
 
 [physics]
