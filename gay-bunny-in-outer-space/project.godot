@@ -32,6 +32,30 @@ folder_colors={
 "res://testing-scenes/": "orange"
 }
 
+[input]
+
+creature_jump={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
+]
+}
+creature_move_forwards={
+"deadzone": 0.2,
+"events": []
+}
+creature_move_backwards={
+"deadzone": 0.2,
+"events": []
+}
+creature_move_left={
+"deadzone": 0.2,
+"events": []
+}
+creature_move_right={
+"deadzone": 0.2,
+"events": []
+}
+
 [physics]
 
 common/physics_ticks_per_second=120
@@ -44,4 +68,3 @@ camera/depth_of_field/depth_of_field_bokeh_quality=2
 anti_aliasing/quality/msaa_2d=2
 anti_aliasing/quality/msaa_3d=2
 anti_aliasing/quality/screen_space_aa=2
-anti_aliasing/quality/use_taa=true

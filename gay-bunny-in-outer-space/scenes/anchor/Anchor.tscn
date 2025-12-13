@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dv23arb0ouqtm"]
+
+[ext_resource type="Script" uid="uid://b35ymr4y4hp1w" path="res://classes/anchor/Anchor.gd" id="1_ixt5e"]
+
+[node name="Anchor" type="Marker3D"]
+script = ExtResource("1_ixt5e")
+metadata/_custom_type_script = "uid://b35ymr4y4hp1w"
+
+[node name="TwistPivot" type="Node3D" parent="."]
+
+[node name="PitchPivot" type="Node3D" parent="TwistPivot"]
+
+[node name="CameraAnchor" type="Node3D" parent="TwistPivot/PitchPivot"]
