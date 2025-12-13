@@ -14,7 +14,6 @@ var mini_game_interaction_area : Area3D
 @export
 var mini_game_quad_mesh : MiniGameScreenQuadMesh
 
-
 var player_entity : ControlEntity
 
 func _ready() -> void:
