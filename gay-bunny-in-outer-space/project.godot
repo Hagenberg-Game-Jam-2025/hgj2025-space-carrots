@@ -29,6 +29,10 @@ gdscript/warnings/missing_tool=2
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")
+
 [file_customization]
 
 folder_colors={
@@ -37,6 +41,7 @@ folder_colors={
 "res://scene/component/player/": "red",
 "res://scene/component/ui/": "purple",
 "res://scene/test-scene/interaction-test-scene/": "purple",
+"res://scene/test-scene/mars/": "pink",
 "res://scene/test-scene/player-test-scene/": "red",
 "res://script/character-controller/": "red",
 "res://script/interaction/": "purple",
