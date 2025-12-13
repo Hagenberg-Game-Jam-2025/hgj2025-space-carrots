@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://dp1hgb7f1st2a"]
+
+[ext_resource type="Script" uid="uid://bs7qju5pd2vnq" path="res://script/mini-game/MiniGameScreen.gd" id="1_j01ad"]
+[ext_resource type="PackedScene" uid="uid://liyvav4jx5vb" path="res://script/mini-game/MiniGame.tscn" id="2_t6l32"]
+[ext_resource type="Script" uid="uid://dw4md2ba7bjs2" path="res://script/mini-game/MiniGameScreenQuadMesh.gd" id="2_w4hed"]
+[ext_resource type="PackedScene" uid="uid://cvyo055ghsw23" path="res://script/mini-game/mini-game-control-entity/MiniGameControlEntity.tscn" id="3_atouo"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_t6l32"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="BoxMesh" id="BoxMesh_t6l32"]
+size = Vector3(2, 2, 2)
+
+[node name="MiniGameThingTest" type="Node3D" node_paths=PackedStringArray("mini_game_control_entity")]
+script = ExtResource("1_j01ad")
+mini_game_control_entity = NodePath("MiniGameControlEntity")
+
+[node name="MiniGameScreen" type="Sprite3D" parent="."]
+transform = Transform3D(0.23, 0, 0, 0, 0.23, 0, 0, 0, 0.23, 0, 0.06588143, 0)
+texture = SubResource("ViewportTexture_t6l32")
+script = ExtResource("2_w4hed")
+metadata/_custom_type_script = "uid://dw4md2ba7bjs2"
+
+[node name="SubViewport" type="SubViewport" parent="."]
+physics_object_picking = true
+size = Vector2i(512, 320)
+
+[node name="MiniGame" parent="SubViewport" instance=ExtResource("2_t6l32")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.024663)
+mesh = SubResource("BoxMesh_t6l32")
+
+[node name="MiniGameControlEntity" parent="." node_paths=PackedStringArray("mini_game") instance=ExtResource("3_atouo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.8513409)
+mini_game = NodePath("../SubViewport/MiniGame")
