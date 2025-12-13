@@ -23,7 +23,6 @@ func _physics_process(delta: float) -> void:
 func possess(control_entity : ControlEntity) -> void:
 	if control_entity.player != null:
 		return
-	print("fuck")
 		
 	var last_possessed_control_entity : ControlEntity = possessed_control_entity
 	

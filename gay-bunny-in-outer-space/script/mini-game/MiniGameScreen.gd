@@ -8,11 +8,7 @@ var mini_game_control_entity : MiniGameControlEntity
 @export
 var mini_game : MiniGame
 
-@export
-var mini_game_subviewport : SubViewport
 
-@export
-var mini_game_interaction_area : Area3D
 
 func _process(delta: float) -> void:
 	if (Input.is_key_label_pressed(KEY_0)):

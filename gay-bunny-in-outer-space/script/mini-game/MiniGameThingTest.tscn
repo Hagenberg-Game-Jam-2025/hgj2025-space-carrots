@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bs7qju5pd2vnq" path="res://script/mini-game/MiniGameScreen.gd" id="1_j01ad"]
 [ext_resource type="PackedScene" uid="uid://liyvav4jx5vb" path="res://script/mini-game/MiniGame.tscn" id="2_t6l32"]
-[ext_resource type="Script" uid="uid://dw4md2ba7bjs2" path="res://script/mini-game/MiniGameScreenSprite.gd" id="2_w4hed"]
+[ext_resource type="Script" uid="uid://dw4md2ba7bjs2" path="res://script/mini-game/MiniGameScreenQuadMesh.gd" id="2_w4hed"]
 [ext_resource type="PackedScene" uid="uid://cvyo055ghsw23" path="res://script/mini-game/mini-game-control-entity/MiniGameControlEntity.tscn" id="3_atouo"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_t6l32"]

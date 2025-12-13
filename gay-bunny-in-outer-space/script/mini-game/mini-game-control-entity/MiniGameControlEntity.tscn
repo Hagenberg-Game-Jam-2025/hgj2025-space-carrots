@@ -1,22 +1,39 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvyo055ghsw23"]
+[gd_scene load_steps=11 format=3 uid="uid://cvyo055ghsw23"]
 
 [ext_resource type="Script" uid="uid://dy2sxq1cdcmah" path="res://script/mini-game/mini-game-control-entity/MiniGameControlEntity.gd" id="1_43ak4"]
 [ext_resource type="PackedScene" uid="uid://dv23arb0ouqtm" path="res://scene/component/character-controller/anchor/Anchor.tscn" id="2_mm0ua"]
-[ext_resource type="Script" uid="uid://dw4md2ba7bjs2" path="res://script/mini-game/MiniGameScreenSprite.gd" id="3_gba5q"]
+[ext_resource type="Script" uid="uid://dw4md2ba7bjs2" path="res://script/mini-game/MiniGameScreenQuadMesh.gd" id="3_gba5q"]
 [ext_resource type="PackedScene" uid="uid://liyvav4jx5vb" path="res://script/mini-game/MiniGame.tscn" id="4_bhdh6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_285ce"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_l8rvm"]
-viewport_path = NodePath("SubViewport")
-
 [sub_resource type="BoxMesh" id="BoxMesh_hree2"]
 size = Vector3(2, 2, 2)
 
-[node name="MiniGameControlEntity" type="CharacterBody3D" node_paths=PackedStringArray("anchor")]
+[sub_resource type="ViewportTexture" id="ViewportTexture_gba5q"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bhdh6"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_gba5q")
+
+[sub_resource type="QuadMesh" id="QuadMesh_l8rvm"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_bhdh6")
+size = Vector2(1, 0.675)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gba5q"]
+size = Vector3(5.1506195, 2.9722443, 0.67456055)
+
+[node name="MiniGameControlEntity" type="CharacterBody3D" node_paths=PackedStringArray("mini_game", "mini_game_subviewport", "mini_game_interaction_area", "mini_game_quad_mesh", "anchor")]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_43ak4")
+mini_game = NodePath("SubViewport/MiniGame")
+mini_game_subviewport = NodePath("SubViewport")
+mini_game_interaction_area = NodePath("MeshInstance3D2/Area3D")
+mini_game_quad_mesh = NodePath("MeshInstance3D2")
 anchor = NodePath("Anchor")
 controller_reference = &"res://script/mini-game/mini-game-control-entity/MiniGameController.tscn"
 metadata/_custom_type_script = "uid://dy2sxq1cdcmah"
@@ -26,19 +43,26 @@ shape = SubResource("BoxShape3D_285ce")
 disabled = true
 
 [node name="Anchor" parent="." instance=ExtResource("2_mm0ua")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1241274)
 
-[node name="MiniGameScreen" type="Sprite3D" parent="."]
-transform = Transform3D(0.23, 0, 0, 0, 0.23, 0, 0, 0, 0.23, 0, 0.06588143, 0)
-texture = SubResource("ViewportTexture_l8rvm")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.024663)
+mesh = SubResource("BoxMesh_hree2")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.10244471)
+mesh = SubResource("QuadMesh_l8rvm")
 script = ExtResource("3_gba5q")
-metadata/_custom_type_script = "uid://dw4md2ba7bjs2"
+
+[node name="Area3D" type="Area3D" parent="MeshInstance3D2"]
+transform = Transform3D(0.23, 0, 0, 0, 0.23, 0, 0, 0, 0.23, 0, 0.0014460981, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01999669, 0.05657193, -0.10298259)
+shape = SubResource("BoxShape3D_gba5q")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 physics_object_picking = true
 size = Vector2i(512, 320)
 
 [node name="MiniGame" parent="SubViewport" instance=ExtResource("4_bhdh6")]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.024663)
-mesh = SubResource("BoxMesh_hree2")

@@ -1,6 +1,6 @@
-extends Sprite3D
+extends MeshInstance3D
 
-class_name MiniGameScreenSprite
+class_name MiniGameScreenQuadMesh
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
