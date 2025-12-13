@@ -7,6 +7,7 @@
 
 [node name="Lagomorph" type="CharacterBody3D" node_paths=PackedStringArray("anchor")]
 script = ExtResource("1_gy7kd")
+interaction_layer = 512
 anchor = NodePath("Anchor")
 controller_reference = &"res://scene/component/character-controller/lagomorph/LagomorphController.tscn"
 metadata/_custom_type_script = "uid://b2dqrn10o6r1b"

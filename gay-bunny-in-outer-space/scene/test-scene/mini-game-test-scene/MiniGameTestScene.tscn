@@ -41,9 +41,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38078985, 0.8373318, -1.621
 base_move_speed = 5.0
 run_multiplier = 1.6
 
-[node name="MiniGameControlEntity" parent="." instance=ExtResource("2_yqgb8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2002387, 1, 1.5884122)
-
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4165894, 0.73784447, 0)
 
@@ -73,3 +70,6 @@ shape = SubResource("ConcavePolygonShape3D_8ah2i")
 [node name="Player" parent="." node_paths=PackedStringArray("possessed_control_entity") instance=ExtResource("2_ndui3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.82149583, 0)
 possessed_control_entity = NodePath("../Lagomorph")
+
+[node name="MiniGameControlEntity" parent="." instance=ExtResource("2_yqgb8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3297162, 1, 1.2963464)
