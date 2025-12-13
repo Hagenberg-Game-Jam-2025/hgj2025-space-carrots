@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://dwnhj0pi7lhf5"]
 
-[ext_resource type="PackedScene" uid="uid://3wafjvrbrsnu" path="res://scene/component/player/Player.tscn" id="1_w5oua"]
-[ext_resource type="PackedScene" uid="uid://swutdc1evgl4" path="res://scene/component/character-controller/lagomorph/Lagomorph.tscn" id="2_6j6x2"]
+[ext_resource type="PackedScene" uid="uid://swutdc1evgl4" path="res://scene/component/character-controller/lagomorph/Lagomorph.tscn" id="1_k1rwo"]
+[ext_resource type="PackedScene" uid="uid://3wafjvrbrsnu" path="res://scene/component/player/Player.tscn" id="2_awmuq"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_nwjs2"]
 
@@ -35,12 +35,12 @@ skeleton = NodePath("../..")
 transform = Transform3D(3.105, 0, 0, 0, 3.105, 0, 0, 0, 3.105, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_7g5yr")
 
-[node name="Lagomorph" parent="." instance=ExtResource("2_6j6x2")]
+[node name="Lagomorph" parent="." instance=ExtResource("1_k1rwo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38078985, 0.8373318, -1.6212304)
 base_move_speed = 5.0
 run_multiplier = 1.6
 
-[node name="Player" parent="." node_paths=PackedStringArray("possessed_control_entity") instance=ExtResource("1_w5oua")]
+[node name="Player" parent="." node_paths=PackedStringArray("possessed_control_entity") instance=ExtResource("2_awmuq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.82149583, 0)
 possessed_control_entity = NodePath("../Lagomorph")
 

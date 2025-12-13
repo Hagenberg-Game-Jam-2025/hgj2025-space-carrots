@@ -5,6 +5,9 @@ class_name CreatureController
 var creature_movement_command : CreatureMovementCommand = CreatureMovementCommand.new()
 var creature_jump_command : CreatureJumpCommand = CreatureJumpCommand.new()
 var creature_look_command : CreatureLookCommand = CreatureLookCommand.new()
+var creature_start_running_command : CreatureStartRunningCommand = CreatureStartRunningCommand.new()
+var creature_stop_running_command : CreatureStopRunningCommand = CreatureStopRunningCommand.new()
+
 
 @export_category("Control Settings")
 @export
@@ -28,6 +31,13 @@ func _process(delta: float) -> void:
 
 		if (Input.is_action_just_pressed("creature_jump")):
 			creature_jump_command.execute(control_entity)
+			
+		if (Input.is_action_just_pressed("creature_run")):
+			creature_start_running_command.execute(control_entity)
+		
+		if (Input.is_action_just_released("creature_run")):
+			creature_stop_running_command.execute(control_entity)
+			
 
 	pitch_input = 0
 	twist_input = 0

@@ -39,7 +39,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	is_moving = false
-	is_running = false
 	
 func move(input : Vector2) -> void:
 	var direction : Vector3 = (anchor.twist_pivot.global_transform.basis * Vector3(input.x, 0, input.y)).normalized()
@@ -49,9 +48,12 @@ func move(input : Vector2) -> void:
 	
 	is_moving = true
 	
-func run() -> void:
+func start_running() -> void:
 	is_running = true
 	
+func stop_running() -> void:
+	is_running = false
+
 func jump() -> void:
 	if is_on_floor():
 		velocity.y = jump_speed
