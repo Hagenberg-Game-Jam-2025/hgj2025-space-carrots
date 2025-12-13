@@ -28,6 +28,7 @@ gdscript/warnings/missing_tool=2
 
 folder_colors={
 "res://classes/": "red",
+"res://scenes/": "green",
 "res://testing-scenes/": "orange"
 }
 
