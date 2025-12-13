@@ -1,6 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://dv23arb0ouqtm"]
+[gd_scene load_steps=5 format=3 uid="uid://dv23arb0ouqtm"]
 
 [ext_resource type="Script" uid="uid://b35ymr4y4hp1w" path="res://script/character-controller/anchor/Anchor.gd" id="1_ixt5e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mdq6t"]
+shading_mode = 0
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_itdtk"]
+material = SubResource("StandardMaterial3D_mdq6t")
+size = Vector3(0.17, 0.515, 0.025)
+
+[sub_resource type="GDScript" id="GDScript_mdq6t"]
+resource_name = "Arrow"
+script/source = "extends MeshInstance3D
+
+func _ready() -> void:
+	queue_free()
+"
 
 [node name="Anchor" type="Marker3D"]
 script = ExtResource("1_ixt5e")
@@ -11,3 +27,8 @@ metadata/_custom_type_script = "uid://b35ymr4y4hp1w"
 [node name="PitchPivot" type="Node3D" parent="TwistPivot"]
 
 [node name="CameraAnchor" type="Node3D" parent="TwistPivot/PitchPivot"]
+
+[node name="HelperArrow" type="MeshInstance3D" parent="TwistPivot/PitchPivot/CameraAnchor"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -0.26076213)
+mesh = SubResource("PrismMesh_itdtk")
+script = SubResource("GDScript_mdq6t")

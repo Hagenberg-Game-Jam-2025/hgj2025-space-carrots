@@ -35,14 +35,20 @@ folder_colors={
 "res://scene/component/character-controller/": "red",
 "res://scene/component/interaction/": "purple",
 "res://scene/component/player/": "red",
-"res://scene/component/ui/": "purple",
-"res://scene/test-scene/interaction-test-scene/": "purple",
+"res://scene/test-scene/mini-game-test-scene/": "red",
 "res://scene/test-scene/player-test-scene/": "red",
 "res://script/character-controller/": "red",
+"res://script/mini-game/": "red",
+"res://script/player/": "red"
+"res://scene/component/ui/": "purple",
+"res://scene/test-scene/interaction-test-scene/": "purple",
 "res://script/interaction/": "purple",
-"res://script/player/": "red",
 "res://script/ui/": "purple"
 }
+
+[global_group]
+
+Player="The Player Node"
 
 [input]
 
