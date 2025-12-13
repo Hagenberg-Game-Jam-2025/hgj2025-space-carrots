@@ -14,6 +14,16 @@ config/name="Gay Bunny in Outer Space"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[debug]
+
+gdscript/warnings/untyped_declaration=2
+gdscript/warnings/inferred_declaration=1
+gdscript/warnings/unsafe_property_access=1
+gdscript/warnings/unsafe_method_access=1
+gdscript/warnings/unsafe_cast=1
+gdscript/warnings/static_called_on_instance=2
+gdscript/warnings/missing_tool=2
+
 [physics]
 
 common/physics_ticks_per_second=120
@@ -22,6 +32,7 @@ common/physics_ticks_per_second=120
 [rendering]
 
 textures/canvas_textures/default_texture_filter=3
+camera/depth_of_field/depth_of_field_bokeh_quality=2
 anti_aliasing/quality/msaa_2d=2
 anti_aliasing/quality/msaa_3d=2
 anti_aliasing/quality/screen_space_aa=2
