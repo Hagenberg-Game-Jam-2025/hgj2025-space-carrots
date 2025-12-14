@@ -29,6 +29,10 @@ gdscript/warnings/missing_tool=2
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")
+
 [file_customization]
 
 folder_colors={
@@ -37,12 +41,14 @@ folder_colors={
 "res://scene/component/button/": "red",
 "res://scene/component/character-controller/": "red",
 "res://scene/component/door/": "red",
+"res://scene/component/enviroment-props/": "pink",
 "res://scene/component/interaction/": "purple",
 "res://scene/component/level/": "red",
 "res://scene/component/player/": "red",
 "res://scene/test-scene/door-test-scene/": "red",
 "res://scene/test-scene/interaction-test-scene/": "purple",
 "res://scene/test-scene/level-test/": "red",
+"res://scene/test-scene/mars/": "pink",
 "res://scene/test-scene/mini-game-test-scene/": "red",
 "res://scene/test-scene/player-test-scene/": "red",
 "res://script/character-controller/": "red",
@@ -111,6 +117,7 @@ mini_game_exit_screen={
 
 common/physics_ticks_per_second=120
 3d/physics_engine="Jolt Physics"
+3d/default_gravity=1.5949999999999989
 
 [rendering]
 
