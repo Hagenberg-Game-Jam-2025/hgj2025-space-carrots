@@ -5,9 +5,10 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gy7kd"]
 
-[node name="Lagomorph" type="CharacterBody3D" node_paths=PackedStringArray("anchor")]
+[node name="Lagomorph" type="CharacterBody3D" node_paths=PackedStringArray("flash_light", "anchor")]
 input_ray_pickable = false
 script = ExtResource("1_gy7kd")
+flash_light = NodePath("Anchor/TwistPivot/PitchPivot/CameraAnchor/SpotLight3D")
 interaction_layer = 512
 anchor = NodePath("Anchor")
 controller_reference = &"res://scene/component/character-controller/lagomorph/LagomorphController.tscn"
@@ -21,3 +22,12 @@ shape = SubResource("CapsuleShape3D_gy7kd")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7768486, 0)
 enable_pitch_limit = true
 pitch_limit = 90.0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Anchor/TwistPivot/PitchPivot/CameraAnchor" index="1"]
+visible = false
+light_color = Color(1, 0.7294118, 0.38431373, 1)
+light_energy = 3.261
+spot_range = 68.81
+spot_angle = 31.3
+
+[editable path="Anchor"]
