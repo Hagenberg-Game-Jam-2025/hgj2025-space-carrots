@@ -45,7 +45,8 @@ func _on_building_entered() -> void:
 	print("level loaded")
 
 func _on_building_exited() -> void:
-	
+	var player : Player = get_tree().get_first_node_in_group("Player")
+	(player.main_bound_entity as Creature).reset_health()
 	print("EXIT")
 	load_level()
 	planet_base_building.is_unlocked = false
