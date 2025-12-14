@@ -2,6 +2,8 @@ extends Controller
 
 class_name MiniGameController
 
+var mini_game_exit_command : MiniGAmeExitCommand = MiniGAmeExitCommand.new()
+
 var mini_game_subviewport : SubViewport
 var mini_game_interaction_area : Area3D
 var mini_game_quad_mesh : MiniGameScreenQuadMesh
@@ -22,16 +24,19 @@ func _ready() -> void:
 	mini_game_interaction_area.mouse_exited.connect(_mouse_exited_area)
 	mini_game_interaction_area.input_event.connect(_mouse_input_event)
 
-func _physics_process(delta: float) -> void:
-	pass
+func _process(delta: float) -> void:
+	if (Input.is_action_just_pressed("mini_game_exit_screen")):
+		mini_game_exit_command.execute(control_entity)
 
 func _mouse_entered_area() -> void:
 	is_mouse_inside = true
-
+	mini_game_subviewport.notification(NOTIFICATION_VP_MOUSE_ENTER)
 
 func _mouse_exited_area() -> void:
 	is_mouse_inside = false
+	mini_game_subviewport.notification(NOTIFICATION_VP_MOUSE_EXIT)
 
+## THANK YOU RANDOM INTERNET PERSON <3
 
 func _unhandled_input(event : InputEvent) -> void:
 	# Check if the event is a non-mouse/non-touch event
@@ -103,6 +108,6 @@ func _mouse_input_event(_camera: Camera3D, event: InputEvent, event_position: Ve
 
 	# Update last_event_time to current time.
 	last_event_time = now
-
+			
 	# Finally, send the processed input event to the viewport.
 	mini_game_subviewport.push_input(event)

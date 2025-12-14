@@ -1,10 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://3wafjvrbrsnu"]
+[gd_scene load_steps=3 format=3 uid="uid://3wafjvrbrsnu"]
 
 [ext_resource type="Script" uid="uid://4blj316g7syh" path="res://script/player/mind/player/Player.gd" id="1_wr5hl"]
+[ext_resource type="PackedScene" uid="uid://b7jbxl3j623u8" path="res://scene/component/ui/UI.tscn" id="2_pjh0n"]
 
-[node name="Player" type="Node3D" groups=["Player"]]
+[node name="Player" type="Node3D" node_paths=PackedStringArray("ui_controller") groups=["Player"]]
 script = ExtResource("1_wr5hl")
+ui_controller = NodePath("UI")
 metadata/_custom_type_script = "uid://4blj316g7syh"
 
 [node name="Camera3D" type="Camera3D" parent="."]
 current = true
+
+[node name="UI" parent="." instance=ExtResource("2_pjh0n")]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cflpj5j4au5ow"]
+
+[ext_resource type="PackedScene" uid="uid://by0xd4bnjp1lm" path="res://scene/test-scene/mini-game-test-scene/MiniGameTestScene.tscn" id="1_0xons"]
+[ext_resource type="Script" uid="uid://dvg7cksevhabb" path="res://script/marker/PlayerDetectionZone.gd" id="2_6xm1u"]
+[ext_resource type="PackedScene" uid="uid://0vhfhs72trxf" path="res://script/marker/MarkerSprite.tscn" id="3_vpl5v"]
+
+[node name="MarkerTestScene" type="Node3D"]
+
+[node name="MiniGameTestScene" parent="." instance=ExtResource("1_0xons")]
+
+[node name="PlayerDetectionZone" type="Node3D" parent="." node_paths=PackedStringArray("distant_sprite")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2369432, -8.709365)
+script = ExtResource("2_6xm1u")
+update_time = 0.1
+use_distance_display = true
+distant_sprite = NodePath("MarkerSprite")
+sprite_max_distance = 20000.0
+metadata/_custom_type_script = "uid://dvg7cksevhabb"
+
+[node name="MarkerSprite" parent="PlayerDetectionZone" instance=ExtResource("3_vpl5v")]
+text = &"Rover Test"
