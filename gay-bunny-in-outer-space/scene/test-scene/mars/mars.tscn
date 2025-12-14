@@ -6,13 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://co0rr0r0v26xi" path="res://resource/texture/rock_face_03_diff_1k.jpg" id="3_ojxcv"]
 [ext_resource type="Texture2D" uid="uid://tqe3bq4sh1ge" path="res://resource/texture/rock_face_03_disp_1k.png" id="4_0kcoi"]
 [ext_resource type="PackedScene" uid="uid://oavee5fvfgwg" path="res://resource/model/Cave.glb" id="5_4n64a"]
-[ext_resource type="PackedScene" uid="uid://be6nrf0b8j4l0" path="res://resource/mesh/RockA.tscn" id="6_32sp6"]
-[ext_resource type="PackedScene" uid="uid://bwvtgwartxt0g" path="res://resource/mesh/RockB.tscn" id="7_t7yrq"]
-[ext_resource type="PackedScene" uid="uid://lsvs8a7urkca" path="res://resource/mesh/RockC.tscn" id="8_b5dag"]
+[ext_resource type="PackedScene" path="res://resource/mesh/RockA.tscn" id="6_32sp6"]
+[ext_resource type="PackedScene" path="res://resource/mesh/RockB.tscn" id="7_t7yrq"]
+[ext_resource type="PackedScene" path="res://resource/mesh/RockC.tscn" id="8_b5dag"]
 [ext_resource type="PackedScene" uid="uid://3wafjvrbrsnu" path="res://scene/component/player/Player.tscn" id="9_mbeav"]
 [ext_resource type="PackedScene" uid="uid://swutdc1evgl4" path="res://scene/component/character-controller/lagomorph/Lagomorph.tscn" id="10_17oop"]
 [ext_resource type="PackedScene" uid="uid://bee4hia3wqu6b" path="res://scene/component/level/planet-base-building/PlanetBaseBuilding.tscn" id="11_1dmib"]
-[ext_resource type="PackedScene" uid="uid://fhdqcxgti4ey" path="res://resource/mesh/CrystalC.tscn" id="11_tfty8"]
+[ext_resource type="PackedScene" path="res://resource/mesh/CrystalC.tscn" id="11_tfty8"]
 [ext_resource type="PackedScene" uid="uid://x80vcoiyr6bs" path="res://scene/component/enviroment-props/scraps/ScrapContainer.tscn" id="12_mbeav"]
 [ext_resource type="PackedScene" uid="uid://b5y6jlqjbjbns" path="res://scene/component/enviroment-props/scraps/ScrapSteelbar01.tscn" id="13_17oop"]
 [ext_resource type="Script" uid="uid://c4u5l5emnotkp" path="res://script/level/LevelManager.gd" id="14_1dmib"]
@@ -1082,6 +1082,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.817, 29.039375, 163.83502)
 audio_track = ExtResource("28_5af5u")
 
 [node name="MusicPlayer" parent="." instance=ExtResource("30_84p14")]
+volume_db = -35.0
 
 [node name="SfxPlayer" parent="." instance=ExtResource("31_rlkvs")]
 
