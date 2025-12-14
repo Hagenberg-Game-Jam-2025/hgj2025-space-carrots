@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://baodpi86kjwa1"]
+
+[ext_resource type="Script" uid="uid://davgskv2fvh6n" path="res://script/mini-game/mini-game-02/minigame_2.gd" id="1_fmc78"]
+[ext_resource type="Texture2D" uid="uid://dtge4bgxh0px" path="res://resource/2d/minigame02/Hit Spot.png" id="2_rulxs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_frw3s"]
+radius = 33.01515
+
+[node name="Minigame2" type="Node2D"]
+script = ExtResource("1_fmc78")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(5, 5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("2_rulxs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_frw3s")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

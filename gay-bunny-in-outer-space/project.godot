@@ -24,6 +24,11 @@ gdscript/warnings/unsafe_cast=1
 gdscript/warnings/static_called_on_instance=2
 gdscript/warnings/missing_tool=2
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
 [editor]
 
 version_control/plugin_name="GitPlugin"
@@ -58,6 +63,8 @@ folder_colors={
 "res://script/level/": "red",
 "res://script/marker/": "red",
 "res://script/mini-game/": "red",
+"res://script/mini-game/mini-game-01/": "green",
+"res://script/mini-game/mini-game-02/": "green",
 "res://script/player/": "red",
 "res://script/ui/": "purple"
 }
