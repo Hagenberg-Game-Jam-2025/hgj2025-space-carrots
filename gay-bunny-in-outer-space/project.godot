@@ -37,6 +37,7 @@ enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")
 
 folder_colors={
 "res://scene/component/character-controller/": "red",
+"res://scene/component/enviroment-props/": "pink",
 "res://scene/component/interaction/": "purple",
 "res://scene/component/player/": "red",
 "res://scene/test-scene/interaction-test-scene/": "purple",
@@ -101,6 +102,7 @@ creature_interact={
 
 common/physics_ticks_per_second=120
 3d/physics_engine="Jolt Physics"
+3d/default_gravity=1.5949999999999989
 
 [rendering]
 
