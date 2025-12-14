@@ -46,21 +46,15 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	if !is_moving and is_on_floor():
+	if !is_moving:
 		velocity.x = move_toward(velocity.x, 0, base_move_speed)
 		velocity.z = move_toward(velocity.z, 0, base_move_speed)
-	elif !is_moving and !is_on_floor():
-		velocity.x = move_toward(velocity.x, 0, slow_down_when_jumping)
-		velocity.z = move_toward(velocity.z, 0, slow_down_when_jumping)
 	
 	move_and_slide()
 	
 	is_moving = false
 	
 func move(input : Vector2) -> void:
-	if !is_on_floor():
-		return
-	
 	var direction : Vector3 = (anchor.twist_pivot.global_transform.basis * Vector3(input.x, 0, input.y)).normalized()
 	
 	velocity.x = direction.x * move_speed
