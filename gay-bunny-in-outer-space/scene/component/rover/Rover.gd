@@ -55,3 +55,4 @@ func _on_body_exited(body : Node3D) -> void:
  
 func _on_rover_repaired() -> void:
 	mini_game_control_entity.unload_mini_game()
+	$Fire.queue_free()

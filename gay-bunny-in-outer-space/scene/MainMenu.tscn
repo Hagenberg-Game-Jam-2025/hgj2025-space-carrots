@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://script/ui/MainMenu.gd" id="1_rvc10"]
 [ext_resource type="Shader" path="res://resource/shader/sky_shader.gdshader" id="2_sks6p"]
 [ext_resource type="Shader" path="res://resource/shader/fog_shader.gdshader" id="3_lulne"]
-[ext_resource type="PackedScene" path="res://scene/component/ui/UIMainMenu.tscn" id="4_lulne"]
+[ext_resource type="PackedScene" uid="uid://chgupml3upd52" path="res://scene/component/ui/UIMainMenu.tscn" id="4_lulne"]
 [ext_resource type="PackedScene" uid="uid://ci3k23agf4oer" path="res://scene/component/rover/Rover.tscn" id="5_tf3dk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lnxie"]
@@ -76,7 +76,7 @@ transform = Transform3D(-0.999824, 0, 0.018761158, 0, 1, 0, -0.018761158, 0, -0.
 script = null
 
 [node name="Screen_001" parent="Rover/Rover/Rover_Screen/Arms/Screen_arm" index="1"]
-transform = Transform3D(1, -1.5639767e-14, 2.7987601e-15, 1.4210854e-14, 0.9592187, 0.28266415, -7.1054274e-15, -0.28266415, 0.9592187, -1.0664077, -1.0058141, 0.0012959242)
+transform = Transform3D(1, -1.5639765e-14, 2.79876e-15, 1.4210854e-14, 0.9592186, 0.28266412, -7.1054274e-15, -0.28266412, 0.9592186, -1.0664077, -1.0058141, 0.0012959242)
 
 [node name="Label3D" parent="Rover" index="3"]
 text = "Blahaj"
