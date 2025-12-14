@@ -20,9 +20,6 @@ var jump_speed : float = 5
 @export_range(1, 5, 0.1, "or_greater")
 var run_multiplier : float
 
-@export_range(0, 0.3, 0.01, "or_greater")
-var slow_down_when_jumping : float = 0.1
-
 @export_category("Interaction")
 
 @export
