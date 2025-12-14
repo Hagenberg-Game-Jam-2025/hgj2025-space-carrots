@@ -15,11 +15,11 @@ metadata/_custom_type_script = "uid://dbxriubewijd4"
 
 [node name="Rover" parent="." instance=ExtResource("2_tfmbe")]
 transform = Transform3D(1, 0, 0, 0, 0.9556903, 0.29437396, 0, -0.29437396, 0.9556903, 4.0600486, 0, -10.730581)
-mini_games = Array[PackedScene]([ExtResource("3_tskrg"), ExtResource("4_our4i")])
+mini_games = Array[PackedScene]([ExtResource("3_tskrg"), null])
 
 [node name="Rover2" parent="." instance=ExtResource("2_tfmbe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.056946, 0, 2.5013518)
-mini_games = Array[PackedScene]([ExtResource("3_r6gw3"), ExtResource("4_tskrg")])
+mini_games = Array[PackedScene]([ExtResource("4_our4i")])
 
 [node name="Rover3" parent="." instance=ExtResource("2_tfmbe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5942693, 0, -6.1753354)

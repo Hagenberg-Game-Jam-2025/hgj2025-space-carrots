@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ccrncplwgusod"]
+[gd_scene load_steps=6 format=3 uid="uid://ccrncplwgusod"]
 
 [ext_resource type="Script" uid="uid://dbxriubewijd4" path="res://script/level/Level.gd" id="1_bbgij"]
 [ext_resource type="PackedScene" uid="uid://ci3k23agf4oer" path="res://scene/component/rover/Rover.tscn" id="2_cks4t"]
+[ext_resource type="PackedScene" uid="uid://cfshw6jnqquv6" path="res://script/mini-game/mini-game-01/MiniGame01.tscn" id="3_cks4t"]
 [ext_resource type="PackedScene" uid="uid://0ao3yn4ii65v" path="res://script/mini-game/mini-game-examples/MiniGameExample.tscn" id="3_n1da5"]
-[ext_resource type="PackedScene" uid="uid://dgojk6lp038fe" path="res://script/mini-game/mini-game-examples/MiniGameExample2.tscn" id="4_c8fmn"]
+[ext_resource type="PackedScene" uid="uid://baodpi86kjwa1" path="res://script/mini-game/mini-game-02/MiniGame02.tscn" id="4_n1da5"]
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_bbgij")
@@ -11,12 +12,12 @@ metadata/_custom_type_script = "uid://dbxriubewijd4"
 
 [node name="Rover" parent="." instance=ExtResource("2_cks4t")]
 transform = Transform3D(0.8561931, 0.5165149, -0.012078643, -0.45745382, 0.7687435, 0.44695598, 0.24014476, -0.37715515, 0.89447445, -178.00865, 10.022065, 249.47249)
-mini_games = Array[PackedScene]([ExtResource("3_n1da5")])
+mini_games = Array[PackedScene]([ExtResource("3_cks4t")])
 rover_name = "Rover 1679"
 
 [node name="Rover2" parent="." instance=ExtResource("2_cks4t")]
 transform = Transform3D(0.52453583, -4.815425e-09, 0.85138834, 0.03694403, 0.999058, -0.022761013, -0.8505865, 0.04339269, 0.52404165, -170.15779, -39.982327, 144.90771)
-mini_games = Array[PackedScene]([ExtResource("4_c8fmn")])
+mini_games = Array[PackedScene]([ExtResource("4_n1da5")])
 rover_name = "Rover 4895"
 
 [node name="Rover3" parent="." instance=ExtResource("2_cks4t")]
