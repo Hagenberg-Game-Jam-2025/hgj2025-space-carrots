@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bee4hia3wqu6b"]
+[gd_scene load_steps=7 format=3 uid="uid://bee4hia3wqu6b"]
 
 [ext_resource type="Script" uid="uid://c1joiyupplson" path="res://script/level/PlanetBaseBuilding.gd" id="1_q3d2y"]
 [ext_resource type="PackedScene" uid="uid://c4edxhfqsax0l" path="res://scene/component/door/doors/main-door/RABS_Main_Door.tscn" id="2_fkbf7"]
@@ -7,6 +7,9 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5ndy0"]
 size = Vector3(4.671753, 2.381958, 1.5653076)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ildrj"]
+size = Vector3(5.3284607, 3.512207, 1)
 
 [node name="PlanetBaseBuilding" type="Node3D"]
 script = ExtResource("1_q3d2y")
@@ -51,3 +54,10 @@ shape = SubResource("BoxShape3D_5ndy0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9452073, 1.0737367, -1.0085256)
 visible = false
 text = "FIX THE FUCKING ROVERS FIRST!"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.6582761)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47999573, 1.2561035, 0)
+shape = SubResource("BoxShape3D_ildrj")
