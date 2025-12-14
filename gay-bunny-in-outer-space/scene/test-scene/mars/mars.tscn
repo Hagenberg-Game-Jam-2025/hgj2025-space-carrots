@@ -714,8 +714,9 @@ base_move_speed = 5.0
 jump_speed = 4.0
 run_multiplier = 2.0
 
-[node name="Player" parent="." node_paths=PackedStringArray("possessed_control_entity") instance=ExtResource("9_mbeav")]
+[node name="Player" parent="." node_paths=PackedStringArray("main_bound_entity", "possessed_control_entity") instance=ExtResource("9_mbeav")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.1789, -72.89777, 231.95154)
+main_bound_entity = NodePath("../Lagomorph")
 possessed_control_entity = NodePath("../Lagomorph")
 
 [node name="ScrapContainer12" type="Node3D" parent="."]

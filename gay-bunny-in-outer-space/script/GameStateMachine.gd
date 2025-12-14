@@ -34,6 +34,8 @@ func _process_creature_death(creature : Creature) -> void:
 		player.ui_controller.show_death_screen()
 		if sfxPlayer != null:
 			sfxPlayer.play_death_sound()
+			await get_tree().create_timer(15).timeout
+			get_tree().change_scene_to_file(MAIN_MENU)
 		if musicPlayer != null:
 			musicPlayer.autoplay = false
 			musicPlayer.stop()

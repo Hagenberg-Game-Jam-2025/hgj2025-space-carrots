@@ -30,4 +30,8 @@ light_energy = 3.261
 spot_range = 68.81
 spot_angle = 31.3
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 60.0
+autostart = true
+
 [editable path="Anchor"]

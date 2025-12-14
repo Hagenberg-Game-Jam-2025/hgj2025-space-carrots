@@ -120,6 +120,7 @@ func reset_health() -> void:
 	health = max_health
 
 func receive_damage(amount : int) -> void:
+	print("DAMAGE")
 	health -= amount
 	on_hurt.emit(self, amount)
 	if health <= 0:
