@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://dvv3317c57f3l"]
+
+[ext_resource type="Shader" path="res://resource/shader/main_menu_floor.gdshader" id="1_nn17b"]
+[ext_resource type="Script" path="res://script/ui/MainMenu.gd" id="1_rvc10"]
+[ext_resource type="Shader" path="res://resource/shader/sky_shader.gdshader" id="2_sks6p"]
+[ext_resource type="Shader" path="res://resource/shader/fog_shader.gdshader" id="3_lulne"]
+[ext_resource type="PackedScene" path="res://scene/component/ui/UIMainMenu.tscn" id="4_lulne"]
+[ext_resource type="PackedScene" uid="uid://ci3k23agf4oer" path="res://scene/component/rover/Rover.tscn" id="5_tf3dk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lnxie"]
+render_priority = 0
+shader = ExtResource("1_nn17b")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_sks6p"]
+material = SubResource("ShaderMaterial_lnxie")
+size = Vector2(50, 50)
+subdivide_width = 256
+subdivide_depth = 256
+center_offset = Vector3(0, 0, -20)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tf3dk"]
+shader = ExtResource("2_sks6p")
+
+[sub_resource type="Sky" id="Sky_pxjpq"]
+sky_material = SubResource("ShaderMaterial_tf3dk")
+
+[sub_resource type="Environment" id="Environment_rvc10"]
+background_mode = 2
+sky = SubResource("Sky_pxjpq")
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+volumetric_fog_ambient_inject = 0.64
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_85i58"]
+shader = ExtResource("3_lulne")
+
+[node name="MainMenu" type="Node3D"]
+script = ExtResource("1_rvc10")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.8074966, 0.00561714, 0.5898455, 0, 0.9999547, -0.009522638, -0.5898722, 0.0076894984, 0.80746, 13.83115, 0.40804055, -13.56915)
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_sks6p")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rvc10")
+
+[node name="FogVolume" type="FogVolume" parent="WorldEnvironment"]
+transform = Transform3D(0.6819025, 0, 0, 0, 0.8743733, 0, 0, 0, 1.3200468, 4.8980846, 0.11502075, -21.63258)
+size = Vector3(49.735107, 8.949707, 22.942871)
+material = SubResource("ShaderMaterial_85i58")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.626526, 0.58146477, -12.706946)
+light_energy = 5.255
+light_indirect_energy = 10.1
+light_volumetric_fog_energy = 3.775
+omni_range = 2.259
+omni_attenuation = 0.769
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.116670765, 0.9931706, 0, -0.9931706, -0.116670765, 15.410389, 5.429988, -7.861906)
+light_color = Color(0.9098039, 0.8509804, 0.8901961, 1)
+light_energy = 1.6
+light_indirect_energy = 4.2
+light_volumetric_fog_energy = 2.8
+light_angular_distance = 34.87
+light_bake_mode = 1
+shadow_enabled = true
+
+[node name="UiMainMenu" parent="." instance=ExtResource("4_lulne")]
+
+[node name="Rover" parent="." instance=ExtResource("5_tf3dk")]
+transform = Transform3D(-0.999824, 0, 0.018761158, 0, 1, 0, -0.018761158, 0, -0.999824, 11.295377, 5.9604645e-08, -14.333118)
+script = null
+
+[node name="Screen_001" parent="Rover/Rover/Rover_Screen/Arms/Screen_arm" index="1"]
+transform = Transform3D(1, -1.5639767e-14, 2.7987601e-15, 1.4210854e-14, 0.9592187, 0.28266415, -7.1054274e-15, -0.28266415, 0.9592187, -1.0664077, -1.0058141, 0.0012959242)
+
+[node name="Label3D" parent="Rover" index="3"]
+text = "Blahaj"
+
+[editable path="Rover"]

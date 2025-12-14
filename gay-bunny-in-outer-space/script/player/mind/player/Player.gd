@@ -3,6 +3,9 @@ extends Mind
 class_name Player
 
 @export
+var main_bound_entity : ControlEntity
+
+@export
 var ui_controller : UIController
 
 func _ready() -> void:

@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://3ejmi36e84pn"]
+
+[ext_resource type="Texture2D" uid="uid://8stp4ytdek8v" path="res://resource/texture/Container_Steelbar_solar/Container_Steelbar_solar_Container_BaseColor.png" id="1_ftjgi"]
+[ext_resource type="Texture2D" uid="uid://ca7rb0tv3dxha" path="res://resource/texture/Container_Steelbar_solar/Container_Steelbar_solar_Container_Height.png" id="2_r5h5l"]
+[ext_resource type="Texture2D" uid="uid://dt7kc18reu1v2" path="res://resource/texture/Container_Steelbar_solar/Container_Steelbar_solar_Container_Metallic.png" id="3_wns7g"]
+[ext_resource type="Texture2D" uid="uid://b6atiy71vdrah" path="res://resource/texture/Container_Steelbar_solar/Container_Steelbar_solar_Container_Normal.png" id="4_ej28a"]
+[ext_resource type="Texture2D" uid="uid://rg53iytphovn" path="res://resource/texture/Container_Steelbar_solar/Container_Steelbar_solar_Container_Roughness.png" id="5_6ocg4"]
+
+[resource]
+albedo_texture = ExtResource("1_ftjgi")
+metallic = 1.0
+metallic_texture = ExtResource("3_wns7g")
+roughness_texture = ExtResource("5_6ocg4")
+normal_enabled = true
+normal_texture = ExtResource("4_ej28a")
+heightmap_enabled = true
+heightmap_scale = 0.789
+heightmap_texture = ExtResource("2_r5h5l")

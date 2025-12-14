@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bm85qtfeyunxm"]
+
+[ext_resource type="Script" uid="uid://bilnpogh155nn" path="res://script/level/BuildingInterior.gd" id="1_xxcrk"]
+[ext_resource type="Texture2D" uid="uid://dqob45js6j7s7" path="res://scene/component/level/planet-base-building/ui-assets/Base.png" id="2_8o2ed"]
+[ext_resource type="Texture2D" uid="uid://cblqlp086jww3" path="res://scene/component/level/planet-base-building/ui-assets/door.png" id="3_1hp12"]
+[ext_resource type="Texture2D" uid="uid://ddf5jv3pfel43" path="res://scene/component/level/planet-base-building/ui-assets/hologram.png" id="4_mcd4b"]
+[ext_resource type="Texture2D" uid="uid://dua6om0rbnwne" path="res://scene/component/level/planet-base-building/ui-assets/recorder.png" id="5_jdq67"]
+
+[node name="BuildingInterior" type="Node2D"]
+script = ExtResource("1_xxcrk")
+metadata/_custom_type_script = "uid://bilnpogh155nn"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Base" type="Sprite2D" parent="."]
+position = Vector2(576.3334, 324)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_8o2ed")
+
+[node name="Door" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_1hp12")
+
+[node name="Hologram" type="Sprite2D" parent="."]
+position = Vector2(578, 323)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_mcd4b")
+
+[node name="Recorder" type="Sprite2D" parent="."]
+position = Vector2(578, 323)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_jdq67")
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -10.0
+offset_right = 106.0
+offset_bottom = 657.0

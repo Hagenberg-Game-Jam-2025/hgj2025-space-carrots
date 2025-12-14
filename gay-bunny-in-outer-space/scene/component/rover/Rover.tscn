@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://ci3k23agf4oer"]
+[gd_scene load_steps=26 format=4 uid="uid://ci3k23agf4oer"]
 
 [ext_resource type="Script" uid="uid://cbrmex8f1172a" path="res://scene/component/rover/Rover.gd" id="1_43537"]
 [ext_resource type="PackedScene" uid="uid://cvyo055ghsw23" path="res://script/mini-game/mini-game-control-entity/MiniGameControlEntity.tscn" id="2_1imye"]
@@ -7,6 +7,9 @@
 [ext_resource type="Material" uid="uid://dgxrgyk3u24a3" path="res://resource/material/rover/ScreenMaterial.tres" id="4_m7gmb"]
 [ext_resource type="Material" uid="uid://cvho50jl17u6q" path="res://resource/material/rover/WheelAccentMaterial.tres" id="5_id8op"]
 [ext_resource type="Material" uid="uid://dpcggfm3ajfgn" path="res://resource/material/rover/BodyAccentMaterial.tres" id="6_s11xs"]
+[ext_resource type="FontFile" uid="uid://cbuih6hp54o7h" path="res://script/marker/Pixeled.ttf" id="8_m7gmb"]
+[ext_resource type="Script" uid="uid://dvg7cksevhabb" path="res://script/marker/PlayerDetectionZone.gd" id="9_s11xs"]
+[ext_resource type="PackedScene" uid="uid://0vhfhs72trxf" path="res://script/marker/MarkerSprite.tscn" id="10_o622x"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_pfqjg"]
 _surfaces = [{
@@ -220,6 +223,45 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_0ldci")
 
+[sub_resource type="Animation" id="Animation_id8op"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rover/Rover_Screen/Arms/Screen_arm:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.3809655, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rover/Rover_Screen/Arms/Screen_arm/Screen_001:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.28657046, 2.9177498e-15, 1.4815026e-14)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Rover/Rover_Screen/Arms/Screen_arm:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.535282, 0.31097245, -1.3817446)]
+}
+
 [sub_resource type="Animation" id="Animation_m7gmb"]
 resource_name = "fold_in_screen"
 length = 1.5
@@ -258,45 +300,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(1.535282, 0.31097245, -1.3817446), Vector3(1.535, 0.311, -1.382), Vector3(1.535, 0.311, -0.742)]
-}
-
-[sub_resource type="Animation" id="Animation_id8op"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Rover/Rover_Screen/Arms/Screen_arm:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(2.3809655, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Rover/Rover_Screen/Arms/Screen_arm/Screen_001:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.28657046, 2.9177498e-15, 1.4815026e-14)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Rover/Rover_Screen/Arms/Screen_arm:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1.535282, 0.31097245, -1.3817446)]
 }
 
 [sub_resource type="Animation" id="Animation_xqdj3"]
@@ -371,7 +374,7 @@ mesh = SubResource("ArrayMesh_2ofjm")
 skeleton = NodePath("")
 
 [node name="Screen_001" type="MeshInstance3D" parent="Rover/Rover_Screen/Arms/Screen_arm"]
-transform = Transform3D(1, -1.5639769e-14, 2.7987605e-15, 1.4210854e-14, 0.95921886, 0.28266418, -7.1054274e-15, -0.28266418, 0.95921886, -1.0664077, -1.0058141, 0.0012959242)
+transform = Transform3D(1, -1.5639767e-14, 2.7987603e-15, 1.4210854e-14, 0.95921874, 0.28266415, -7.1054274e-15, -0.28266415, 0.95921874, -1.0664077, -1.0058141, 0.0012959242)
 mesh = SubResource("ArrayMesh_3adxr")
 skeleton = NodePath("")
 
@@ -402,3 +405,24 @@ input_ray_pickable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24362063, 0.96228385, 1.9174759)
 shape = SubResource("BoxShape3D_xqdj3")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(-1.6610327e-08, 0, -0.38, 0, 0.38, 0, 0.38, 0, -1.6610327e-08, -0.60070646, 0.8274839, 0)
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "Rover Name"
+font = ExtResource("8_m7gmb")
+font_size = 30
+
+[node name="PlayerDetectionZone" type="Node3D" parent="." node_paths=PackedStringArray("distant_sprite")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0426415, 0)
+script = ExtResource("9_s11xs")
+update_time = 0.1
+use_distance_display = true
+distant_sprite = NodePath("MarkerSprite")
+sprite_distance = 5.0
+sprite_max_distance = 5771.0
+metadata/_custom_type_script = "uid://dvg7cksevhabb"
+
+[node name="MarkerSprite" parent="PlayerDetectionZone" instance=ExtResource("10_o622x")]
+text = &"Rover Test"

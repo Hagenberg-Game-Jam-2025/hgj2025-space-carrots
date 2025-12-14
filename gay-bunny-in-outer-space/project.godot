@@ -29,6 +29,10 @@ gdscript/warnings/missing_tool=2
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")
+
 [file_customization]
 
 folder_colors={
@@ -37,15 +41,21 @@ folder_colors={
 "res://scene/component/button/": "red",
 "res://scene/component/character-controller/": "red",
 "res://scene/component/door/": "red",
+"res://scene/component/enviroment-props/": "pink",
 "res://scene/component/interaction/": "purple",
+"res://scene/component/level/": "red",
 "res://scene/component/player/": "red",
 "res://scene/test-scene/door-test-scene/": "red",
 "res://scene/test-scene/interaction-test-scene/": "purple",
+"res://scene/test-scene/level-test/": "red",
+"res://scene/test-scene/mars/": "pink",
 "res://scene/test-scene/mini-game-test-scene/": "red",
 "res://scene/test-scene/player-test-scene/": "red",
+"res://script/audio-tape/": "red",
 "res://script/character-controller/": "red",
 "res://script/door/": "red",
 "res://script/interaction/": "purple",
+"res://script/level/": "red",
 "res://script/marker/": "red",
 "res://script/mini-game/": "red",
 "res://script/mini-game/mini-game-01/": "green",
@@ -100,6 +110,11 @@ mini_game_exit_screen={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
+lagomorph_flash_light_command={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":70,"key_label":0,"unicode":102,"location":0,"echo":false,"script":null)
+]
+}
 
 [layer_names]
 
@@ -109,6 +124,7 @@ mini_game_exit_screen={
 
 common/physics_ticks_per_second=120
 3d/physics_engine="Jolt Physics"
+3d/default_gravity=1.5949999999999989
 
 [rendering]
 

@@ -1,0 +1,3 @@
+[gd_scene load_steps=0 format=3 uid="uid://bjc2dx7e7q2vf"]
+
+[node name="Planet" type="Node3D"]

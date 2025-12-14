@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cc3gcg2pcd46s"]
+
+[ext_resource type="Script" uid="uid://dbxriubewijd4" path="res://script/level/Level.gd" id="1_c81c7"]
+[ext_resource type="PackedScene" uid="uid://ci3k23agf4oer" path="res://scene/component/rover/Rover.tscn" id="2_tfmbe"]
+[ext_resource type="PackedScene" uid="uid://0ao3yn4ii65v" path="res://script/mini-game/mini-game-examples/MiniGameExample.tscn" id="3_r6gw3"]
+[ext_resource type="PackedScene" uid="uid://dgojk6lp038fe" path="res://script/mini-game/mini-game-examples/MiniGameExample2.tscn" id="4_tskrg"]
+
+[node name="TestLevel1" type="Node3D" node_paths=PackedStringArray("rovers")]
+script = ExtResource("1_c81c7")
+rovers = [NodePath("Rover")]
+level_finish_text = "Great Job Fucker now get on to the next level press the fucking door now NOW"
+metadata/_custom_type_script = "uid://dbxriubewijd4"
+
+[node name="Rover" parent="." instance=ExtResource("2_tfmbe")]
+transform = Transform3D(1, 0, 0, 0, 0.9556903, 0.29437396, 0, -0.29437396, 0.9556903, 4.0600486, 0, -10.730581)
+mini_games = Array[PackedScene]([ExtResource("3_r6gw3"), ExtResource("4_tskrg")])
+
+[node name="Rover2" parent="." instance=ExtResource("2_tfmbe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.056946, 0, 2.5013518)
+mini_games = Array[PackedScene]([ExtResource("3_r6gw3"), ExtResource("4_tskrg")])
+
+[node name="Rover3" parent="." instance=ExtResource("2_tfmbe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5942693, 0, -6.1753354)
+mini_games = Array[PackedScene]([ExtResource("3_r6gw3"), ExtResource("4_tskrg")])

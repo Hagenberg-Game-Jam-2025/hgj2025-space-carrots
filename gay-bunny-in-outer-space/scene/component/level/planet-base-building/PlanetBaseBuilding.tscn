@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://bee4hia3wqu6b"]
+
+[ext_resource type="Script" uid="uid://c1joiyupplson" path="res://script/level/PlanetBaseBuilding.gd" id="1_q3d2y"]
+[ext_resource type="PackedScene" uid="uid://c4edxhfqsax0l" path="res://scene/component/door/doors/main-door/RABS_Main_Door.tscn" id="2_fkbf7"]
+[ext_resource type="PackedScene" uid="uid://65w7scxauc55" path="res://scene/component/door/doors/main-door/RABS_Main_Door_Manual.tscn" id="3_ildrj"]
+[ext_resource type="PackedScene" uid="uid://davy0pnn4hbg6" path="res://scene/component/interaction/InteractionTarget.tscn" id="4_ildrj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5ndy0"]
+size = Vector3(4.671753, 2.381958, 1.5653076)
+
+[node name="PlanetBaseBuilding" type="Node3D"]
+script = ExtResource("1_q3d2y")
+metadata/_custom_type_script = "uid://c1joiyupplson"
+
+[node name="RabsMainDoor" parent="." instance=ExtResource("2_fkbf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5436902, 0, 2.2648592)
+
+[node name="RabsMainDoor2" parent="." instance=ExtResource("3_ildrj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.91735387, 0, -1.2269373)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9697912, -0.24393666, 0, 0.24393666, 0.9697912, 0.701416, -0.74813247, 3.0314128)
+use_collision = true
+size = Vector3(4.5515137, 1, 2.0263672)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.64489746, -0.49228066, -0.003189087)
+use_collision = true
+size = Vector3(5.402588, 1, 4.7136536)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.64489746, 3.0327628, 0.37338257)
+size = Vector3(5.402588, 1, 3.9605103)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.03854, -1.1623654, 0.37338257)
+size = Vector3(1.0010986, 4.828125, 3.9605103)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D/CSGBox3D/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.325361, -0.11120522, -0.009780884)
+size = Vector3(1.0010986, 4.828125, 4.726837)
+
+[node name="InteractionTarget" parent="." instance=ExtResource("4_ildrj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.90456855, 1.1406167, -1.416105)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionTarget"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10699463, -0.25482178, 0.2826538)
+shape = SubResource("BoxShape3D_5ndy0")
+
+[node name="FixRoverPrompt" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9452073, 1.0737367, -1.0085256)
+visible = false
+text = "FIX THE FUCKING ROVERS FIRST!"
