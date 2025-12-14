@@ -34,10 +34,10 @@ var use_distance_display : bool = false
 @export
 var distant_sprite : MarkerSprite
 
-@export_range(0, 20000, 100, "or_greater")
+@export_range(0, 20000, 1, "or_greater")
 var sprite_distance : float
 
-@export_range(0, 20000, 100, "or_greater")
+@export_range(0, 20000, 1, "or_greater")
 var sprite_max_distance : float
 
 func _ready() -> void:

@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://bvii2pm2v7pvs"]
+
+[ext_resource type="Texture2D" uid="uid://d0d8a6jegu842" path="res://resource/texture/FloorTiles/FloorTiles_BrockenTiles_BaseColor.png" id="1_5op55"]
+[ext_resource type="Texture2D" uid="uid://dh6b4opiun3tf" path="res://resource/texture/FloorTiles/FloorTiles_BrockenTiles_Height.png" id="2_huapk"]
+[ext_resource type="Texture2D" uid="uid://b5exiv8tkairf" path="res://resource/texture/FloorTiles/FloorTiles_BrockenTiles_Metallic.png" id="3_2a5rc"]
+[ext_resource type="Texture2D" uid="uid://db70s1rod312s" path="res://resource/texture/FloorTiles/FloorTiles_BrockenTiles_Normal.png" id="4_vo037"]
+[ext_resource type="Texture2D" uid="uid://lbq0a0s3a4wp" path="res://resource/texture/FloorTiles/FloorTiles_BrockenTiles_Roughness.png" id="5_mi400"]
+
+[resource]
+albedo_texture = ExtResource("1_5op55")
+metallic = 1.0
+metallic_texture = ExtResource("3_2a5rc")
+roughness_texture = ExtResource("5_mi400")
+normal_enabled = true
+normal_texture = ExtResource("4_vo037")
+heightmap_enabled = true
+heightmap_texture = ExtResource("2_huapk")

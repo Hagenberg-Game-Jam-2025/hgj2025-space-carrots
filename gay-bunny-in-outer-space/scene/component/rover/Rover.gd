@@ -26,6 +26,7 @@ func _ready() -> void:
 	animation_player.play("fold_in_screen")
 	
 	$Label3D.text = rover_name
+	$PlayerDetectionZone/MarkerSprite.text = rover_name
 	
 	area_3d.body_entered.connect(_on_body_entered)
 	area_3d.body_exited.connect(_on_body_exited)

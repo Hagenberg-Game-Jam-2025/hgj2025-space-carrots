@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://la5rcbk2csa"]
+[gd_scene load_steps=55 format=3 uid="uid://la5rcbk2csa"]
 
 [ext_resource type="Texture2D" uid="uid://bcf20svlxwwj8" path="res://resource/texture/rock_boulder_cracked_diff_1k.jpg" id="1_gr40m"]
 [ext_resource type="Texture2D" uid="uid://bocxbd6swx5k" path="res://resource/texture/rock_boulder_cracked_disp_1k.png" id="2_tfty8"]
@@ -10,11 +10,15 @@
 [ext_resource type="PackedScene" uid="uid://lsvs8a7urkca" path="res://resource/mesh/RockC.tscn" id="8_b5dag"]
 [ext_resource type="PackedScene" uid="uid://3wafjvrbrsnu" path="res://scene/component/player/Player.tscn" id="9_mbeav"]
 [ext_resource type="PackedScene" uid="uid://swutdc1evgl4" path="res://scene/component/character-controller/lagomorph/Lagomorph.tscn" id="10_17oop"]
+[ext_resource type="PackedScene" uid="uid://bee4hia3wqu6b" path="res://scene/component/level/planet-base-building/PlanetBaseBuilding.tscn" id="11_1dmib"]
 [ext_resource type="PackedScene" uid="uid://cribhhvg03u8g" path="res://resource/mesh/CrystalC.tscn" id="11_tfty8"]
 [ext_resource type="PackedScene" uid="uid://x80vcoiyr6bs" path="res://scene/component/enviroment-props/scraps/ScrapContainer.tscn" id="12_mbeav"]
 [ext_resource type="PackedScene" uid="uid://b5y6jlqjbjbns" path="res://scene/component/enviroment-props/scraps/ScrapSteelbar01.tscn" id="13_17oop"]
+[ext_resource type="Script" uid="uid://c4u5l5emnotkp" path="res://script/level/LevelManager.gd" id="14_1dmib"]
 [ext_resource type="PackedScene" uid="uid://bgls7yc4e3qmu" path="res://scene/component/enviroment-props/scraps/ScrapTiles01.tscn" id="14_2t1r7"]
+[ext_resource type="PackedScene" uid="uid://ccrncplwgusod" path="res://scene/test-scene/mars/Level/level1(test).tscn" id="14_pu8fi"]
 [ext_resource type="PackedScene" uid="uid://5hbpm1gwergc" path="res://scene/component/enviroment-props/scraps/ScrapSteelbar02.tscn" id="15_l32ty"]
+[ext_resource type="PackedScene" uid="uid://bm85qtfeyunxm" path="res://scene/component/level/planet-base-building/BuildingInterior.tscn" id="15_pu8fi"]
 [ext_resource type="PackedScene" uid="uid://clwujqrnqifeg" path="res://scene/component/enviroment-props/scraps/ScrapTiles02.tscn" id="16_vkmah"]
 [ext_resource type="PackedScene" uid="uid://but0i2e0mnbxl" path="res://scene/component/enviroment-props/scraps/ScrapTiles03.tscn" id="17_j8e2g"]
 [ext_resource type="PackedScene" uid="uid://dnbukn7tk4ae8" path="res://scene/component/enviroment-props/scraps/ScrapRocketWrack.tscn" id="18_mpru3"]
@@ -201,16 +205,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.33342, -19.97519, 88.8801
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -124.402885, -40.212063, 113.19138)
 shape = SubResource("ConcavePolygonShape3D_2t1r7")
-
-[node name="Lagomorph" parent="." instance=ExtResource("10_17oop")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -145.84305, -3.3539238, 214.54134)
-base_move_speed = 5.1
-jump_speed = 7.0
-run_multiplier = 2.2
-
-[node name="Player" parent="." node_paths=PackedStringArray("possessed_control_entity") instance=ExtResource("9_mbeav")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.1789, -72.89777, 231.95154)
-possessed_control_entity = NodePath("../Lagomorph")
 
 [node name="Cave Entry 1" type="Node3D" parent="."]
 
@@ -679,358 +673,383 @@ shape = SubResource("BoxShape3D_pu8fi")
 [node name="Marker3D" type="Marker3D" parent="Borders/StaticBody3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.43243, 21.812391, 206.45891)
 
-[node name="ScrapTiles02" parent="Borders/StaticBody3D2" instance=ExtResource("16_vkmah")]
+[node name="PlanetBaseBuilding" parent="." instance=ExtResource("11_1dmib")]
+transform = Transform3D(0.42962876, 0, 0.9030056, 0, 1, 0, -0.9030056, 0, 0.42962876, 42.321663, 28.500992, 165.33788)
+
+[node name="LevelManager" type="Node" parent="." node_paths=PackedStringArray("level_container", "planet_base_building")]
+script = ExtResource("14_1dmib")
+planet_base_interior_scene = ExtResource("15_pu8fi")
+levels = Array[PackedScene]([ExtResource("14_pu8fi")])
+level_container = NodePath("../LevelContainer")
+planet_base_building = NodePath("../PlanetBaseBuilding")
+metadata/_custom_type_script = "uid://c4u5l5emnotkp"
+
+[node name="LevelContainer" type="Node3D" parent="."]
+
+[node name="Lagomorph" parent="." instance=ExtResource("10_17oop")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.321663, 28.500992, 165.33788)
+base_move_speed = 5.1
+jump_speed = 7.0
+run_multiplier = 2.2
+
+[node name="Player" parent="." node_paths=PackedStringArray("possessed_control_entity") instance=ExtResource("9_mbeav")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.1789, -72.89777, 231.95154)
+possessed_control_entity = NodePath("../Lagomorph")
+
+[node name="ScrapContainer12" type="Node3D" parent="."]
+
+[node name="ScrapTiles02" parent="ScrapContainer12" instance=ExtResource("16_vkmah")]
 transform = Transform3D(0.8478353, 0.33654332, -0.40977293, -0.029867858, 0.8018606, 0.5967642, 0.5294178, -0.49371865, 0.6898975, -171.50694, 23.23586, 288.85474)
 
-[node name="ScrapContainer" parent="Borders/StaticBody3D2" instance=ExtResource("12_mbeav")]
+[node name="ScrapContainer" parent="ScrapContainer12" instance=ExtResource("12_mbeav")]
 transform = Transform3D(0.47994795, 0.8772971, -1.7767217e-08, -0.45186773, 0.24720588, 0.85714936, 0.7519745, -0.41138706, 0.515068, -160.52197, 10.528221, 272.64294)
 
-[node name="ScrapContainer2" parent="Borders/StaticBody3D2" instance=ExtResource("12_mbeav")]
+[node name="ScrapContainer2" parent="ScrapContainer12" instance=ExtResource("12_mbeav")]
 transform = Transform3D(0.93119586, -0.36451927, 0, 0.36451927, 0.93119586, 0, 0, 0, 1, -400.82724, -27.477074, 124.31931)
 
-[node name="ScrapSteelbar02" parent="Borders/StaticBody3D2" instance=ExtResource("15_l32ty")]
+[node name="ScrapSteelbar02" parent="ScrapContainer12" instance=ExtResource("15_l32ty")]
 transform = Transform3D(0.2732542, 0.96194184, 0, -0.96194184, 0.2732542, 0, 0, 0, 1, -116.09175, 3.3115025, 268.42343)
 
-[node name="ScrapSteelbar03" parent="Borders/StaticBody3D2" instance=ExtResource("15_l32ty")]
+[node name="ScrapSteelbar03" parent="ScrapContainer12" instance=ExtResource("15_l32ty")]
 transform = Transform3D(0.103300974, 0.46890306, -0.87718815, -0.97658235, 0.21514449, 0, 0.18872213, 0.85664624, 0.48014697, -12.90445, 17.812723, 246.4714)
 
-[node name="ScrapSteelbar04" parent="Borders/StaticBody3D2" instance=ExtResource("15_l32ty")]
+[node name="ScrapSteelbar04" parent="ScrapContainer12" instance=ExtResource("15_l32ty")]
 transform = Transform3D(0.75208145, 0.6590702, 0, -0.6590702, 0.75208145, 0, 0, 0, 1, -100.448105, 32.09708, 175.75993)
 
-[node name="ScrapTiles03" parent="Borders/StaticBody3D2" instance=ExtResource("16_vkmah")]
+[node name="ScrapTiles03" parent="ScrapContainer12" instance=ExtResource("16_vkmah")]
 transform = Transform3D(0.5836644, 0.5830128, 0.565183, -0.7067117, 0.7075016, 0, -0.39986786, -0.39942142, 0.82496554, -109.477295, -7.3975177, 253.08356)
 
-[node name="RocketThrustBroken" parent="Borders/StaticBody3D2" instance=ExtResource("19_vkmah")]
+[node name="RocketThrustBroken" parent="ScrapContainer12" instance=ExtResource("19_vkmah")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -233.81096, -2.3605437, 377.29962)
 
-[node name="RocketThrustBroken2" parent="Borders/StaticBody3D2" instance=ExtResource("19_vkmah")]
+[node name="RocketThrustBroken2" parent="ScrapContainer12" instance=ExtResource("19_vkmah")]
 transform = Transform3D(-0.99992853, 0, -0.011955261, 0, 1, 0, 0.011955261, 0, -0.99992853, -228.82594, -2.4553437, 378.63098)
 
-[node name="ScrapSteelbar05" parent="Borders/StaticBody3D2" instance=ExtResource("15_l32ty")]
+[node name="ScrapSteelbar05" parent="ScrapContainer12" instance=ExtResource("15_l32ty")]
 transform = Transform3D(0.01991291, 0.9998017, 0, -0.58373725, 0.011626212, 0.8118594, 0.81169844, -0.016166484, 0.583853, -44.83594, 31.700869, 178.23146)
 
-[node name="ScrapSpaceship" type="Node3D" parent="."]
+[node name="ScrapSpaceship" type="Node3D" parent="ScrapContainer12"]
 
-[node name="ScrapContainer" parent="." instance=ExtResource("12_mbeav")]
+[node name="ScrapContainer3" parent="ScrapContainer12" instance=ExtResource("12_mbeav")]
 transform = Transform3D(0.67146164, -0.42582667, -0.6064742, 0.5355615, 0.84449625, 0, 0.5121652, -0.32480425, 0.7951032, 9.5990715, 22.474155, 221.55035)
 
-[node name="ScrapSteelbar01" parent="." instance=ExtResource("13_17oop")]
+[node name="ScrapSteelbar01" parent="ScrapContainer12" instance=ExtResource("13_17oop")]
 transform = Transform3D(-0.5543798, -0.21356715, -0.8043956, 0.78393805, -0.45855168, -0.41853514, -0.27947158, -0.8626237, 0.42163512, 24.11494, 19.22792, 233.416)
 
-[node name="ScrapTiles01" parent="." instance=ExtResource("14_2t1r7")]
+[node name="ScrapTiles01" parent="ScrapContainer12" instance=ExtResource("14_2t1r7")]
 transform = Transform3D(0.30147144, 0.95347524, 0, -0.95347524, 0.30147144, 0, 0, 0, 1, -4.9741974, 20.056866, 276.1903)
 
-[node name="ScrapSteelbar02" parent="." instance=ExtResource("15_l32ty")]
+[node name="ScrapSteelbar06" parent="ScrapContainer12" instance=ExtResource("15_l32ty")]
 transform = Transform3D(-0.31212515, 0.8091856, 0.49779156, -0.93299747, -0.35988277, 0, 0.1791466, -0.46443826, 0.8672967, -7.8511367, 17.884804, 270.05182)
 
-[node name="ScrapTiles02" parent="." instance=ExtResource("16_vkmah")]
+[node name="ScrapTiles04" parent="ScrapContainer12" instance=ExtResource("16_vkmah")]
 transform = Transform3D(0.61122316, 0.6948075, -0.3790102, 0, 0.47887576, 0.87788266, 0.7914583, -0.53658223, 0.29269996, -28.134914, 23.100029, 226.60275)
 
-[node name="ScrapTiles03" parent="." instance=ExtResource("17_j8e2g")]
+[node name="ScrapTiles05" parent="ScrapContainer12" instance=ExtResource("17_j8e2g")]
 transform = Transform3D(1, 0, 0, 0, 0.9043285, -0.4268371, 0, 0.4268371, 0.9043285, -83.519646, 45.141773, 342.79102)
 
-[node name="ScrapRocketWrack" parent="." instance=ExtResource("18_mpru3")]
+[node name="ScrapRocketWrack" parent="ScrapContainer12" instance=ExtResource("18_mpru3")]
 transform = Transform3D(1, 0, 0, 0, 0.3367337, -0.9415999, 0, 0.9415999, 0.3367337, -126.010826, -3.1226282, 250.48611)
 
-[node name="ScrapRocketWrack2" parent="." instance=ExtResource("18_mpru3")]
+[node name="ScrapRocketWrack2" parent="ScrapContainer12" instance=ExtResource("18_mpru3")]
 transform = Transform3D(0.07851415, -0.0150793195, -0.996799, -0.9963049, 0.033730924, -0.07898551, 0.034813996, 0.9993172, -0.012375236, -128.26622, -12.691341, 223.78683)
 
-[node name="RocketThrustBroken" parent="." instance=ExtResource("19_vkmah")]
+[node name="RocketThrustBroken3" parent="ScrapContainer12" instance=ExtResource("19_vkmah")]
 transform = Transform3D(0.087441236, 0.0017404553, -0.9961682, -0.9092815, 0.40859562, -0.079100676, 0.4068923, 0.9127139, 0.037310675, -120.99192, 9.261885, 301.8472)
 
-[node name="ScrapRocketWrack3" parent="." instance=ExtResource("18_mpru3")]
+[node name="ScrapRocketWrack3" parent="ScrapContainer12" instance=ExtResource("18_mpru3")]
 transform = Transform3D(0.087955475, 0.26742545, -0.95955586, -0.9961244, 0.023613047, -0.08472656, 0, 0.9632892, 0.2684659, -129.29115, 5.0714455, 272.0764)
 
-[node name="ScrapTiles04" parent="." instance=ExtResource("16_vkmah")]
+[node name="ScrapTiles06" parent="ScrapContainer12" instance=ExtResource("16_vkmah")]
 transform = Transform3D(0.8167121, -0.57704544, 0, 0.57704544, 0.8167121, 0, 0, 0, 1, -78.689575, 3.1747246, 229.21642)
 
-[node name="ScrapTiles05" parent="." instance=ExtResource("17_j8e2g")]
+[node name="ScrapTiles07" parent="ScrapContainer12" instance=ExtResource("17_j8e2g")]
 transform = Transform3D(0.12055512, -0.7135929, 0.6901099, 0.122797765, 0.7005606, 0.70294774, -0.9850823, 0, 0.17208378, -80.983826, 0.96666527, 235.93446)
 
-[node name="ScrapTiles06" parent="." instance=ExtResource("14_2t1r7")]
+[node name="ScrapTiles08" parent="ScrapContainer12" instance=ExtResource("14_2t1r7")]
 transform = Transform3D(0.99784863, 0.06555987, 0, -0.06555987, 0.99784863, 0, 0, 0, 1, -66.21381, 4.2224674, 235.84857)
 
-[node name="ScrapTiles07" parent="." instance=ExtResource("16_vkmah")]
+[node name="ScrapTiles09" parent="ScrapContainer12" instance=ExtResource("16_vkmah")]
 transform = Transform3D(0.70521605, 0.19391368, -0.6819588, -0.3918762, 0.9081989, -0.14699605, 0.5908497, 0.37090743, 0.71646655, -82.7784, 0, 264.32324)
 
-[node name="ScrapContainer2" parent="." instance=ExtResource("12_mbeav")]
+[node name="ScrapContainer4" parent="ScrapContainer12" instance=ExtResource("12_mbeav")]
 transform = Transform3D(0.3731174, -0.92778426, 0, 0.82399154, 0.33137617, 0.4595954, -0.42640528, -0.17148301, 0.8881284, -52.248566, 14.417362, 291.7794)
 
-[node name="ScrapSolarPanel" parent="." instance=ExtResource("20_j8e2g")]
+[node name="ScrapSolarPanel" parent="ScrapContainer12" instance=ExtResource("20_j8e2g")]
 transform = Transform3D(-0.015772196, 0.7282959, -0.68508106, -0.67174983, 0.49978602, 0.54677784, 0.74061006, 0.4688271, 0.48135003, -58.321934, 39.367672, 337.87363)
 
-[node name="ScrapTiles08" parent="." instance=ExtResource("17_j8e2g")]
+[node name="ScrapTiles10" parent="ScrapContainer12" instance=ExtResource("17_j8e2g")]
 transform = Transform3D(1, 0, 0, 0, 0.46453297, 0.8855558, 0, -0.8855558, 0.46453297, -116.512924, 30.952415, 343.00687)
 
-[node name="ScrapRingdonk" parent="." instance=ExtResource("21_mpru3")]
+[node name="ScrapRingdonk" parent="ScrapContainer12" instance=ExtResource("21_mpru3")]
 transform = Transform3D(1, 0, 0, 0, -0.68341404, -0.730031, 0, 0.730031, -0.68341404, -137.68076, 16.910664, 304.0021)
 
-[node name="ScrapTiles09" parent="." instance=ExtResource("17_j8e2g")]
+[node name="ScrapTiles11" parent="ScrapContainer12" instance=ExtResource("17_j8e2g")]
 transform = Transform3D(0.26175123, 0.9651354, 0, -0.9651354, 0.26175123, 0, 0, 0, 1, -182.3679, 36.372807, 205.36552)
 
-[node name="ScrapSteelbar03" parent="." instance=ExtResource("15_l32ty")]
+[node name="ScrapSteelbar07" parent="ScrapContainer12" instance=ExtResource("15_l32ty")]
 transform = Transform3D(0.5184714, -0.72966796, -0.4458385, 0.8151682, 0.5792243, 0, 0.2582405, -0.3634334, 0.8951134, -41.19958, 30.89461, 189.8424)
 
-[node name="ScrapTiles10" parent="." instance=ExtResource("17_j8e2g")]
+[node name="ScrapTiles12" parent="ScrapContainer12" instance=ExtResource("17_j8e2g")]
 transform = Transform3D(0.33571467, -0.89653903, -0.2889869, -0.32306644, 0.17859572, -0.9293716, 0.88482976, 0.40536562, -0.2296845, -84.21634, 5.663691, 215.77869)
 
-[node name="ScrapTiles11" parent="." instance=ExtResource("16_vkmah")]
+[node name="ScrapTiles13" parent="ScrapContainer12" instance=ExtResource("16_vkmah")]
 transform = Transform3D(0.24760664, -0.22307721, -0.9428296, -0.598726, 0.729848, -0.3299228, 0.76172054, 0.64618754, 0.047153175, -75.45056, 12.183073, 214.19446)
 
-[node name="ScrapTiles12" parent="." instance=ExtResource("14_2t1r7")]
+[node name="ScrapTiles14" parent="ScrapContainer12" instance=ExtResource("14_2t1r7")]
 transform = Transform3D(0.22401914, -0.34099615, -0.9129826, 0.970523, 0.16349378, 0.1770736, 0.08888563, -0.9257382, 0.36757025, -77.765854, 5.090873, 205.33562)
 
-[node name="ScrapContainer3" parent="." instance=ExtResource("12_mbeav")]
+[node name="ScrapContainer5" parent="ScrapContainer12" instance=ExtResource("12_mbeav")]
 transform = Transform3D(0.56834644, 0, 0.8227894, -0.62502867, 0.6503368, 0.4317421, -0.5350902, -0.759646, 0.3696166, -160.8008, 21.786873, 297.003)
 
-[node name="ScrapRingdonkBroken" parent="." instance=ExtResource("22_bajyc")]
+[node name="ScrapRingdonkBroken" parent="ScrapContainer12" instance=ExtResource("22_bajyc")]
 transform = Transform3D(-0.38253355, 0.7243612, 0.5735582, -0.8702825, -0.07401283, -0.48696053, -0.31028467, -0.6854364, 0.6587113, -151.3035, 25.171598, 295.43845)
 
-[node name="ScrapRingdonk2" parent="." instance=ExtResource("21_mpru3")]
+[node name="ScrapRingdonk2" parent="ScrapContainer12" instance=ExtResource("21_mpru3")]
 transform = Transform3D(0.9715698, 0.21625133, 0.096371755, -0.23675336, 0.8874352, 0.3954828, 0, -0.4070555, 0.91340345, -149.37593, 20.02541, 300.02386)
 
-[node name="ScrapSteelbar04" parent="." instance=ExtResource("15_l32ty")]
+[node name="ScrapSteelbar08" parent="ScrapContainer12" instance=ExtResource("15_l32ty")]
 transform = Transform3D(0.70997643, -0.7042254, 0, 0.7042254, 0.70997643, 0, 0, 0, 1, -68.97962, 42.03257, 340.1431)
 
-[node name="ScrapSteelbar05" parent="." instance=ExtResource("15_l32ty")]
+[node name="ScrapSteelbar09" parent="ScrapContainer12" instance=ExtResource("15_l32ty")]
 transform = Transform3D(0.96436834, -0.14487281, -0.221372, 0.2645632, 0.5280808, 0.8069306, 0, -0.8367452, 0.54759246, -103.807434, 34.45191, 341.70633)
 
-[node name="ScrapSolarPanel2" parent="." instance=ExtResource("20_j8e2g")]
+[node name="ScrapSolarPanel2" parent="ScrapContainer12" instance=ExtResource("20_j8e2g")]
 transform = Transform3D(0.1871927, 0.9823232, 0, -0.7598462, 0.1447972, 0.6337725, 0.62256944, -0.11863758, 0.7735195, -154.17955, 14.382301, 196.57129)
 
-[node name="RocketThrustBroken2" parent="." instance=ExtResource("19_vkmah")]
+[node name="RocketThrustBroken4" parent="ScrapContainer12" instance=ExtResource("19_vkmah")]
 transform = Transform3D(-0.9353886, -0.35179263, -0.035917684, -0.35153356, 0.93607795, -0.013498423, 0.038370397, 0, -0.9992636, -1.909398, 17.58283, 279.09216)
 
-[node name="ScrapTiles13" parent="." instance=ExtResource("16_vkmah")]
+[node name="ScrapTiles15" parent="ScrapContainer12" instance=ExtResource("16_vkmah")]
 transform = Transform3D(-0.4884775, -0.80711985, -0.33158302, -0.30933353, 0.51550263, -0.79910564, 0.815906, -0.28777543, -0.5014807, -14.237159, 18.482235, 279.71225)
 
-[node name="ScrapSteelbar06" parent="." instance=ExtResource("15_l32ty")]
+[node name="ScrapSteelbar10" parent="ScrapContainer12" instance=ExtResource("15_l32ty")]
 transform = Transform3D(0.7945166, -0.46531904, 0.3901556, 0.48750916, 0.87184966, 0.047043175, -0.36204702, 0.15282795, 0.91954637, -17.999838, 16.333693, 289.28088)
 
-[node name="ScrapSolarPanel3" parent="." instance=ExtResource("20_j8e2g")]
+[node name="ScrapSolarPanel3" parent="ScrapContainer12" instance=ExtResource("20_j8e2g")]
 transform = Transform3D(0.84790343, 0.5197994, -0.104250856, -0.48128566, 0.8371824, 0.25978884, 0.22231486, -0.17010155, 0.96002173, -11.326968, 17.399553, 281.7092)
 
-[node name="ScrapRocketWrack4" parent="." instance=ExtResource("18_mpru3")]
+[node name="ScrapRocketWrack4" parent="ScrapContainer12" instance=ExtResource("18_mpru3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1244297, 22.720757, 317.14883)
 
-[node name="ScrapRocketWrack5" parent="." instance=ExtResource("18_mpru3")]
+[node name="ScrapRocketWrack5" parent="ScrapContainer12" instance=ExtResource("18_mpru3")]
 transform = Transform3D(-0.92126703, 0, -0.38893095, 0.061834265, 0.98728096, -0.14646783, 0.38398412, -0.15898524, -0.9095494, -5.969735, 35.223354, 315.8311)
 
-[node name="ScrapRocketWrack6" parent="." instance=ExtResource("18_mpru3")]
+[node name="ScrapRocketWrack6" parent="ScrapContainer12" instance=ExtResource("18_mpru3")]
 transform = Transform3D(-0.932658, 0, -0.360762, -0.10471162, 0.9569505, 0.27070516, 0.34523138, 0.2902513, -0.89250755, -5.498244, 42.69874, 319.39136)
 
-[node name="ScrapTiles14" parent="." instance=ExtResource("16_vkmah")]
+[node name="ScrapTiles16" parent="ScrapContainer12" instance=ExtResource("16_vkmah")]
 transform = Transform3D(1, 0, 0, 0, 0.78828996, 0.615304, 0, -0.615304, 0.78828996, -5.7295923, 42.701324, 321.3472)
 
-[node name="ScrapTiles15" parent="." instance=ExtResource("17_j8e2g")]
+[node name="ScrapTiles17" parent="ScrapContainer12" instance=ExtResource("17_j8e2g")]
 transform = Transform3D(0.63950604, -0.7687861, 0, 0.7687861, 0.63950604, 0, 0, 0, 1, -10.516886, 30.326077, 310.81854)
 
-[node name="ScrapSteelbar07" parent="." instance=ExtResource("15_l32ty")]
+[node name="ScrapSteelbar11" parent="ScrapContainer12" instance=ExtResource("15_l32ty")]
 transform = Transform3D(-0.010534244, 0.9399417, 0.34117228, 0.9097635, 0.15060885, -0.38684267, -0.41499308, 0.30631107, -0.85671127, -5.4562182, 32.057625, 328.3856)
 
-[node name="ScrapTiles16" parent="." instance=ExtResource("16_vkmah")]
+[node name="ScrapTiles18" parent="ScrapContainer12" instance=ExtResource("16_vkmah")]
 transform = Transform3D(0.45986775, 0.6407933, 0.61474025, -0.38384137, 0.7677134, -0.51311, -0.8007418, 0, 0.59900963, -193.9142, 22.044666, 229.83519)
 
-[node name="ScrapTiles17" parent="." instance=ExtResource("14_2t1r7")]
+[node name="ScrapTiles19" parent="ScrapContainer12" instance=ExtResource("14_2t1r7")]
 transform = Transform3D(0.40204364, 0.69030356, -0.6015329, 0, 0.6569675, 0.753919, 0.9156206, -0.30310833, 0.26412964, -190.69176, 24.178421, 257.03098)
 
-[node name="ScrapTiles18" parent="." instance=ExtResource("17_j8e2g")]
+[node name="ScrapTiles20" parent="ScrapContainer12" instance=ExtResource("17_j8e2g")]
 transform = Transform3D(0.69546145, 0.5190296, -0.49693224, 0, 0.6915635, 0.72231567, 0.71856344, -0.5023427, 0.48095575, -196.46097, 27.596027, 240.85396)
 
-[node name="ScrapSteelbar08" parent="." instance=ExtResource("15_l32ty")]
+[node name="ScrapSteelbar12" parent="ScrapContainer12" instance=ExtResource("15_l32ty")]
 transform = Transform3D(0.3421368, -0.41754994, -0.84178054, 0.15722069, 0.908654, -0.38681987, 0.9264038, 0, 0.37653145, -194.73163, 30.3154, 264.28516)
 
-[node name="ScrapRocketWrack7" parent="." instance=ExtResource("18_mpru3")]
+[node name="ScrapRocketWrack7" parent="ScrapContainer12" instance=ExtResource("18_mpru3")]
 transform = Transform3D(0.6216264, 0.6295421, -0.46610874, -0.7833139, 0.49959534, -0.36989707, 0, 0.59504724, 0.80369073, -168.68028, 10.364311, 273.30737)
 
-[node name="RocketThrustBroken3" parent="." instance=ExtResource("19_vkmah")]
+[node name="RocketThrustBroken5" parent="ScrapContainer12" instance=ExtResource("19_vkmah")]
 transform = Transform3D(0.23707552, 0.9714912, 0, -0.9714912, 0.23707552, 0, 0, 0, 1, -130.4614, 8.82914, 300.19205)
 
-[node name="RocketThrustBroken4" parent="." instance=ExtResource("19_vkmah")]
+[node name="RocketThrustBroken6" parent="ScrapContainer12" instance=ExtResource("19_vkmah")]
 transform = Transform3D(0.1717399, 4.440892e-16, -0.9851423, -0.4275103, 0.90093315, -0.07452789, 0.8875473, 0.43395784, 0.15472618, -83.60031, 9.310951, 310.16043)
 
-[node name="ScrapContainer4" parent="." instance=ExtResource("12_mbeav")]
+[node name="ScrapContainer6" parent="ScrapContainer12" instance=ExtResource("12_mbeav")]
 transform = Transform3D(0.9480631, -0.19962735, 0.2476396, 0, 0.778539, 0.62759626, -0.31808245, -0.59500086, 0.7381041, -7.3645177, 18.46561, 208.15851)
 
-[node name="ScrapTiles19" parent="." instance=ExtResource("17_j8e2g")]
+[node name="ScrapTiles21" parent="ScrapContainer12" instance=ExtResource("17_j8e2g")]
 transform = Transform3D(1, 0, 0, 0, 0.85436815, 0.5196682, 0, -0.5196682, 0.85436815, -5.170078, 23.976583, 219.03918)
 
-[node name="ScrapTiles20" parent="." instance=ExtResource("16_vkmah")]
+[node name="ScrapTiles22" parent="ScrapContainer12" instance=ExtResource("16_vkmah")]
 transform = Transform3D(0.802863, -0.34259915, 0.48789006, 0.16452315, 0.91393036, 0.37103072, -0.5730124, -0.21761763, 0.7901264, -23.07249, 21.658953, 220.39566)
 
-[node name="ScrapTiles21" parent="." instance=ExtResource("16_vkmah")]
+[node name="ScrapTiles23" parent="ScrapContainer12" instance=ExtResource("16_vkmah")]
 transform = Transform3D(-0.9763635, -0.21285485, -0.03751062, 0.15063788, -0.794618, 0.5881245, -0.15499176, 0.5685729, 0.80789995, 4.229704, 22.249815, 224.0616)
 
-[node name="ScrapSteelbar09" parent="." instance=ExtResource("13_17oop")]
+[node name="ScrapSteelbar13" parent="ScrapContainer12" instance=ExtResource("13_17oop")]
 transform = Transform3D(-0.737737, -0.6750882, 0, 0.6750882, -0.737737, 0, 0, 0, 1, -408.74606, -21.629667, 127.47507)
 
-[node name="ScrapSteelbar10" parent="." instance=ExtResource("15_l32ty")]
+[node name="ScrapSteelbar14" parent="ScrapContainer12" instance=ExtResource("15_l32ty")]
 transform = Transform3D(0.15743427, 0, -0.98752946, -0.6736447, 0.7312108, -0.107394025, 0.7220922, 0.6821515, 0.11511764, -391.98032, -29.249573, 142.54811)
 
-[node name="ScrapTiles22" parent="." instance=ExtResource("16_vkmah")]
+[node name="ScrapTiles24" parent="ScrapContainer12" instance=ExtResource("16_vkmah")]
 transform = Transform3D(0.9833407, -0.18177216, 0, 0.18177216, 0.9833407, 0, 0, 0, 1, -405.4215, -27.666481, 146.8276)
 
-[node name="ScrapRocketWrack8" parent="." instance=ExtResource("18_mpru3")]
+[node name="ScrapRocketWrack8" parent="ScrapContainer12" instance=ExtResource("18_mpru3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -421.89163, -29.726377, 161.1339)
 
-[node name="ScrapContainer5" parent="." instance=ExtResource("12_mbeav")]
+[node name="ScrapContainer7" parent="ScrapContainer12" instance=ExtResource("12_mbeav")]
 transform = Transform3D(0.2939349, -0.7191458, 0.6296281, 0.30420846, 0.6948592, 0.65163475, -0.90612334, 0, 0.42301363, -384.73776, -33.324066, 83.39939)
 
-[node name="RocketThrustBroken5" parent="." instance=ExtResource("19_vkmah")]
+[node name="RocketThrustBroken7" parent="ScrapContainer12" instance=ExtResource("19_vkmah")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -426.05835, -24.001745, 159.90767)
 
-[node name="ScrapRocketWrack9" parent="." instance=ExtResource("18_mpru3")]
+[node name="ScrapRocketWrack9" parent="ScrapContainer12" instance=ExtResource("18_mpru3")]
 transform = Transform3D(1, 0, 0, 0, 0.28705955, -0.95791274, 0, 0.95791274, 0.28705955, -328.73407, 0, 203.3395)
 
-[node name="ScrapRocketWrack10" parent="." instance=ExtResource("18_mpru3")]
+[node name="ScrapRocketWrack10" parent="ScrapContainer12" instance=ExtResource("18_mpru3")]
 transform = Transform3D(0.15846826, 0, 0.98736405, 0, 1, 0, -0.98736405, 0, 0.15846826, -331.09772, -9.4979515, 208.03827)
 
-[node name="ScrapTiles23" parent="." instance=ExtResource("17_j8e2g")]
+[node name="ScrapTiles25" parent="ScrapContainer12" instance=ExtResource("17_j8e2g")]
 transform = Transform3D(0.6682612, 0, 0.74392676, 0, 1, 0, -0.74392676, 0, 0.6682612, -331.96735, -2.8302972, 208.11609)
 
-[node name="ScrapSteelbar11" parent="." instance=ExtResource("15_l32ty")]
+[node name="ScrapSteelbar15" parent="ScrapContainer12" instance=ExtResource("15_l32ty")]
 transform = Transform3D(-0.4045032, 0.9145366, 0, -0.9145366, -0.4045032, 0, 0, 0, 1, -184.20116, 16.655104, 247.98944)
 
-[node name="ScrapSteelbar12" parent="." instance=ExtResource("13_17oop")]
+[node name="ScrapSteelbar16" parent="ScrapContainer12" instance=ExtResource("13_17oop")]
 transform = Transform3D(0.54962075, -0.8354143, 0, 0.8354143, 0.54962075, 0, 0, 0, 1, -104.25748, -12.570291, 226.40172)
 
-[node name="ScrapSteelbar13" parent="." instance=ExtResource("15_l32ty")]
+[node name="ScrapSteelbar17" parent="ScrapContainer12" instance=ExtResource("15_l32ty")]
 transform = Transform3D(0.718357, 0.6956746, 0, -0.6956746, 0.718357, 0, 0, 0, 1, -100.20956, -3.457544, 244.96573)
 
-[node name="ScrapTiles24" parent="." instance=ExtResource("17_j8e2g")]
+[node name="ScrapTiles26" parent="ScrapContainer12" instance=ExtResource("17_j8e2g")]
 transform = Transform3D(0.8254981, -0.5644054, 0, 0.4222051, 0.6175163, -0.6636391, 0.37456143, 0.5478327, 0.74805295, -107.1369, -3.383781, 202.03267)
 
-[node name="RocketThrustBroken6" parent="." instance=ExtResource("19_vkmah")]
+[node name="RocketThrustBroken8" parent="ScrapContainer12" instance=ExtResource("19_vkmah")]
 transform = Transform3D(0.4708425, 0.8822173, 0, -0.8822173, 0.4708425, 0, 0, 0, 1, -0.21342278, -4.0926456, 74.94348)
 
-[node name="RocketThrustBroken7" parent="." instance=ExtResource("19_vkmah")]
+[node name="RocketThrustBroken9" parent="ScrapContainer12" instance=ExtResource("19_vkmah")]
 transform = Transform3D(0.5687908, -0.82234544, 0.0150012495, -0.8212998, -0.56885624, -0.04323558, 0.044088144, 0.012271481, -0.99895227, -10.003162, -10.573412, 75.06436)
 
-[node name="ScrapContainer6" parent="." instance=ExtResource("12_mbeav")]
+[node name="ScrapContainer8" parent="ScrapContainer12" instance=ExtResource("12_mbeav")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.01223, 0.7278576, 117.81543)
 
-[node name="ScrapRocketWrack11" parent="." instance=ExtResource("18_mpru3")]
+[node name="ScrapRocketWrack11" parent="ScrapContainer12" instance=ExtResource("18_mpru3")]
 transform = Transform3D(1, 0, 0, 0, 0.592421, 0.80562854, 0, -0.80562854, 0.592421, -30.463814, 11.100252, 129.38725)
 
-[node name="ScrapRocketWrack12" parent="." instance=ExtResource("18_mpru3")]
+[node name="ScrapRocketWrack12" parent="ScrapContainer12" instance=ExtResource("18_mpru3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.17634, 1.1199055, 279.20224)
 
-[node name="ScrapSolarPanel4" parent="." instance=ExtResource("20_j8e2g")]
+[node name="ScrapSolarPanel4" parent="ScrapContainer12" instance=ExtResource("20_j8e2g")]
 transform = Transform3D(0.9881079, -0.15376194, 0, 0.15376194, 0.9881079, 0, 0, 0, 1, -18.798798, 12.067099, 265.3825)
 
-[node name="RocketThrustBroken8" parent="." instance=ExtResource("19_vkmah")]
+[node name="RocketThrustBroken10" parent="ScrapContainer12" instance=ExtResource("19_vkmah")]
 transform = Transform3D(0.16155212, 0, 0.9868642, 0, 1, 0, -0.9868642, 0, 0.16155212, -75.216515, -0.6763351, 243.65005)
 
-[node name="ScrapRocketWrack13" parent="." instance=ExtResource("18_mpru3")]
+[node name="ScrapRocketWrack13" parent="ScrapContainer12" instance=ExtResource("18_mpru3")]
 transform = Transform3D(-0.096922874, -0.9952919, 0, 0.23199154, -0.022591652, -0.97245544, 0.96787703, -0.094253175, 0.23308896, -331.3097, -3.6674812, 118.92131)
 
-[node name="ScrapContainer7" parent="." instance=ExtResource("12_mbeav")]
+[node name="ScrapContainer9" parent="ScrapContainer12" instance=ExtResource("12_mbeav")]
 transform = Transform3D(0.7751651, -0.63175875, 0, 0.6115279, 0.75034195, -0.25103894, 0.15859604, 0.19459662, 0.967977, -285.9029, -0.16164017, -27.81152)
 
-[node name="ScrapTiles25" parent="." instance=ExtResource("14_2t1r7")]
+[node name="ScrapTiles27" parent="ScrapContainer12" instance=ExtResource("14_2t1r7")]
 transform = Transform3D(1, 0, 0, 0, 0.30725697, -0.9516266, 0, 0.9516266, 0.30725697, -286.08875, -2.105063, -16.276659)
 
-[node name="ScrapTiles26" parent="." instance=ExtResource("17_j8e2g")]
+[node name="ScrapTiles28" parent="ScrapContainer12" instance=ExtResource("17_j8e2g")]
 transform = Transform3D(0.5198024, 0.85428655, 0, -0.85428655, 0.5198024, 0, 0, 0, 1, -277.67877, -5.544611, -21.669296)
 
-[node name="ScrapSteelbar14" parent="." instance=ExtResource("15_l32ty")]
+[node name="ScrapSteelbar18" parent="ScrapContainer12" instance=ExtResource("15_l32ty")]
 transform = Transform3D(-0.23836389, 0.2369218, -0.94183373, -0.97117597, -0.05814971, 0.23116222, -9.782713e-09, 0.96978694, 0.24395353, -277.27127, -9.871926, -16.57004)
 
-[node name="ScrapTiles27" parent="." instance=ExtResource("17_j8e2g")]
+[node name="ScrapTiles29" parent="ScrapContainer12" instance=ExtResource("17_j8e2g")]
 transform = Transform3D(0.6723151, -0.08877915, -0.7349222, 0.7402651, 0.08062999, 0.66746265, 0, -0.9927825, 0.11992887, -51.605213, 31.85635, 149.10925)
 
-[node name="ScrapRocketWrack14" parent="." instance=ExtResource("18_mpru3")]
+[node name="ScrapRocketWrack14" parent="ScrapContainer12" instance=ExtResource("18_mpru3")]
 transform = Transform3D(1, 0, 0, 0, 0.58230746, 0.8129687, 0, -0.8129687, 0.58230746, -6.8946257, -29.701878, 424.74313)
 
-[node name="ScrapRocketWrack15" parent="." instance=ExtResource("18_mpru3")]
+[node name="ScrapRocketWrack15" parent="ScrapContainer12" instance=ExtResource("18_mpru3")]
 transform = Transform3D(0.7771459, 0.523584, -0.3491475, 0, 0.55480087, 0.8319832, 0.6293204, -0.64657235, 0.43116122, 12.673365, -35.945988, 426.43796)
 
-[node name="ScrapRocketWrack16" parent="." instance=ExtResource("18_mpru3")]
+[node name="ScrapRocketWrack16" parent="ScrapContainer12" instance=ExtResource("18_mpru3")]
 transform = Transform3D(0.3690493, 0.9294098, 0, -0.9294098, 0.3690493, 0, 0, 0, 1, 15.930653, -20.50357, 381.71213)
 
-[node name="ScrapTiles28" parent="." instance=ExtResource("17_j8e2g")]
+[node name="ScrapTiles30" parent="ScrapContainer12" instance=ExtResource("17_j8e2g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.855274, -35.10073, 413.12393)
 
-[node name="ScrapContainer8" parent="." instance=ExtResource("12_mbeav")]
+[node name="ScrapContainer10" parent="ScrapContainer12" instance=ExtResource("12_mbeav")]
 transform = Transform3D(0.19291583, 0.9812153, 0, -0.9812153, 0.19291583, 0, 0, 0, 1, 30.771788, -32.016655, 436.73895)
 
-[node name="ScrapSteelbar15" parent="." instance=ExtResource("15_l32ty")]
+[node name="ScrapSteelbar19" parent="ScrapContainer12" instance=ExtResource("15_l32ty")]
 transform = Transform3D(0.9423732, 0.33456355, 0, -0.33456355, 0.9423732, 0, 0, 0, 1, 25.081074, -37.143486, 423.04755)
 
-[node name="ScrapSteelbar16" parent="." instance=ExtResource("13_17oop")]
+[node name="ScrapSteelbar20" parent="ScrapContainer12" instance=ExtResource("13_17oop")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.845411, -14.841034, 409.29996)
 
-[node name="ScrapSteelbar17" parent="." instance=ExtResource("15_l32ty")]
+[node name="ScrapSteelbar21" parent="ScrapContainer12" instance=ExtResource("15_l32ty")]
 transform = Transform3D(0.14188606, 0.07022266, -0.9873891, 0, 0.9974806, 0.07094036, 0.989883, -0.010065448, 0.14152858, -231.45978, 4.375852, 377.52228)
 
-[node name="ScrapContainer9" parent="." instance=ExtResource("12_mbeav")]
+[node name="ScrapContainer11" parent="ScrapContainer12" instance=ExtResource("12_mbeav")]
 transform = Transform3D(0.9321975, -0.36194998, 0, 0.2905873, 0.74840385, -0.5961969, 0.21579345, 0.55577326, 0.80283827, -249.04425, -7.12788, 363.75177)
 
-[node name="ScrapRocketWrack17" parent="." instance=ExtResource("18_mpru3")]
+[node name="ScrapRocketWrack17" parent="ScrapContainer12" instance=ExtResource("18_mpru3")]
 transform = Transform3D(1, 0, 0, 0, 0.11028942, -0.9938995, 0, 0.9938995, 0.11028942, 70.663185, 20.070892, 185.15282)
 
-[node name="ScrapRocketWrack18" parent="." instance=ExtResource("18_mpru3")]
+[node name="ScrapRocketWrack18" parent="ScrapContainer12" instance=ExtResource("18_mpru3")]
 transform = Transform3D(0.41405782, 0.9102506, 0, -0.9102506, 0.41405782, 0, 0, 0, 1, 73.87344, 19.23053, 187.69888)
 
-[node name="ScrapRocketWrack19" parent="." instance=ExtResource("18_mpru3")]
+[node name="ScrapRocketWrack19" parent="ScrapContainer12" instance=ExtResource("18_mpru3")]
 transform = Transform3D(0.2544673, 0.414879, -0.8735684, -0.85243034, 0.5228408, 0, 0.45673722, 0.7446562, 0.48670134, 82.93007, 20.344622, 187.8393)
 
-[node name="RocketThrustBroken9" parent="." instance=ExtResource("19_vkmah")]
+[node name="RocketThrustBroken11" parent="ScrapContainer12" instance=ExtResource("19_vkmah")]
 transform = Transform3D(-0.20627245, 0, 0.9784946, 0, 1, 0, -0.9784946, 0, -0.20627245, 79.4903, 22.755816, 191.43268)
 
-[node name="RocketThrustBroken10" parent="." instance=ExtResource("19_vkmah")]
+[node name="RocketThrustBroken12" parent="ScrapContainer12" instance=ExtResource("19_vkmah")]
 transform = Transform3D(-0.20984043, -0.89004093, 0.40471488, 0, 0.41393077, 0.91030836, -0.97773564, 0.1910195, -0.08685941, -9.443956, 15.533606, 220.37102)
 
-[node name="RocketThrustBroken11" parent="." instance=ExtResource("19_vkmah")]
+[node name="RocketThrustBroken13" parent="ScrapContainer12" instance=ExtResource("19_vkmah")]
 transform = Transform3D(0.6408603, 0, 0.7676575, 0, 1, 0, -0.7676575, 0, 0.6408603, -10.163468, 31.068142, 323.20352)
 
-[node name="ScrapSteelbar18" parent="." instance=ExtResource("15_l32ty")]
+[node name="ScrapSteelbar22" parent="ScrapContainer12" instance=ExtResource("15_l32ty")]
 transform = Transform3D(-0.4576256, 0.8891449, 0, -0.8891449, -0.4576256, 0, 0, 0, 1, -88.41305, 0.7152786, 252.81915)
 
-[node name="ScrapRingdonkBroken2" parent="." instance=ExtResource("22_bajyc")]
+[node name="ScrapRingdonkBroken2" parent="ScrapContainer12" instance=ExtResource("22_bajyc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 168.16165, 84.463005, 186.92581)
 
-[node name="RocketThrustBroken12" parent="." instance=ExtResource("19_vkmah")]
+[node name="RocketThrustBroken14" parent="ScrapContainer12" instance=ExtResource("19_vkmah")]
 transform = Transform3D(-0.018115526, 0, 0.9998359, 0, 1, 0, -0.9998359, 0, -0.018115526, 171.61559, 79.00312, 187.25504)
 
-[node name="ScrapContainer10" parent="." instance=ExtResource("12_mbeav")]
+[node name="ScrapContainer12" parent="ScrapContainer12" instance=ExtResource("12_mbeav")]
 transform = Transform3D(0.8667576, 0.49872985, 0, -0.43419233, 0.7545959, 0.49199817, 0.24537417, -0.42644313, 0.87059623, 153.3091, -17.12313, 296.30365)
 
-[node name="ScrapContainer11" parent="." instance=ExtResource("12_mbeav")]
+[node name="ScrapContainer13" parent="ScrapContainer12" instance=ExtResource("12_mbeav")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 162.30145, 2.510314, 316.21735)
 
-[node name="RocketThrustBroken13" parent="." instance=ExtResource("19_vkmah")]
+[node name="RocketThrustBroken15" parent="ScrapContainer12" instance=ExtResource("19_vkmah")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 144.14479, 3.0818577, 317.51733)
 
-[node name="ScrapTiles29" parent="." instance=ExtResource("16_vkmah")]
+[node name="ScrapTiles31" parent="ScrapContainer12" instance=ExtResource("16_vkmah")]
 transform = Transform3D(0.9822709, 0.18746704, 0, -0.18746704, 0.9822709, 0, 0, 0, 1, 69.63372, 7.1950912, 303.2847)
 
-[node name="ScrapTiles30" parent="." instance=ExtResource("14_2t1r7")]
+[node name="ScrapTiles32" parent="ScrapContainer12" instance=ExtResource("14_2t1r7")]
 transform = Transform3D(0.8299771, -0.35472175, 0.43047726, 0.49074155, 0.83122516, -0.26122284, -0.26516208, 0.42806208, 0.8639746, 123.378, 24.837841, 196.00488)
 
-[node name="ScrapTiles31" parent="." instance=ExtResource("17_j8e2g")]
+[node name="ScrapTiles33" parent="ScrapContainer12" instance=ExtResource("17_j8e2g")]
 transform = Transform3D(0.3818932, 0.19888513, 0.9025532, 0, 0.9765711, -0.21519558, -0.9242066, 0.08218173, 0.37294585, -179.29976, 18.302467, 265.9332)
 
-[node name="ScrapTiles32" parent="." instance=ExtResource("16_vkmah")]
+[node name="ScrapTiles34" parent="ScrapContainer12" instance=ExtResource("16_vkmah")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -180.83224, 19.350657, 257.44904)
 
-[node name="ScrapTiles33" parent="." instance=ExtResource("17_j8e2g")]
+[node name="ScrapTiles35" parent="ScrapContainer12" instance=ExtResource("17_j8e2g")]
 transform = Transform3D(-0.51224524, 0.35706407, -0.7810954, 0.19581233, 0.9340799, 0.29858378, 0.8362191, 0, -0.5483955, -169.29384, 17.405388, 259.51114)
 
-[node name="ScrapTiles34" parent="." instance=ExtResource("16_vkmah")]
+[node name="ScrapTiles36" parent="ScrapContainer12" instance=ExtResource("16_vkmah")]
 transform = Transform3D(-0.26569033, 0.31332955, 0.91172, 0.08766295, 0.94964445, -0.3008166, -0.96006453, 0, -0.27977875, -188.37497, 21.258848, 247.25536)
 
-[node name="ScrapTiles35" parent="." instance=ExtResource("17_j8e2g")]
+[node name="ScrapTiles37" parent="ScrapContainer12" instance=ExtResource("17_j8e2g")]
 transform = Transform3D(0.9628616, 0, -0.26999554, 0, 1, 0, 0.26999554, 0, 0.9628616, -180.42612, 20.06529, 245.58008)
 
-[node name="ScrapSteelbar19" parent="." instance=ExtResource("15_l32ty")]
+[node name="ScrapSteelbar23" parent="ScrapContainer12" instance=ExtResource("15_l32ty")]
 transform = Transform3D(0.25730145, 0.9663312, 0, -0.9663312, 0.25730145, 0, 0, 0, 1, -171.67197, 8.480406, 245.06563)
 
-[node name="ScrapSteelbar20" parent="." instance=ExtResource("15_l32ty")]
+[node name="ScrapSteelbar24" parent="ScrapContainer12" instance=ExtResource("15_l32ty")]
 transform = Transform3D(0.16060156, 0.46578687, 0.870201, -0.9453821, 0.32596418, 0, -0.28365436, -0.8226725, 0.49269694, -173.94579, 15.255488, 246.27791)
 
-[node name="ScrapTiles36" parent="." instance=ExtResource("16_vkmah")]
+[node name="ScrapTiles38" parent="ScrapContainer12" instance=ExtResource("16_vkmah")]
 transform = Transform3D(0.99493873, 0.10048327, 0, -0.10048327, 0.99493873, 0, 0, 0, 1, -25.309586, 22.45643, 162.14777)
 
-[node name="RocketThrustBroken14" parent="." instance=ExtResource("19_vkmah")]
+[node name="RocketThrustBroken16" parent="ScrapContainer12" instance=ExtResource("19_vkmah")]
 transform = Transform3D(-0.0025747567, -0.6742581, -0.7384913, 0.94186556, 0.24648456, -0.22832948, 0.33597967, -0.69614744, 0.6344259, 147.82222, -5.9221387, 317.09393)

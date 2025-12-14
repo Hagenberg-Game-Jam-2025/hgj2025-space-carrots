@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://ci3k23agf4oer"]
+[gd_scene load_steps=26 format=4 uid="uid://ci3k23agf4oer"]
 
 [ext_resource type="Script" uid="uid://cbrmex8f1172a" path="res://scene/component/rover/Rover.gd" id="1_43537"]
 [ext_resource type="PackedScene" uid="uid://cvyo055ghsw23" path="res://script/mini-game/mini-game-control-entity/MiniGameControlEntity.tscn" id="2_1imye"]
@@ -8,6 +8,8 @@
 [ext_resource type="Material" uid="uid://cvho50jl17u6q" path="res://resource/material/rover/WheelAccentMaterial.tres" id="5_id8op"]
 [ext_resource type="Material" uid="uid://dpcggfm3ajfgn" path="res://resource/material/rover/BodyAccentMaterial.tres" id="6_s11xs"]
 [ext_resource type="FontFile" uid="uid://cbuih6hp54o7h" path="res://script/marker/Pixeled.ttf" id="8_m7gmb"]
+[ext_resource type="Script" uid="uid://dvg7cksevhabb" path="res://script/marker/PlayerDetectionZone.gd" id="9_s11xs"]
+[ext_resource type="PackedScene" uid="uid://0vhfhs72trxf" path="res://script/marker/MarkerSprite.tscn" id="10_o622x"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_pfqjg"]
 _surfaces = [{
@@ -372,7 +374,7 @@ mesh = SubResource("ArrayMesh_2ofjm")
 skeleton = NodePath("")
 
 [node name="Screen_001" type="MeshInstance3D" parent="Rover/Rover_Screen/Arms/Screen_arm"]
-transform = Transform3D(1, -1.5639769e-14, 2.7987603e-15, 1.4210854e-14, 0.9592188, 0.28266418, -7.1054274e-15, -0.28266418, 0.9592188, -1.0664077, -1.0058141, 0.0012959242)
+transform = Transform3D(1, -1.5639767e-14, 2.7987603e-15, 1.4210854e-14, 0.95921874, 0.28266415, -7.1054274e-15, -0.28266415, 0.95921874, -1.0664077, -1.0058141, 0.0012959242)
 mesh = SubResource("ArrayMesh_3adxr")
 skeleton = NodePath("")
 
@@ -411,3 +413,16 @@ outline_modulate = Color(0, 0, 0, 0)
 text = "Rover Name"
 font = ExtResource("8_m7gmb")
 font_size = 30
+
+[node name="PlayerDetectionZone" type="Node3D" parent="." node_paths=PackedStringArray("distant_sprite")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0426415, 0)
+script = ExtResource("9_s11xs")
+update_time = 0.1
+use_distance_display = true
+distant_sprite = NodePath("MarkerSprite")
+sprite_distance = 5.0
+sprite_max_distance = 5771.0
+metadata/_custom_type_script = "uid://dvg7cksevhabb"
+
+[node name="MarkerSprite" parent="PlayerDetectionZone" instance=ExtResource("10_o622x")]
+text = &"Rover Test"
