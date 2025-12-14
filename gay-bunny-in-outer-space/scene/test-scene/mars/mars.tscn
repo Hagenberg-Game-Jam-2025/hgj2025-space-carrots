@@ -688,9 +688,9 @@ metadata/_custom_type_script = "uid://c4u5l5emnotkp"
 
 [node name="Lagomorph" parent="." instance=ExtResource("10_17oop")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.321663, 28.500992, 165.33788)
-base_move_speed = 5.1
-jump_speed = 7.0
-run_multiplier = 2.2
+base_move_speed = 5.0
+jump_speed = 4.0
+run_multiplier = 2.0
 
 [node name="Player" parent="." node_paths=PackedStringArray("possessed_control_entity") instance=ExtResource("9_mbeav")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.1789, -72.89777, 231.95154)
