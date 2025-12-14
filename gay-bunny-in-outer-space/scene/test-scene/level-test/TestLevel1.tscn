@@ -7,11 +7,12 @@
 
 [node name="TestLevel1" type="Node3D" node_paths=PackedStringArray("rovers")]
 script = ExtResource("1_c81c7")
-rovers = [NodePath("Rover"), NodePath("Rover2"), NodePath("Rover3")]
+rovers = [NodePath("Rover")]
+level_finish_text = "Great Job Fucker now get on to the next level press the fucking door now NOW"
 metadata/_custom_type_script = "uid://dbxriubewijd4"
 
 [node name="Rover" parent="." instance=ExtResource("2_tfmbe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0600486, 0, 2.5013518)
+transform = Transform3D(1, 0, 0, 0, 0.9556903, 0.29437396, 0, -0.29437396, 0.9556903, 4.0600486, 0, -10.730581)
 mini_games = Array[PackedScene]([ExtResource("3_r6gw3"), ExtResource("4_tskrg")])
 
 [node name="Rover2" parent="." instance=ExtResource("2_tfmbe")]
