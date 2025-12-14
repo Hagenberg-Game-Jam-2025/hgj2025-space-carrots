@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://qayx6u5vd423"]
 
 [ext_resource type="Script" uid="uid://c4u5l5emnotkp" path="res://script/level/LevelManager.gd" id="1_jd66v"]
-[ext_resource type="PackedScene" uid="uid://dxu3brdx52wbm" path="res://scene/test-scene/level-test/TestInteriorScene.tscn" id="2_h66ku"]
+[ext_resource type="PackedScene" uid="uid://bm85qtfeyunxm" path="res://scene/component/level/planet-base-building/BuildingInterior.tscn" id="2_tkwug"]
 [ext_resource type="PackedScene" uid="uid://bee4hia3wqu6b" path="res://scene/component/level/planet-base-building/PlanetBaseBuilding.tscn" id="3_8yotq"]
 [ext_resource type="PackedScene" uid="uid://cc3gcg2pcd46s" path="res://scene/test-scene/level-test/TestLevel1.tscn" id="3_tkwug"]
 [ext_resource type="PackedScene" uid="uid://w54h1rmdgeqt" path="res://scene/test-scene/level-test/TestLevel2.tscn" id="4_cv0t8"]
@@ -21,7 +21,7 @@ sky = SubResource("Sky_6j6x2")
 
 [node name="LevelManager" type="Node" parent="." node_paths=PackedStringArray("level_container", "planet_base_building")]
 script = ExtResource("1_jd66v")
-planet_base_interior_scene = ExtResource("2_h66ku")
+planet_base_interior_scene = ExtResource("2_tkwug")
 levels = Array[PackedScene]([ExtResource("3_tkwug"), ExtResource("4_cv0t8")])
 level_container = NodePath("../LevelContainer")
 planet_base_building = NodePath("../PlanetBaseBuilding")

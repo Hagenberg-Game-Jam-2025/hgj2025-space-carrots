@@ -7,6 +7,9 @@ class_name Level
 @export
 var rovers : Array[Rover]
 
+@export
+var level_finish_text : String = ""
+
 var repaired_rovers : int = 0
 
 signal level_complete

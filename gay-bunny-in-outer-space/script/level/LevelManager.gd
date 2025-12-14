@@ -40,6 +40,7 @@ func _on_building_entered() -> void:
 	var planet_base_interior_scene_instance : Node = planet_base_interior_scene.instantiate()
 	planet_base_interior_scene_instance.exit_building.connect(_on_building_exited)
 	get_tree().root.add_child(planet_base_interior_scene_instance)
+	(planet_base_interior_scene_instance as BuildingInterior).set_screen_text((level_container.get_child(0) as Level).level_finish_text)
 	
 	print("level loaded")
 
