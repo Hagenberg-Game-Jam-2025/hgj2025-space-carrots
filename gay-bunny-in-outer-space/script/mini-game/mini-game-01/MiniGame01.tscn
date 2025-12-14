@@ -1,0 +1,184 @@
+[gd_scene load_steps=10 format=3 uid="uid://cfshw6jnqquv6"]
+
+[ext_resource type="Script" uid="uid://b1ipsxogp1j7m" path="res://script/mini-game/mini-game-01/MiniGame01.gd" id="1_p5rsc"]
+[ext_resource type="Texture2D" uid="uid://djb8hnotyrqav" path="res://resource/2d/minigame01/Minigame_01_Arrow-Sheet.png" id="2_cptqg"]
+[ext_resource type="Texture2D" uid="uid://bxe55bnpdujfl" path="res://resource/2d/minigame01/Background.png" id="2_w1fa2"]
+[ext_resource type="Texture2D" uid="uid://cdrdfkpotdhek" path="res://resource/2d/minigame01/Minigame_01_Figure_White-Sheet.png" id="4_cptqg"]
+[ext_resource type="Texture2D" uid="uid://b4f1f36xjtty8" path="res://resource/2d/minigame01/Minigame_01_Apple-Sheet.png" id="4_ivxgn"]
+[ext_resource type="Texture2D" uid="uid://q3xqtt7oexi6" path="res://resource/2d/minigame01/Minigame_01_Banana-Sheet.png" id="5_7xypm"]
+[ext_resource type="Texture2D" uid="uid://cid3eb8ssg6i2" path="res://resource/2d/minigame01/Minigame_01_Cherry-Sheet.png" id="6_6cb53"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_844xs"]
+size = Vector2(164, 164)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ppfc"]
+size = Vector2(164, 164)
+
+[node name="MiniGame01" type="Node2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_p5rsc")
+
+[node name="MainGame" type="Node2D" parent="."]
+visible = false
+position = Vector2(59.333336, 62)
+
+[node name="Background" type="Sprite2D" parent="MainGame"]
+position = Vector2(842, 564)
+scale = Vector2(21.4, 9.960001)
+texture = ExtResource("2_w1fa2")
+
+[node name="Arrows" type="Node2D" parent="MainGame"]
+
+[node name="Arrow_Left" type="Area2D" parent="MainGame/Arrows"]
+position = Vector2(100, 500)
+
+[node name="Arrow" type="Sprite2D" parent="MainGame/Arrows/Arrow_Left"]
+texture = ExtResource("2_cptqg")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MainGame/Arrows/Arrow_Left"]
+shape = SubResource("RectangleShape2D_844xs")
+
+[node name="Arrow_Right" type="Area2D" parent="MainGame/Arrows"]
+position = Vector2(1050, 500)
+
+[node name="Arrow" type="Sprite2D" parent="MainGame/Arrows/Arrow_Right"]
+texture = ExtResource("2_cptqg")
+hframes = 2
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MainGame/Arrows/Arrow_Right"]
+shape = SubResource("RectangleShape2D_4ppfc")
+
+[node name="Charakter" type="Node2D" parent="MainGame"]
+
+[node name="Charakter_left" type="Sprite2D" parent="MainGame/Charakter"]
+position = Vector2(320, 500)
+texture = ExtResource("4_cptqg")
+hframes = 3
+
+[node name="Charakter_middle" type="Sprite2D" parent="MainGame/Charakter"]
+position = Vector2(570, 500)
+texture = ExtResource("4_cptqg")
+hframes = 3
+frame = 1
+
+[node name="Charakter_right" type="Sprite2D" parent="MainGame/Charakter"]
+position = Vector2(820, 500)
+texture = ExtResource("4_cptqg")
+hframes = 3
+frame = 2
+
+[node name="Apple" type="Node2D" parent="MainGame"]
+
+[node name="Top" type="Sprite2D" parent="MainGame/Apple"]
+position = Vector2(320, 100)
+texture = ExtResource("4_ivxgn")
+hframes = 2
+
+[node name="Middle" type="Sprite2D" parent="MainGame/Apple"]
+position = Vector2(320, 300)
+texture = ExtResource("4_ivxgn")
+hframes = 2
+
+[node name="Bottom" type="Sprite2D" parent="MainGame/Apple"]
+position = Vector2(320, 500)
+texture = ExtResource("4_ivxgn")
+hframes = 2
+
+[node name="Banana" type="Node2D" parent="MainGame"]
+
+[node name="Top" type="Sprite2D" parent="MainGame/Banana"]
+position = Vector2(570, 100)
+texture = ExtResource("5_7xypm")
+hframes = 2
+
+[node name="Middle" type="Sprite2D" parent="MainGame/Banana"]
+position = Vector2(570, 300)
+texture = ExtResource("5_7xypm")
+hframes = 2
+
+[node name="Bottom" type="Sprite2D" parent="MainGame/Banana"]
+position = Vector2(570, 500)
+texture = ExtResource("5_7xypm")
+hframes = 2
+
+[node name="Cherry" type="Node2D" parent="MainGame"]
+
+[node name="Top" type="Sprite2D" parent="MainGame/Cherry"]
+position = Vector2(820, 100)
+texture = ExtResource("6_6cb53")
+hframes = 2
+
+[node name="Middle" type="Sprite2D" parent="MainGame/Cherry"]
+position = Vector2(820, 300)
+texture = ExtResource("6_6cb53")
+hframes = 2
+
+[node name="Bottom" type="Sprite2D" parent="MainGame/Cherry"]
+position = Vector2(820, 500)
+texture = ExtResource("6_6cb53")
+hframes = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="StartScreen" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/StartScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(2.5268645e-07, 0.204205, 0.20514122, 1)
+
+[node name="Top" type="CenterContainer" parent="CanvasLayer/StartScreen"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/StartScreen/Top"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+
+[node name="Bottom" type="CenterContainer" parent="CanvasLayer/StartScreen"]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Control" type="Control" parent="CanvasLayer/StartScreen/Bottom"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/StartScreen/Bottom/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start"
+
+[connection signal="input_event" from="MainGame/Arrows/Arrow_Left" to="." method="_on_arrow_left_input_event"]
+[connection signal="mouse_entered" from="MainGame/Arrows/Arrow_Left" to="." method="_on_arrow_left_mouse_entered"]
+[connection signal="mouse_exited" from="MainGame/Arrows/Arrow_Left" to="." method="_on_arrow_left_mouse_exited"]
+[connection signal="input_event" from="MainGame/Arrows/Arrow_Right" to="." method="_on_arrow_right_input_event"]
+[connection signal="mouse_entered" from="MainGame/Arrows/Arrow_Right" to="." method="_on_arrow_right_mouse_entered"]
+[connection signal="mouse_exited" from="MainGame/Arrows/Arrow_Right" to="." method="_on_arrow_right_mouse_exited"]
+[connection signal="button_up" from="CanvasLayer/StartScreen/Bottom/Control/Button" to="." method="_on_button_button_up"]

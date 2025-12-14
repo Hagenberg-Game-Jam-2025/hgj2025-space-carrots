@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://3wafjvrbrsnu" path="res://scene/component/player/Player.tscn" id="5_c43pg"]
 [ext_resource type="PackedScene" path="res://scene/test-scene/mars/quirinExampleLevel.tscn" id="5_cv0t8"]
 [ext_resource type="PackedScene" uid="uid://fhdqcxgti4ey" path="res://resource/mesh/CrystalC.tscn" id="8_cv0t8"]
+[ext_resource type="PackedScene" uid="uid://citstuntwxnwi" path="res://scene/test-scene/mars/quirinExampleLevel.tscn" id="5_cv0t8"]
+[ext_resource type="PackedScene" path="res://resource/mesh/CrystalC.tscn" id="8_cv0t8"]
 [ext_resource type="PackedScene" uid="uid://df2fgteih7q35" path="res://script/audio-tape/AudioTape.tscn" id="9_qmgb8"]
 [ext_resource type="AudioStream" uid="uid://t26wg2dj8ing" path="res://script/audio-tape/audio-tracks/Captain/Captain_Logbuch_22.wav" id="10_qmgb8"]
 
