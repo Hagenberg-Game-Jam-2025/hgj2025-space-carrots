@@ -51,6 +51,7 @@ folder_colors={
 "res://scene/test-scene/mars/": "pink",
 "res://scene/test-scene/mini-game-test-scene/": "red",
 "res://scene/test-scene/player-test-scene/": "red",
+"res://script/audio-tape/": "red",
 "res://script/character-controller/": "red",
 "res://script/door/": "red",
 "res://script/interaction/": "purple",
