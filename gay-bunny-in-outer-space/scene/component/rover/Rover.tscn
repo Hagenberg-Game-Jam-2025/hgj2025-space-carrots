@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://ci3k23agf4oer"]
+[gd_scene load_steps=28 format=4 uid="uid://ci3k23agf4oer"]
 
 [ext_resource type="Script" uid="uid://cbrmex8f1172a" path="res://scene/component/rover/Rover.gd" id="1_43537"]
 [ext_resource type="PackedScene" uid="uid://cvyo055ghsw23" path="res://script/mini-game/mini-game-control-entity/MiniGameControlEntity.tscn" id="2_1imye"]
@@ -10,6 +10,7 @@
 [ext_resource type="FontFile" uid="uid://cbuih6hp54o7h" path="res://script/marker/Pixeled.ttf" id="8_m7gmb"]
 [ext_resource type="Script" uid="uid://dvg7cksevhabb" path="res://script/marker/PlayerDetectionZone.gd" id="9_s11xs"]
 [ext_resource type="PackedScene" uid="uid://0vhfhs72trxf" path="res://script/marker/MarkerSprite.tscn" id="10_o622x"]
+[ext_resource type="PackedScene" uid="uid://bpoau7ueslq3g" path="res://scene/component/rover/Fire/Fire.tscn" id="11_o622x"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_pfqjg"]
 _surfaces = [{
@@ -352,6 +353,9 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_xqdj3"]
 size = Vector3(2.690493, 2.6622314, 3.4992585)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_s11xs"]
+size = Vector3(1.8500977, 1.2989502, 1.9366455)
+
 [node name="Rover" type="Node3D"]
 script = ExtResource("1_43537")
 
@@ -374,7 +378,7 @@ mesh = SubResource("ArrayMesh_2ofjm")
 skeleton = NodePath("")
 
 [node name="Screen_001" type="MeshInstance3D" parent="Rover/Rover_Screen/Arms/Screen_arm"]
-transform = Transform3D(1, -1.5639767e-14, 2.7987603e-15, 1.4210854e-14, 0.95921874, 0.28266415, -7.1054274e-15, -0.28266415, 0.95921874, -1.0664077, -1.0058141, 0.0012959242)
+transform = Transform3D(1, -1.5639765e-14, 2.79876e-15, 1.4210854e-14, 0.9592186, 0.28266412, -7.1054274e-15, -0.28266412, 0.9592186, -1.0664077, -1.0058141, 0.0012959242)
 mesh = SubResource("ArrayMesh_3adxr")
 skeleton = NodePath("")
 
@@ -426,3 +430,21 @@ metadata/_custom_type_script = "uid://dvg7cksevhabb"
 
 [node name="MarkerSprite" parent="PlayerDetectionZone" instance=ExtResource("10_o622x")]
 text = &"Rover Test"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0036621094, 0.6894427, -0.12591553)
+shape = SubResource("BoxShape3D_s11xs")
+
+[node name="Fire" parent="." instance=ExtResource("11_o622x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6274871, 1.2541685, 0.534577)
+emitting = true
+
+[node name="Fire2" parent="Fire" instance=ExtResource("11_o622x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47417516, -0.054872036, -1.1178477)
+emitting = true
+
+[node name="Fire" parent="Fire" instance=ExtResource("11_o622x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6774747, -0.69328, -0.55892384)
+emitting = true

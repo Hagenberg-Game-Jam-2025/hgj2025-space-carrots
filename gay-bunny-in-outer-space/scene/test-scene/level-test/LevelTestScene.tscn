@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://w54h1rmdgeqt" path="res://scene/test-scene/level-test/TestLevel2.tscn" id="4_cv0t8"]
 [ext_resource type="PackedScene" uid="uid://swutdc1evgl4" path="res://scene/component/character-controller/lagomorph/Lagomorph.tscn" id="4_ddoyd"]
 [ext_resource type="PackedScene" uid="uid://3wafjvrbrsnu" path="res://scene/component/player/Player.tscn" id="5_c43pg"]
+[ext_resource type="PackedScene" path="res://scene/test-scene/mars/quirinExampleLevel.tscn" id="5_cv0t8"]
+[ext_resource type="PackedScene" uid="uid://fhdqcxgti4ey" path="res://resource/mesh/CrystalC.tscn" id="8_cv0t8"]
 [ext_resource type="PackedScene" uid="uid://citstuntwxnwi" path="res://scene/test-scene/mars/quirinExampleLevel.tscn" id="5_cv0t8"]
 [ext_resource type="PackedScene" path="res://resource/mesh/CrystalC.tscn" id="8_cv0t8"]
 [ext_resource type="PackedScene" uid="uid://df2fgteih7q35" path="res://script/audio-tape/AudioTape.tscn" id="9_qmgb8"]
