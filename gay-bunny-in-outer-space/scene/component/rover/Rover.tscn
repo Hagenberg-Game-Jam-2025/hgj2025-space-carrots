@@ -378,7 +378,7 @@ mesh = SubResource("ArrayMesh_2ofjm")
 skeleton = NodePath("")
 
 [node name="Screen_001" type="MeshInstance3D" parent="Rover/Rover_Screen/Arms/Screen_arm"]
-transform = Transform3D(1, -1.5639767e-14, 2.7987601e-15, 1.4210854e-14, 0.9592187, 0.28266415, -7.1054274e-15, -0.28266415, 0.9592187, -1.0664077, -1.0058141, 0.0012959242)
+transform = Transform3D(1, -1.5639765e-14, 2.79876e-15, 1.4210854e-14, 0.9592186, 0.28266412, -7.1054274e-15, -0.28266412, 0.9592186, -1.0664077, -1.0058141, 0.0012959242)
 mesh = SubResource("ArrayMesh_3adxr")
 skeleton = NodePath("")
 
