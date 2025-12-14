@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bm85qtfeyunxm"]
+[gd_scene load_steps=8 format=3 uid="uid://bm85qtfeyunxm"]
 
 [ext_resource type="Script" uid="uid://bilnpogh155nn" path="res://script/level/BuildingInterior.gd" id="1_xxcrk"]
 [ext_resource type="Texture2D" uid="uid://dqob45js6j7s7" path="res://scene/component/level/planet-base-building/ui-assets/Base.png" id="2_8o2ed"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ddf5jv3pfel43" path="res://scene/component/level/planet-base-building/ui-assets/hologram.png" id="4_mcd4b"]
 [ext_resource type="Texture2D" uid="uid://dua6om0rbnwne" path="res://scene/component/level/planet-base-building/ui-assets/recorder.png" id="5_jdq67"]
 [ext_resource type="FontFile" uid="uid://cbuih6hp54o7h" path="res://script/marker/Pixeled.ttf" id="6_k4hxm"]
+[ext_resource type="Script" uid="uid://d4js83clkl3y7" path="res://script/ui/ImageButton.gd" id="6_xdlbp"]
 
 [node name="BuildingInterior" type="Node2D"]
 script = ExtResource("1_xxcrk")
@@ -42,6 +43,9 @@ modulate = Color(1, 1, 1, 0)
 offset_left = -10.0
 offset_right = 106.0
 offset_bottom = 657.0
+mouse_default_cursor_shape = 2
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+script = ExtResource("6_xdlbp")
 
 [node name="HologramText" type="Label" parent="."]
 offset_left = 548.0
