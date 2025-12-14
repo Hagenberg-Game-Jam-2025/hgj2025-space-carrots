@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://qayx6u5vd423"]
+[gd_scene load_steps=14 format=3 uid="uid://qayx6u5vd423"]
 
 [ext_resource type="Script" uid="uid://c4u5l5emnotkp" path="res://script/level/LevelManager.gd" id="1_jd66v"]
 [ext_resource type="PackedScene" uid="uid://bm85qtfeyunxm" path="res://scene/component/level/planet-base-building/BuildingInterior.tscn" id="2_tkwug"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://3wafjvrbrsnu" path="res://scene/component/player/Player.tscn" id="5_c43pg"]
 [ext_resource type="PackedScene" uid="uid://citstuntwxnwi" path="res://scene/test-scene/mars/quirinExampleLevel.tscn" id="5_cv0t8"]
 [ext_resource type="PackedScene" uid="uid://fhdqcxgti4ey" path="res://resource/mesh/CrystalC.tscn" id="8_cv0t8"]
+[ext_resource type="PackedScene" uid="uid://df2fgteih7q35" path="res://script/audio-tape/AudioTape.tscn" id="9_qmgb8"]
+[ext_resource type="AudioStream" uid="uid://t26wg2dj8ing" path="res://script/audio-tape/audio-tracks/Captain/Captain_Logbuch_22.wav" id="10_qmgb8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tkwug"]
 sky_curve = 0.043076154
@@ -63,3 +65,7 @@ environment = SubResource("Environment_cv0t8")
 
 [node name="CrystalC" parent="." instance=ExtResource("8_cv0t8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.439526, 5.0341415, -3.3641071)
+
+[node name="AudioTape" parent="." instance=ExtResource("9_qmgb8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.229511, -0.030665398, -12.984358)
+audio_track = ExtResource("10_qmgb8")

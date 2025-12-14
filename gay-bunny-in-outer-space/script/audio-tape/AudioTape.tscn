@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://df2fgteih7q35"]
+
+[ext_resource type="Script" uid="uid://lw045mrvsgud" path="res://script/audio-tape/AudioTape.gd" id="1_anrg1"]
+[ext_resource type="PackedScene" uid="uid://davy0pnn4hbg6" path="res://scene/component/interaction/InteractionTarget.tscn" id="2_40q6y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g8g43"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_40q6y"]
+
+[node name="AudioTape" type="Node3D"]
+script = ExtResource("1_anrg1")
+metadata/_custom_type_script = "uid://lw045mrvsgud"
+
+[node name="InteractionTarget" parent="." instance=ExtResource("2_40q6y")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionTarget"]
+shape = SubResource("BoxShape3D_g8g43")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_40q6y")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+volume_db = 16.0
+max_db = 6.0
+bus = &"Audio Tapes"
+
+[connection signal="on_interact" from="InteractionTarget" to="." method="_on_interaction_target_on_interact"]
