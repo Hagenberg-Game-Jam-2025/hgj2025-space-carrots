@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://qayx6u5vd423"]
+[gd_scene load_steps=12 format=3 uid="uid://qayx6u5vd423"]
 
 [ext_resource type="Script" uid="uid://c4u5l5emnotkp" path="res://script/level/LevelManager.gd" id="1_jd66v"]
 [ext_resource type="PackedScene" uid="uid://bm85qtfeyunxm" path="res://scene/component/level/planet-base-building/BuildingInterior.tscn" id="2_tkwug"]
@@ -7,15 +7,23 @@
 [ext_resource type="PackedScene" uid="uid://w54h1rmdgeqt" path="res://scene/test-scene/level-test/TestLevel2.tscn" id="4_cv0t8"]
 [ext_resource type="PackedScene" uid="uid://swutdc1evgl4" path="res://scene/component/character-controller/lagomorph/Lagomorph.tscn" id="4_ddoyd"]
 [ext_resource type="PackedScene" uid="uid://3wafjvrbrsnu" path="res://scene/component/player/Player.tscn" id="5_c43pg"]
+[ext_resource type="PackedScene" uid="uid://fhdqcxgti4ey" path="res://resource/mesh/CrystalC.tscn" id="8_cv0t8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tkwug"]
+sky_curve = 0.043076154
+ground_curve = 0.060628664
+sun_curve = 0.12613449
+energy_multiplier = 1.6
 
 [sub_resource type="Sky" id="Sky_6j6x2"]
 sky_material = SubResource("ProceduralSkyMaterial_tkwug")
 
 [sub_resource type="Environment" id="Environment_cv0t8"]
 background_mode = 2
+background_energy_multiplier = 0.0
 sky = SubResource("Sky_6j6x2")
+ambient_light_sky_contribution = 0.55
+ambient_light_energy = 1.18
 
 [node name="LevelTestScene" type="Node3D"]
 
@@ -41,7 +49,6 @@ size = Vector3(84.78757, 1, 63.59909)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.039236, -0.07308918, -10.182341)
 base_move_speed = 5.0
 run_multiplier = 1.6
-slow_down_when_jumping = 0.05
 
 [node name="Player" parent="." node_paths=PackedStringArray("possessed_control_entity") instance=ExtResource("5_c43pg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.82149583, 0)
@@ -52,3 +59,6 @@ transform = Transform3D(0.32444572, 0.7810655, -0.53354627, 0, 0.56405944, 0.825
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_cv0t8")
+
+[node name="CrystalC" parent="." instance=ExtResource("8_cv0t8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.439526, 5.0341415, -3.3641071)
