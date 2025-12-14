@@ -20,6 +20,7 @@ script = ExtResource("1_p5rsc")
 
 [node name="MainGame" type="Node2D" parent="."]
 visible = false
+position = Vector2(59.333336, 62)
 
 [node name="Background" type="Sprite2D" parent="MainGame"]
 position = Vector2(842, 564)
@@ -148,6 +149,7 @@ grow_horizontal = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/StartScreen/Top"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 64
 
 [node name="Bottom" type="CenterContainer" parent="CanvasLayer/StartScreen"]
 custom_minimum_size = Vector2(0, 500)
