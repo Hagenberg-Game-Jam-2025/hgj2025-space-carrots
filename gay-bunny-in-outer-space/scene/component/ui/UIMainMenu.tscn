@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://chgupml3upd52"]
+[gd_scene load_steps=4 format=3 uid="uid://dcy5bax6222ul"]
 
-[ext_resource type="Script" uid="uid://dsomotv8xiud4" path="res://script/ui/SceneSwitchButtons.gd" id="1_qakhj"]
+[ext_resource type="Texture2D" uid="uid://hpsqr3tbdn2s" path="res://scene/component/ui/Game-Name.png" id="1_604c8"]
+[ext_resource type="Script" path="res://script/ui/SceneSwitchButtons.gd" id="1_qakhj"]
+[ext_resource type="Texture2D" uid="uid://tj72g34gk6y1" path="res://scene/component/ui/GameJam-Logo.png" id="3_3fj18"]
 
 [node name="UiMainMenu" type="Control"]
 layout_mode = 3
@@ -26,8 +28,14 @@ grow_horizontal = 0
 [node name="Title" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
+[node name="GameName" type="Sprite2D" parent="VBoxContainer/Title"]
+position = Vector2(72.99994, 51.999985)
+scale = Vector2(0.34, 0.34)
+texture = ExtResource("1_604c8")
+
 [node name="Panel" type="Panel" parent="VBoxContainer/Title"]
-custom_minimum_size = Vector2(400, 100)
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(400, 100.12)
 layout_mode = 2
 
 [node name="Separator" type="Control" parent="VBoxContainer"]
@@ -45,6 +53,7 @@ size_flags_horizontal = 4
 text = "Start"
 
 [node name="CreditsButton" type="Button" parent="VBoxContainer/Buttons"]
+visible = false
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -55,6 +64,28 @@ custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Exit"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="GameJamLogo" type="Sprite2D" parent="Control"]
+position = Vector2(40.874996, 604.2075)
+scale = Vector2(0.032499995, 0.032500003)
+texture = ExtResource("3_3fj18")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 69.74999
+offset_top = 598.979
+offset_right = 198.75
+offset_bottom = 624.979
+text = "Space Carrots!!!!!"
 
 [connection signal="button_up" from="VBoxContainer/Buttons/StartButton" to="VBoxContainer/Buttons" method="_on_start_button_button_up"]
 [connection signal="button_up" from="VBoxContainer/Buttons/ExitButton" to="VBoxContainer/Buttons" method="_on_exit_button_button_up"]
