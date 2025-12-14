@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://yijubjka37mq"]
+
+[ext_resource type="PackedScene" uid="uid://c4xn0h4s60wpy" path="res://resource/mesh/buttons/normal-button/DoorButton.glb" id="1_7i1ly"]
+
+[node name="Button" type="Node3D"]
+
+[node name="DoorButton" parent="." instance=ExtResource("1_7i1ly")]

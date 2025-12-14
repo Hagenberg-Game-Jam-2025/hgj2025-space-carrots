@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://w54h1rmdgeqt"]
+
+[ext_resource type="Script" uid="uid://dbxriubewijd4" path="res://script/level/Level.gd" id="1_l37fk"]
+[ext_resource type="PackedScene" uid="uid://ci3k23agf4oer" path="res://scene/component/rover/Rover.tscn" id="2_csedy"]
+[ext_resource type="PackedScene" uid="uid://0ao3yn4ii65v" path="res://script/mini-game/mini-game-examples/MiniGameExample.tscn" id="3_8kuun"]
+[ext_resource type="PackedScene" uid="uid://dgojk6lp038fe" path="res://script/mini-game/mini-game-examples/MiniGameExample2.tscn" id="4_dferh"]
+
+[node name="TestLevel1" type="Node3D" node_paths=PackedStringArray("rovers")]
+script = ExtResource("1_l37fk")
+rovers = [NodePath("Rover"), NodePath("Rover2")]
+metadata/_custom_type_script = "uid://dbxriubewijd4"
+
+[node name="Rover" parent="." instance=ExtResource("2_csedy")]
+transform = Transform3D(0.3718215, 0, 0.92830426, 0.31991827, 0.9387399, -0.12813954, -0.87143624, 0.34462652, 0.34904367, 4.0600486, 0, -5.686011)
+mini_games = Array[PackedScene]([ExtResource("3_8kuun"), ExtResource("4_dferh")])
+
+[node name="Rover2" parent="." instance=ExtResource("2_csedy")]
+transform = Transform3D(0.763255, 0, -0.6460973, 0.18724997, 0.9570821, 0.22120425, 0.61836815, -0.28981698, 0.7304977, -0.4326954, 0, 2.5013518)
+mini_games = Array[PackedScene]([ExtResource("3_8kuun"), ExtResource("4_dferh")])

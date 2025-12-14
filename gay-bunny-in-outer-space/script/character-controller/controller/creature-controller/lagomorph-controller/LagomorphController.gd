@@ -1,0 +1,3 @@
+extends CreatureController
+
+class_name LagomorphController

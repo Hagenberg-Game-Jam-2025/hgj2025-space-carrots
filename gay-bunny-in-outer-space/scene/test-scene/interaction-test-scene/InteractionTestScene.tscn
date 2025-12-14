@@ -1,0 +1,96 @@
+[gd_scene load_steps=15 format=3 uid="uid://cunad8sli1nro"]
+
+[ext_resource type="PackedScene" uid="uid://swutdc1evgl4" path="res://scene/component/character-controller/lagomorph/Lagomorph.tscn" id="1_2ge6r"]
+[ext_resource type="PackedScene" uid="uid://3wafjvrbrsnu" path="res://scene/component/player/Player.tscn" id="2_hn7u5"]
+[ext_resource type="PackedScene" uid="uid://ci3k23agf4oer" path="res://scene/component/rover/Rover.tscn" id="3_3umg4"]
+[ext_resource type="Script" uid="uid://b648355avthnd" path="res://script/rover/RoverInteraction.gd" id="4_sogfy"]
+[ext_resource type="PackedScene" uid="uid://b7jbxl3j623u8" path="res://scene/component/ui/UI.tscn" id="5_8ctol"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nwjs2"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_7g5yr"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_w5oua"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6j6x2"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w5oua"]
+
+[sub_resource type="Sky" id="Sky_6j6x2"]
+sky_material = SubResource("ProceduralSkyMaterial_w5oua")
+
+[sub_resource type="Environment" id="Environment_qyabp"]
+background_mode = 2
+sky = SubResource("Sky_6j6x2")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3umg4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_sogfy"]
+
+[node name="InteractionTestScene" type="Node3D"]
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(3.105, 0, 0, 0, 3.105, 0, 0, 0, 3.105, 0, 0, 0)
+mesh = SubResource("PlaneMesh_nwjs2")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(3.105, 0, 0, 0, 3.105, 0, 0, 0, 3.105, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_7g5yr")
+
+[node name="Lagomorph" parent="." instance=ExtResource("1_2ge6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38078985, 0.8373318, -1.6212304)
+base_move_speed = 5.0
+run_multiplier = 1.6
+
+[node name="Player" parent="." node_paths=PackedStringArray("ui_controller", "possessed_control_entity") instance=ExtResource("2_hn7u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.82149583, 0)
+ui_controller = NodePath("../UI")
+possessed_control_entity = NodePath("../Lagomorph")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4165894, 0.73784447, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("BoxMesh_w5oua")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("ConvexPolygonShape3D_6j6x2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.32444572, 0.7810655, -0.53354627, 0, 0.56405944, 0.8257342, 0.9459043, -0.26790592, 0.18300667, -7.602596, 2.1128106, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qyabp")
+
+[node name="Floor2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9396687, -0.34208575, 0, 0.34208575, 0.9396687, 0, 0, -5.9639482)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor2"]
+transform = Transform3D(3.105, 0, 0, 0, 3.105, 0, 0, 0, 3.105, 0, 0, 0)
+mesh = SubResource("PlaneMesh_nwjs2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor2"]
+transform = Transform3D(3.105, 0, 0, 0, 3.105, 0, 0, 0, 3.105, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_7g5yr")
+
+[node name="Rover" parent="." instance=ExtResource("3_3umg4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.136678, 0.15, -0.26223803)
+script = ExtResource("4_sogfy")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6082926, 1.1806146)
+collision_layer = 512
+collision_mask = 512
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_3umg4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_sogfy")
+
+[node name="UI" parent="." instance=ExtResource("5_8ctol")]

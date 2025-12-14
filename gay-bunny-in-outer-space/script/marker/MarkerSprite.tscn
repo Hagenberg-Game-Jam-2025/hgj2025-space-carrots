@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://0vhfhs72trxf"]
+
+[ext_resource type="Script" uid="uid://c6wvyluy6vvoj" path="res://script/marker/MarkerSprite.gd" id="1_5g14l"]
+[ext_resource type="PackedScene" uid="uid://ctmfdbmoeqjjl" path="res://script/marker/MarkerSprite2D.tscn" id="2_6k37t"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_mfdtl"]
+viewport_path = NodePath("SubViewport")
+
+[node name="MarkerSprite" type="Node3D" node_paths=PackedStringArray("marker_sprite_2d")]
+script = ExtResource("1_5g14l")
+marker_sprite_2d = NodePath("SubViewport/MarkerSprite2d")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+offset = Vector2(481.82, -211.385)
+pixel_size = 0.0006
+billboard = 1
+fixed_size = true
+texture = SubResource("ViewportTexture_mfdtl")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(1275, 1000)
+
+[node name="MarkerSprite2d" parent="SubViewport" instance=ExtResource("2_6k37t")]
