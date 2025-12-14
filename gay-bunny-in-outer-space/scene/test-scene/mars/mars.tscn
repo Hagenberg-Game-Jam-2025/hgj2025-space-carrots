@@ -1,6 +1,7 @@
-[gd_scene load_steps=55 format=3 uid="uid://la5rcbk2csa"]
+[gd_scene load_steps=60 format=3 uid="uid://la5rcbk2csa"]
 
 [ext_resource type="Texture2D" uid="uid://bcf20svlxwwj8" path="res://resource/texture/rock_boulder_cracked_diff_1k.jpg" id="1_gr40m"]
+[ext_resource type="Script" uid="uid://uevrkia0cs2q" path="res://script/GameStateMachine.gd" id="1_jolfs"]
 [ext_resource type="Texture2D" uid="uid://bocxbd6swx5k" path="res://resource/texture/rock_boulder_cracked_disp_1k.png" id="2_tfty8"]
 [ext_resource type="Texture2D" uid="uid://co0rr0r0v26xi" path="res://resource/texture/rock_face_03_diff_1k.jpg" id="3_ojxcv"]
 [ext_resource type="Texture2D" uid="uid://tqe3bq4sh1ge" path="res://resource/texture/rock_face_03_disp_1k.png" id="4_0kcoi"]
@@ -26,6 +27,10 @@
 [ext_resource type="PackedScene" uid="uid://gv4sym8v7wjj" path="res://scene/component/enviroment-props/scraps/ScrapSolarPanel.tscn" id="20_j8e2g"]
 [ext_resource type="PackedScene" uid="uid://ct35rkaep14yd" path="res://scene/component/enviroment-props/scraps/ScrapRingdonk.tscn" id="21_mpru3"]
 [ext_resource type="PackedScene" uid="uid://4rm8rcw3b35m" path="res://scene/component/enviroment-props/scraps/ScrapRingdonkBroken.tscn" id="22_bajyc"]
+[ext_resource type="PackedScene" uid="uid://df2fgteih7q35" path="res://script/audio-tape/AudioTape.tscn" id="27_x3p7p"]
+[ext_resource type="AudioStream" uid="uid://cmi2dgi52h17x" path="res://script/audio-tape/Wolf_Intro_Voice.wav" id="28_5af5u"]
+[ext_resource type="PackedScene" uid="uid://dv01buy4eydlv" path="res://scene/component/audio/MusicPlayer.tscn" id="30_84p14"]
+[ext_resource type="PackedScene" uid="uid://bsoxa5hjbmha7" path="res://scene/component/audio/SfxPlayer.tscn" id="31_rlkvs"]
 
 [sub_resource type="Environment" id="Environment_itdfp"]
 
@@ -177,7 +182,13 @@ size = Vector3(300, 400, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_pu8fi"]
 size = Vector3(300, 400, 1)
 
-[node name="Mars" type="Node3D"]
+[node name="Mars" type="Node3D" node_paths=PackedStringArray("player", "creatures", "sfxPlayer", "musicPlayer", "environment")]
+script = ExtResource("1_jolfs")
+player = NodePath("Player")
+creatures = [NodePath("Lagomorph")]
+sfxPlayer = NodePath("SfxPlayer")
+musicPlayer = NodePath("MusicPlayer")
+environment = NodePath("WorldEnvironment")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_itdfp")
@@ -1053,3 +1064,11 @@ transform = Transform3D(0.99493873, 0.10048327, 0, -0.10048327, 0.99493873, 0, 0
 
 [node name="RocketThrustBroken16" parent="ScrapContainer12" instance=ExtResource("19_vkmah")]
 transform = Transform3D(-0.0025747567, -0.6742581, -0.7384913, 0.94186556, 0.24648456, -0.22832948, 0.33597967, -0.69614744, 0.6344259, 147.82222, -5.9221387, 317.09393)
+
+[node name="AudioTape" parent="." instance=ExtResource("27_x3p7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.817, 29.039375, 163.83502)
+audio_track = ExtResource("28_5af5u")
+
+[node name="MusicPlayer" parent="." instance=ExtResource("30_84p14")]
+
+[node name="SfxPlayer" parent="." instance=ExtResource("31_rlkvs")]
