@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://citstuntwxnwi"]
+
+[ext_resource type="Script" uid="uid://dbxriubewijd4" path="res://script/level/Level.gd" id="1_rd30f"]
+[ext_resource type="PackedScene" uid="uid://ci3k23agf4oer" path="res://scene/component/rover/Rover.tscn" id="2_duxnw"]
+[ext_resource type="PackedScene" uid="uid://0ao3yn4ii65v" path="res://script/mini-game/mini-game-examples/MiniGameExample.tscn" id="3_bss8f"]
+
+[node name="Level" type="Node3D" node_paths=PackedStringArray("rovers")]
+script = ExtResource("1_rd30f")
+rovers = [NodePath("Rover"), NodePath("Rover2")]
+metadata/_custom_type_script = "uid://dbxriubewijd4"
+
+[node name="Rover" parent="." instance=ExtResource("2_duxnw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -378.83075, -22.672655, 129.53001)
+mini_games = Array[PackedScene]([ExtResource("3_bss8f")])
+
+[node name="Rover2" parent="." instance=ExtResource("2_duxnw")]
+transform = Transform3D(-0.37064478, -0.1808498, 0.91099715, -0.6156269, 0.7822693, -0.09517671, -0.6954324, -0.59611106, -0.40127996, -380.5696, -24.358416, 134.67764)
+mini_games = Array[PackedScene]([ExtResource("3_bss8f")])
+rover_name = "quirine"

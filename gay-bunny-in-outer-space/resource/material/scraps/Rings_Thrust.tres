@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://0hi6qo0w0cmi"]
+
+[ext_resource type="Texture2D" uid="uid://ciho8h6ker3fj" path="res://resource/texture/Rings_Thrust/Rings_Container_BaseColor.png" id="1_lr66i"]
+[ext_resource type="Texture2D" uid="uid://ty7vpat345v1" path="res://resource/texture/Rings_Thrust/Rings_Container_Height.png" id="2_pgpmf"]
+[ext_resource type="Texture2D" uid="uid://1tsjevqm4von" path="res://resource/texture/Rings_Thrust/Rings_Container_Metallic.png" id="3_itlnu"]
+[ext_resource type="Texture2D" uid="uid://dnq47rodwhjj4" path="res://resource/texture/Rings_Thrust/Rings_Container_Normal.png" id="4_o7cvy"]
+[ext_resource type="Texture2D" uid="uid://bkl15oksfnj1h" path="res://resource/texture/Rings_Thrust/Rings_Container_Roughness.png" id="5_mi3lu"]
+
+[resource]
+albedo_texture = ExtResource("1_lr66i")
+metallic = 1.0
+metallic_texture = ExtResource("3_itlnu")
+roughness_texture = ExtResource("5_mi3lu")
+normal_enabled = true
+normal_texture = ExtResource("4_o7cvy")
+heightmap_enabled = true
+heightmap_texture = ExtResource("2_pgpmf")
