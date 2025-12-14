@@ -8,8 +8,11 @@ var creature_look_command : CreatureLookCommand = CreatureLookCommand.new()
 var creature_start_running_command : CreatureStartRunningCommand = CreatureStartRunningCommand.new()
 var creature_stop_running_command : CreatureStopRunningCommand = CreatureStopRunningCommand.new()
 
+# author: Martin
 var creature_interact_command : CreatureInteractCommand = CreatureInteractCommand.new()
 
+# author: Martin
+var creature_receive_damage_command : CreatureReceiveDamageCommand = CreatureReceiveDamageCommand.new() 
 
 @export_category("Control Settings")
 @export
