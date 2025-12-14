@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://ddgao4j0rviid"]
+
+[ext_resource type="Shader" uid="uid://hdnds6qel3ct" path="res://resource/shader/fog_shader.gdshader" id="2_su11u"]
+[ext_resource type="Shader" uid="uid://r1bigdpt7i7r" path="res://resource/shader/sky_shader.gdshader" id="2_v7fcd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7xe8u"]
+shader = ExtResource("2_v7fcd")
+
+[sub_resource type="Sky" id="Sky_pxjpq"]
+sky_material = SubResource("ShaderMaterial_7xe8u")
+
+[sub_resource type="Environment" id="Environment_v7fcd"]
+background_mode = 2
+sky = SubResource("Sky_pxjpq")
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+volumetric_fog_ambient_inject = 0.64
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fjkqi"]
+shader = ExtResource("2_su11u")
+
+[node name="ShaderTestScene" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_v7fcd")
+
+[node name="FogVolume" type="FogVolume" parent="WorldEnvironment"]
+size = Vector3(10, 10, 10)
+material = SubResource("ShaderMaterial_fjkqi")

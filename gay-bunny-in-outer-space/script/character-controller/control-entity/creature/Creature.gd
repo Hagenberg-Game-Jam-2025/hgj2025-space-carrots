@@ -2,7 +2,13 @@ extends ControlEntity
 
 class_name Creature
 
+signal on_hurt(creature : Creature, amount : int)
+signal on_death(creature : Creature)
+
 @export_category("Movement")
+
+@export var can_move : bool = true
+@export var can_look_around : bool = true
 
 var move_speed : float : 
 	get():
@@ -31,6 +37,14 @@ var interaction_distance : float = 2
 @export_flags_3d_physics
 var interaction_layer : int
 
+@export_category("Stats")
+
+@export_range(1, 100, 1, "or_greater")
+var max_health : int = 5
+
+@export_range(1, 100, 1, "or_greater")
+var health : int = 5
+
 var is_moving : bool = false
 var is_running : bool = false
 
@@ -52,6 +66,9 @@ func _physics_process(delta: float) -> void:
 	is_moving = false
 	
 func move(input : Vector2) -> void:
+	if not can_move:
+		return
+	
 	var direction : Vector3 = (anchor.twist_pivot.global_transform.basis * Vector3(input.x, 0, input.y)).normalized()
 	
 	velocity.x = direction.x * move_speed
@@ -70,6 +87,9 @@ func jump() -> void:
 		velocity.y = jump_speed
 	
 func look(twist_input : float, pitch_input : float) -> void:
+	if not can_look_around:
+		return
+	
 	anchor.look(twist_input, pitch_input)
 
 ## Casts a ray with the anchored camera as the origin and pivot, returns `true` if an
@@ -95,3 +115,21 @@ func try_interact(simulate : bool) -> bool:
 			return true
 			
 	return false
+
+func reset_health() -> void:
+	health = max_health
+
+func receive_damage(amount : int) -> void:
+	health -= amount
+	on_hurt.emit(self, amount)
+	if health <= 0:
+		can_move = false
+		can_interact = false
+		can_look_around = false
+		on_death.emit(self)
+
+func revive() -> void:
+	reset_health()
+	can_move = true
+	can_interact = true
+	can_look_around = true
