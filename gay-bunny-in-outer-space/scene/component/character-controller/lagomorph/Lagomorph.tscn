@@ -6,6 +6,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gy7kd"]
 
 [node name="Lagomorph" type="CharacterBody3D" node_paths=PackedStringArray("anchor")]
+input_ray_pickable = false
 script = ExtResource("1_gy7kd")
 interaction_layer = 512
 anchor = NodePath("Anchor")

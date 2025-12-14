@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://by0xd4bnjp1lm"]
+[gd_scene load_steps=11 format=3 uid="uid://by0xd4bnjp1lm"]
 
 [ext_resource type="PackedScene" uid="uid://swutdc1evgl4" path="res://scene/component/character-controller/lagomorph/Lagomorph.tscn" id="1_8psaa"]
 [ext_resource type="PackedScene" uid="uid://3wafjvrbrsnu" path="res://scene/component/player/Player.tscn" id="2_ndui3"]
-[ext_resource type="PackedScene" uid="uid://cvyo055ghsw23" path="res://script/mini-game/mini-game-control-entity/MiniGameControlEntity.tscn" id="2_yqgb8"]
-[ext_resource type="PackedScene" uid="uid://beictvkstf232" path="res://resource/mesh/Rover.glb" id="4_yqgb8"]
+[ext_resource type="PackedScene" uid="uid://ci3k23agf4oer" path="res://scene/component/rover/Rover.tscn" id="3_ndui3"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_yqgb8"]
 
@@ -72,8 +71,5 @@ shape = SubResource("ConcavePolygonShape3D_8ah2i")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.82149583, 0)
 possessed_control_entity = NodePath("../Lagomorph")
 
-[node name="MiniGameControlEntity" parent="." instance=ExtResource("2_yqgb8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3297162, 1, 1.2963464)
-
-[node name="Rover2" parent="." instance=ExtResource("4_yqgb8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6975873, 2.0802493, 5.9169416)
+[node name="Rover" parent="." instance=ExtResource("3_ndui3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.9702911)

@@ -46,7 +46,6 @@ shape = SubResource("ConcavePolygonShape3D_7g5yr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38078985, 0.8373318, -1.6212304)
 base_move_speed = 5.0
 run_multiplier = 1.6
-interaction_layer = 512
 
 [node name="Player" parent="." node_paths=PackedStringArray("ui_controller", "possessed_control_entity") instance=ExtResource("2_hn7u5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.82149583, 0)

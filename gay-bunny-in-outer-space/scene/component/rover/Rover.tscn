@@ -1,7 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://ci3k23agf4oer"]
+[gd_scene load_steps=5 format=3 uid="uid://ci3k23agf4oer"]
 
+[ext_resource type="Script" uid="uid://cbrmex8f1172a" path="res://scene/component/rover/Rover.gd" id="1_43537"]
 [ext_resource type="PackedScene" uid="uid://beictvkstf232" path="res://resource/mesh/Rover.glb" id="1_syid2"]
+[ext_resource type="PackedScene" uid="uid://cvyo055ghsw23" path="res://script/mini-game/mini-game-control-entity/MiniGameControlEntity.tscn" id="2_1imye"]
+[ext_resource type="PackedScene" uid="uid://dxuecsu4g5nxw" path="res://resource/mesh/Rover_Screen.glb" id="4_086as"]
 
 [node name="Rover" type="Node3D"]
+script = ExtResource("1_43537")
+mini_games = Array[PackedScene]([null, null, null])
 
-[node name="Rover Mesh" parent="." instance=ExtResource("1_syid2")]
+[node name="MiniGameControlEntity" parent="." instance=ExtResource("2_1imye")]
+transform = Transform3D(1, 0, 0, 0, 0.8694949, 0.49394187, 0, -0.49394187, 0.8694949, 0, 1.3304496, 0.87403345)
+
+[node name="Rover2" parent="." instance=ExtResource("1_syid2")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.83666915, 0)
+
+[node name="Rover_Screen" parent="." instance=ExtResource("4_086as")]
