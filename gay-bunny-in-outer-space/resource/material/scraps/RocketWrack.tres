@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://du8jb71hi17x2"]
+
+[ext_resource type="Texture2D" uid="uid://be7txkq5k01g3" path="res://resource/texture/RocketWrack/ShipWrack_Rocketwrack_BaseColor.png" id="1_jhps8"]
+[ext_resource type="Texture2D" uid="uid://f8deuli4al36" path="res://resource/texture/RocketWrack/ShipWrack_Rocketwrack_Height.png" id="2_ybk03"]
+[ext_resource type="Texture2D" uid="uid://dllw8kq6nt4ts" path="res://resource/texture/RocketWrack/ShipWrack_Rocketwrack_Metallic.png" id="3_ccla7"]
+[ext_resource type="Texture2D" uid="uid://biskdtv7m4tdj" path="res://resource/texture/RocketWrack/ShipWrack_Rocketwrack_Normal.png" id="4_xjhar"]
+[ext_resource type="Texture2D" uid="uid://cwmqkhwq37tvj" path="res://resource/texture/RocketWrack/ShipWrack_Rocketwrack_Roughness.png" id="5_mjdlc"]
+
+[resource]
+albedo_texture = ExtResource("1_jhps8")
+metallic = 1.0
+metallic_texture = ExtResource("3_ccla7")
+roughness_texture = ExtResource("5_mjdlc")
+normal_enabled = true
+normal_texture = ExtResource("4_xjhar")
+heightmap_enabled = true
+heightmap_texture = ExtResource("2_ybk03")
