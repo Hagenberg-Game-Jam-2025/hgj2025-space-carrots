@@ -1,10 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://bkfinbc0ypamf"]
+[gd_scene load_steps=13 format=3 uid="uid://dvv3317c57f3l"]
 
-[ext_resource type="Shader" uid="uid://vtqj6sj5wlny" path="res://resource/shader/main_menu_floor.gdshader" id="1_nn17b"]
-[ext_resource type="Script" uid="uid://ddutxcjks7udg" path="res://script/ui/MainMenu.gd" id="1_rvc10"]
-[ext_resource type="Shader" uid="uid://r1bigdpt7i7r" path="res://resource/shader/sky_shader.gdshader" id="2_sks6p"]
-[ext_resource type="Shader" uid="uid://hdnds6qel3ct" path="res://resource/shader/fog_shader.gdshader" id="3_lulne"]
-[ext_resource type="PackedScene" uid="uid://chgupml3upd52" path="res://scene/component/ui/UIMainMenu.tscn" id="4_lulne"]
+[ext_resource type="Shader" path="res://resource/shader/main_menu_floor.gdshader" id="1_nn17b"]
+[ext_resource type="Script" path="res://script/ui/MainMenu.gd" id="1_rvc10"]
+[ext_resource type="Shader" path="res://resource/shader/sky_shader.gdshader" id="2_sks6p"]
+[ext_resource type="Shader" path="res://resource/shader/fog_shader.gdshader" id="3_lulne"]
+[ext_resource type="PackedScene" path="res://scene/component/ui/UIMainMenu.tscn" id="4_lulne"]
 [ext_resource type="PackedScene" uid="uid://ci3k23agf4oer" path="res://scene/component/rover/Rover.tscn" id="5_tf3dk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lnxie"]
@@ -74,3 +74,11 @@ shadow_enabled = true
 [node name="Rover" parent="." instance=ExtResource("5_tf3dk")]
 transform = Transform3D(-0.999824, 0, 0.018761158, 0, 1, 0, -0.018761158, 0, -0.999824, 11.295377, 5.9604645e-08, -14.333118)
 script = null
+
+[node name="Screen_001" parent="Rover/Rover/Rover_Screen/Arms/Screen_arm" index="1"]
+transform = Transform3D(1, -1.5639767e-14, 2.7987601e-15, 1.4210854e-14, 0.9592187, 0.28266415, -7.1054274e-15, -0.28266415, 0.9592187, -1.0664077, -1.0058141, 0.0012959242)
+
+[node name="Label3D" parent="Rover" index="3"]
+text = "Blahaj"
+
+[editable path="Rover"]
