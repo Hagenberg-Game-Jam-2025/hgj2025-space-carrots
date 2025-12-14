@@ -4,6 +4,8 @@ class_name MiniGameControlEntity
 
 var mini_game : MiniGame
 
+signal mini_game_finished()
+
 @onready
 var mini_game_subviewport : SubViewport = $SubViewport
 
@@ -31,13 +33,19 @@ func load_mini_game(mini_game_scene : PackedScene) -> void:
 		push_error("Packed Scene must be of type MiniGame")
 		return
 	
-	#for (node : Node in mini_game_subviewport.get_children()):
-		#node.
-	
+	for node : Node in mini_game_subviewport.get_children():
+		node.queue_free()
+
+	(mini_game_instance as MiniGame).mini_game_finished.connect(_on_mini_game_finished)
+
 	mini_game_subviewport.add_child(mini_game_instance)
-	
-	
-	
+
+func unload_mini_game() -> void:
+	for node : Node in mini_game_subviewport.get_children():
+		node.queue_free()
+		
+func _on_mini_game_finished() -> void:
+	mini_game_finished.emit()
 
 func _on_possessed(mind : Mind, last_possessed_control_entity : ControlEntity) -> void:
 	player_entity = last_possessed_control_entity

@@ -60,5 +60,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0014460981, 0)
 shape = SubResource("BoxShape3D_gba5q")
 
 [node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+msaa_2d = 3
+screen_space_aa = 2
 physics_object_picking = true
 size = Vector2i(1920, 1080)

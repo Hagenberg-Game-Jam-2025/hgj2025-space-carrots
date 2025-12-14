@@ -1,0 +1,84 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgojk6lp038fe"]
+
+[ext_resource type="Texture2D" uid="uid://dwpf7o3pk88wu" path="res://icon.svg" id="1_hyr3a"]
+
+[sub_resource type="GDScript" id="GDScript_ut1i5"]
+resource_name = "MiniGameExample"
+script/source = "extends MiniGame
+
+var done : bool = false
+
+func _on_area_2d_2_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if (event is InputEventMouseButton) and (done == false):
+		print(\"mini game is completed! :D\")
+		mini_game_finished.emit()
+		done = true
+		
+		print(\"gay?\")
+"
+
+[sub_resource type="GDScript" id="GDScript_gqyrb"]
+resource_name = "plonk"
+script/source = "extends Area2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if (event is InputEventMouseButton):
+		$Sprite2D.rotate(0.5)
+	
+
+
+func _on_mouse_entered() -> void:
+	print(\"wooo\")
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s1ojj"]
+radius = 218.0
+
+[node name="MiniGameExample" type="Node2D"]
+script = SubResource("GDScript_ut1i5")
+metadata/_custom_type_script = "uid://yts4axnfqyg3"
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-439, -214)
+monitorable = false
+script = SubResource("GDScript_gqyrb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(694, 682)
+scale = Vector2(2.808594, 1.0273438)
+texture = ExtResource("1_hyr3a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(679, 683)
+shape = SubResource("CircleShape2D_s1ojj")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(-439, -214)
+monitorable = false
+script = SubResource("GDScript_gqyrb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D2"]
+position = Vector2(1454, 345)
+scale = Vector2(2.808594, 1.0273438)
+texture = ExtResource("1_hyr3a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(1446, 334)
+shape = SubResource("CircleShape2D_s1ojj")
+
+[connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="Area2D" method="_on_mouse_entered"]
+[connection signal="input_event" from="Area2D2" to="." method="_on_area_2d_2_input_event"]
+[connection signal="input_event" from="Area2D2" to="Area2D2" method="_on_input_event"]
+[connection signal="mouse_entered" from="Area2D2" to="Area2D2" method="_on_mouse_entered"]
