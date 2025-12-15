@@ -1,0 +1,106 @@
+[gd_scene load_steps=6 format=3 uid="uid://5rvky03lh5dm"]
+
+[ext_resource type="Script" uid="uid://b6iogo42qn88g" path="res://script/mini-game/mini-game-03/mini_game_03.gd" id="1_0jt51"]
+[ext_resource type="Texture2D" uid="uid://rgfpuy2lne8y" path="res://resource/2d/minigame03/white_100x100_block.png" id="2_v7mms"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v7mms"]
+size = Vector2(100, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n8djb"]
+size = Vector2(100, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0jt51"]
+size = Vector2(100, 100)
+
+[node name="MiniGame03" type="Node2D"]
+script = ExtResource("1_0jt51")
+
+[node name="Left Side" type="Node2D" parent="."]
+position = Vector2(50, 0)
+
+[node name="AreaColorRect" type="Area2D" parent="Left Side"]
+position = Vector2(0, 200)
+
+[node name="Sprite2D" type="Sprite2D" parent="Left Side/AreaColorRect"]
+modulate = Color(0, 0.5254902, 1, 1)
+texture = ExtResource("2_v7mms")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left Side/AreaColorRect"]
+shape = SubResource("RectangleShape2D_v7mms")
+
+[node name="AreaColorRect2" type="Area2D" parent="Left Side"]
+position = Vector2(0, 400)
+
+[node name="Sprite2D" type="Sprite2D" parent="Left Side/AreaColorRect2"]
+modulate = Color(1, 0.20392157, 0.42352942, 1)
+texture = ExtResource("2_v7mms")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left Side/AreaColorRect2"]
+shape = SubResource("RectangleShape2D_n8djb")
+
+[node name="AreaColorRect3" type="Area2D" parent="Left Side"]
+position = Vector2(0, 600)
+
+[node name="Sprite2D" type="Sprite2D" parent="Left Side/AreaColorRect3"]
+modulate = Color(0.84705883, 0.3882353, 1, 1)
+texture = ExtResource("2_v7mms")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left Side/AreaColorRect3"]
+shape = SubResource("RectangleShape2D_0jt51")
+
+[node name="AreaColorRect4" type="Area2D" parent="Left Side"]
+position = Vector2(0, 800)
+
+[node name="Sprite2D" type="Sprite2D" parent="Left Side/AreaColorRect4"]
+modulate = Color(0.5294118, 0.6901961, 0, 1)
+texture = ExtResource("2_v7mms")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left Side/AreaColorRect4"]
+shape = SubResource("RectangleShape2D_0jt51")
+
+[node name="Right Side" type="Node2D" parent="."]
+position = Vector2(1870, 0)
+
+[node name="AreaColorRect" type="Area2D" parent="Right Side"]
+position = Vector2(0, 200)
+
+[node name="Sprite2D" type="Sprite2D" parent="Right Side/AreaColorRect"]
+modulate = Color(0, 0.5254902, 1, 1)
+texture = ExtResource("2_v7mms")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right Side/AreaColorRect"]
+shape = SubResource("RectangleShape2D_v7mms")
+
+[node name="AreaColorRect2" type="Area2D" parent="Right Side"]
+position = Vector2(0, 400)
+
+[node name="Sprite2D" type="Sprite2D" parent="Right Side/AreaColorRect2"]
+modulate = Color(1, 0.20392157, 0.42352942, 1)
+texture = ExtResource("2_v7mms")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right Side/AreaColorRect2"]
+shape = SubResource("RectangleShape2D_n8djb")
+
+[node name="AreaColorRect3" type="Area2D" parent="Right Side"]
+position = Vector2(0, 600)
+
+[node name="Sprite2D" type="Sprite2D" parent="Right Side/AreaColorRect3"]
+modulate = Color(0.84705883, 0.3882353, 1, 1)
+texture = ExtResource("2_v7mms")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right Side/AreaColorRect3"]
+shape = SubResource("RectangleShape2D_0jt51")
+
+[node name="AreaColorRect4" type="Area2D" parent="Right Side"]
+position = Vector2(0, 800)
+
+[node name="Sprite2D" type="Sprite2D" parent="Right Side/AreaColorRect4"]
+modulate = Color(0.5294118, 0.6901961, 0, 1)
+texture = ExtResource("2_v7mms")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right Side/AreaColorRect4"]
+shape = SubResource("RectangleShape2D_0jt51")
+
+[node name="Lines" type="Node2D" parent="."]
+
+[node name="Line2D" type="Line2D" parent="Lines"]

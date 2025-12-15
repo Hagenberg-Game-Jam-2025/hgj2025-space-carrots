@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://dbxriubewijd4" path="res://script/level/Level.gd" id="1_bbgij"]
 [ext_resource type="PackedScene" uid="uid://ci3k23agf4oer" path="res://scene/component/rover/Rover.tscn" id="2_cks4t"]
 [ext_resource type="PackedScene" uid="uid://cfshw6jnqquv6" path="res://script/mini-game/mini-game-01/MiniGame01.tscn" id="3_cks4t"]
-[ext_resource type="PackedScene" uid="uid://0ao3yn4ii65v" path="res://script/mini-game/mini-game-examples/MiniGameExample.tscn" id="3_n1da5"]
 [ext_resource type="PackedScene" uid="uid://baodpi86kjwa1" path="res://script/mini-game/mini-game-02/MiniGame02.tscn" id="4_n1da5"]
+[ext_resource type="PackedScene" uid="uid://5rvky03lh5dm" path="res://script/mini-game/mini-game-03/MiniGame03.tscn" id="5_cks4t"]
 
 [node name="Level" type="Node3D" node_paths=PackedStringArray("rovers")]
 script = ExtResource("1_bbgij")
@@ -23,5 +23,5 @@ rover_name = "Rover 4895"
 
 [node name="Rover3" parent="." instance=ExtResource("2_cks4t")]
 transform = Transform3D(0.40962598, -0.065664366, 0.90988725, -0.0131467, 0.9968777, 0.07786082, -0.91215897, -0.043855824, 0.40748367, -425.09595, -27.56196, 159.88803)
-mini_games = Array[PackedScene]([ExtResource("3_n1da5")])
+mini_games = Array[PackedScene]([ExtResource("5_cks4t")])
 rover_name = "Rover2086"

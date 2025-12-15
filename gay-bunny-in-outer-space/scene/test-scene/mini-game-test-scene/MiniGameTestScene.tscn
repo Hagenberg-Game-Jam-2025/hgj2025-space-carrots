@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://by0xd4bnjp1lm"]
+[gd_scene load_steps=14 format=3 uid="uid://by0xd4bnjp1lm"]
 
 [ext_resource type="PackedScene" uid="uid://swutdc1evgl4" path="res://scene/component/character-controller/lagomorph/Lagomorph.tscn" id="1_8psaa"]
 [ext_resource type="PackedScene" uid="uid://3wafjvrbrsnu" path="res://scene/component/player/Player.tscn" id="2_ndui3"]
 [ext_resource type="PackedScene" uid="uid://ci3k23agf4oer" path="res://scene/component/rover/Rover.tscn" id="3_ndui3"]
-[ext_resource type="PackedScene" uid="uid://0ao3yn4ii65v" path="res://script/mini-game/mini-game-examples/MiniGameExample.tscn" id="4_yqgb8"]
-[ext_resource type="PackedScene" uid="uid://dgojk6lp038fe" path="res://script/mini-game/mini-game-examples/MiniGameExample2.tscn" id="5_8ah2i"]
+[ext_resource type="PackedScene" uid="uid://cfshw6jnqquv6" path="res://script/mini-game/mini-game-01/MiniGame01.tscn" id="4_taj40"]
+[ext_resource type="PackedScene" uid="uid://baodpi86kjwa1" path="res://script/mini-game/mini-game-02/MiniGame02.tscn" id="5_eon7v"]
+[ext_resource type="PackedScene" uid="uid://5rvky03lh5dm" path="res://script/mini-game/mini-game-03/MiniGame03.tscn" id="6_v3rls"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_yqgb8"]
 
@@ -75,4 +76,4 @@ possessed_control_entity = NodePath("../Lagomorph")
 
 [node name="Rover" parent="." instance=ExtResource("3_ndui3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.9702911)
-mini_games = Array[PackedScene]([ExtResource("4_yqgb8"), ExtResource("5_8ah2i")])
+mini_games = Array[PackedScene]([ExtResource("4_taj40"), ExtResource("5_eon7v"), ExtResource("6_v3rls")])

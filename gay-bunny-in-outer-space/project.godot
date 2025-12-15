@@ -65,6 +65,7 @@ folder_colors={
 "res://script/mini-game/": "red",
 "res://script/mini-game/mini-game-01/": "green",
 "res://script/mini-game/mini-game-02/": "green",
+"res://script/mini-game/mini-game-03/": "green",
 "res://script/player/": "red",
 "res://script/ui/": "purple"
 }
