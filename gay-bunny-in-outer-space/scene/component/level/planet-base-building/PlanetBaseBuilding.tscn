@@ -34,6 +34,7 @@ shape = SubResource("BoxShape3D_5ndy0")
 
 [node name="FixRoverPrompt" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.6804651, 0.73278046, 0, -0.73278046, 0.6804651, 0.53344196, 0.70954114, -3.4669256)
+visible = false
 text = "FIX THE FUCKING ROVERS FIRST!"
 
 [node name="Space_Capsule" parent="." instance=ExtResource("5_5ndy0")]
