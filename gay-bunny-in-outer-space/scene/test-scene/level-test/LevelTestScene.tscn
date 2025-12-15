@@ -9,8 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://3wafjvrbrsnu" path="res://scene/component/player/Player.tscn" id="5_c43pg"]
 [ext_resource type="PackedScene" path="res://scene/test-scene/mars/quirinExampleLevel.tscn" id="5_cv0t8"]
 [ext_resource type="PackedScene" uid="uid://fhdqcxgti4ey" path="res://resource/mesh/CrystalC.tscn" id="8_cv0t8"]
-[ext_resource type="PackedScene" uid="uid://citstuntwxnwi" path="res://scene/test-scene/mars/quirinExampleLevel.tscn" id="5_cv0t8"]
-[ext_resource type="PackedScene" path="res://resource/mesh/CrystalC.tscn" id="8_cv0t8"]
 [ext_resource type="PackedScene" uid="uid://df2fgteih7q35" path="res://script/audio-tape/AudioTape.tscn" id="9_qmgb8"]
 [ext_resource type="AudioStream" uid="uid://t26wg2dj8ing" path="res://script/audio-tape/audio-tracks/Captain/Captain_Logbuch_22.wav" id="10_qmgb8"]
 
@@ -43,7 +41,7 @@ metadata/_custom_type_script = "uid://c4u5l5emnotkp"
 [node name="LevelContainer" type="Node3D" parent="."]
 
 [node name="PlanetBaseBuilding" parent="." instance=ExtResource("3_8yotq")]
-transform = Transform3D(0.10055276, 0, 0.9949317, 0, 1, 0, -0.9949317, 0, 0.10055276, -22.152912, 0, -10.990817)
+transform = Transform3D(0.10055276, 0, 0.9949317, 0, 1, 0, -0.9949317, 0, 0.10055276, -22.152912, 3.3891802, -10.990817)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.3572235, -1.0306646, -7.804001)
@@ -51,7 +49,7 @@ use_collision = true
 size = Vector3(84.78757, 1, 63.59909)
 
 [node name="Lagomorph" parent="." instance=ExtResource("4_ddoyd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.039236, -0.07308918, -10.182341)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.039236, 3.316091, -10.182341)
 base_move_speed = 5.0
 run_multiplier = 1.6
 
