@@ -88,6 +88,7 @@ func drop() -> void:
 	line = null
 
 func get_color_of_area(area:Area2D) -> Color:
+	if !area: return Color.WHITE
 	for child:Node in area.get_children():
 		if child is Sprite2D:
 			var sprite:Sprite2D = child
@@ -95,6 +96,7 @@ func get_color_of_area(area:Area2D) -> Color:
 	return Color.WHITE
 
 func set_color_of_area(area:Area2D, color:Color) -> void:
+	if !area: return
 	for child:Node in area.get_children():
 		if child is Sprite2D:
 			var sprite:Sprite2D = child
