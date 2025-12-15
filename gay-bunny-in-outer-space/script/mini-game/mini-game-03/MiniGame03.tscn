@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://5rvky03lh5dm"]
 
 [ext_resource type="Script" uid="uid://b6iogo42qn88g" path="res://script/mini-game/mini-game-03/mini_game_03.gd" id="1_0jt51"]
-[ext_resource type="Texture2D" uid="uid://rgfpuy2lne8y" path="res://resource/2d/minigame03/white_100x100_block.png" id="2_v7mms"]
+[ext_resource type="Texture2D" uid="uid://dw5gw0lbuvdm3" path="res://resource/2d/minigame03/white_100x100_block.png" id="2_v7mms"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v7mms"]
 size = Vector2(100, 100)
