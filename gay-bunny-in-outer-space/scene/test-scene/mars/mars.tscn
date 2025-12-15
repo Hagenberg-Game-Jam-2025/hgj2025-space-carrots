@@ -723,6 +723,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.321663, 28.500992, 165.337
 base_move_speed = 5.0
 jump_speed = 4.0
 run_multiplier = 2.0
+max_health = 10
+health = 10
 
 [node name="Player" parent="." node_paths=PackedStringArray("main_bound_entity", "possessed_control_entity") instance=ExtResource("9_mbeav")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.1789, -72.89777, 231.95154)
