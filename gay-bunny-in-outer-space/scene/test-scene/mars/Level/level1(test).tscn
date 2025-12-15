@@ -6,8 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://0ao3yn4ii65v" path="res://script/mini-game/mini-game-examples/MiniGameExample.tscn" id="3_n1da5"]
 [ext_resource type="PackedScene" uid="uid://baodpi86kjwa1" path="res://script/mini-game/mini-game-02/MiniGame02.tscn" id="4_n1da5"]
 
-[node name="Level" type="Node3D"]
+[node name="Level" type="Node3D" node_paths=PackedStringArray("rovers")]
 script = ExtResource("1_bbgij")
+rovers = [NodePath("Rover"), NodePath("Rover2"), NodePath("Rover3")]
 metadata/_custom_type_script = "uid://dbxriubewijd4"
 
 [node name="Rover" parent="." instance=ExtResource("2_cks4t")]
