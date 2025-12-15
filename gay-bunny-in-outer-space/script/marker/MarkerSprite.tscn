@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://0vhfhs72trxf"]
+[gd_scene load_steps=5 format=3 uid="uid://0vhfhs72trxf"]
 
 [ext_resource type="Script" uid="uid://c6wvyluy6vvoj" path="res://script/marker/MarkerSprite.gd" id="1_5g14l"]
 [ext_resource type="PackedScene" uid="uid://ctmfdbmoeqjjl" path="res://script/marker/MarkerSprite2D.tscn" id="2_6k37t"]
+[ext_resource type="Material" uid="uid://bgpc1me4dohcj" path="res://resource/material/marker.tres" id="2_musmd"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_mfdtl"]
 viewport_path = NodePath("SubViewport")
@@ -11,6 +12,7 @@ script = ExtResource("1_5g14l")
 marker_sprite_2d = NodePath("SubViewport/MarkerSprite2d")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
+material_override = ExtResource("2_musmd")
 offset = Vector2(481.82, -211.385)
 pixel_size = 0.0006
 billboard = 1

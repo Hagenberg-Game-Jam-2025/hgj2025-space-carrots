@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bgpc1me4dohcj"]
+
+[ext_resource type="Shader" uid="uid://cxtifmsnclw3y" path="res://resource/shader/marker_sprite.gdshader" id="1_ae36s"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_musmd"]
+viewport_path = NodePath("SubViewport")
+
+[resource]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_ae36s")
+shader_parameter/tex = SubResource("ViewportTexture_musmd")
