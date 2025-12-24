@@ -14,6 +14,8 @@ var anchor : Anchor
 @export
 var controller_reference : StringName
 
+var current_controller : Controller
+
 var player : Player
 
 func _ready() -> void:
