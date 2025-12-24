@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://qayx6u5vd423"]
+[gd_scene load_steps=18 format=3 uid="uid://qayx6u5vd423"]
 
 [ext_resource type="Script" uid="uid://c4u5l5emnotkp" path="res://script/level/LevelManager.gd" id="1_jd66v"]
 [ext_resource type="PackedScene" uid="uid://bm85qtfeyunxm" path="res://scene/component/level/planet-base-building/BuildingInterior.tscn" id="2_tkwug"]
@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://fhdqcxgti4ey" path="res://resource/mesh/CrystalC.tscn" id="8_cv0t8"]
 [ext_resource type="PackedScene" uid="uid://df2fgteih7q35" path="res://script/audio-tape/AudioTape.tscn" id="9_qmgb8"]
 [ext_resource type="AudioStream" uid="uid://t26wg2dj8ing" path="res://script/audio-tape/audio-tracks/Captain/Captain_Logbuch_22.wav" id="10_qmgb8"]
+[ext_resource type="AudioStream" uid="uid://bg6dgu8pyc5ua" path="res://script/audio-tape/audio-tracks/Sarala/Sarala_Protokoll_5.wav" id="12_na4hf"]
+[ext_resource type="AudioStream" uid="uid://bai781oarlxu5" path="res://script/audio-tape/audio-tracks/Garry/Garry_Protokoll_71.wav" id="13_j0c1v"]
+[ext_resource type="Script" uid="uid://cal01lxyufdrs" path="res://script/audio-tape/AudioTapeManager.gd" id="14_j0c1v"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tkwug"]
 sky_curve = 0.043076154
@@ -29,6 +32,9 @@ ambient_light_sky_contribution = 0.55
 ambient_light_energy = 1.18
 
 [node name="LevelTestScene" type="Node3D"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." groups=["AudioTapeManager"]]
+script = ExtResource("14_j0c1v")
 
 [node name="LevelManager" type="Node" parent="." node_paths=PackedStringArray("level_container", "planet_base_building")]
 script = ExtResource("1_jd66v")
@@ -53,8 +59,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.039236, 3.316091, -10.182
 base_move_speed = 5.0
 run_multiplier = 1.6
 
-[node name="Player" parent="." node_paths=PackedStringArray("possessed_control_entity") instance=ExtResource("5_c43pg")]
+[node name="Player" parent="." node_paths=PackedStringArray("main_bound_entity", "possessed_control_entity") instance=ExtResource("5_c43pg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.82149583, 0)
+main_bound_entity = NodePath("../Lagomorph")
 possessed_control_entity = NodePath("../Lagomorph")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -69,3 +76,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.439526, 5.0341415, -3.364
 [node name="AudioTape" parent="." instance=ExtResource("9_qmgb8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.229511, -0.030665398, -12.984358)
 audio_track = ExtResource("10_qmgb8")
+
+[node name="AudioTape2" parent="." instance=ExtResource("9_qmgb8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.181854, -0.030665398, -12.984358)
+audio_track = ExtResource("12_na4hf")
+
+[node name="AudioTape3" parent="." instance=ExtResource("9_qmgb8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.1235, -0.030665398, -12.984358)
+audio_track = ExtResource("13_j0c1v")

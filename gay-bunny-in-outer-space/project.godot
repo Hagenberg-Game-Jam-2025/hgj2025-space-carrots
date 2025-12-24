@@ -75,6 +75,7 @@ folder_colors={
 [global_group]
 
 Player="The Player Node"
+AudioTapeManager="for the AudioTapeManager Class "
 
 [input]
 

@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bgpc1me4dohcj"]
 
-[ext_resource type="Shader" uid="uid://cxtifmsnclw3y" path="res://resource/shader/marker_sprite.gdshader" id="1_ae36s"]
+[ext_resource type="Shader" path="res://resource/shader/marker_sprite.gdshader" id="1_ae36s"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_musmd"]
 viewport_path = NodePath("SubViewport")
