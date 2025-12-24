@@ -15,6 +15,13 @@ scale = Vector2(5, 5)
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
 texture = ExtResource("2_rulxs")
 
+[node name="Label" type="Label" parent="Area2D/Sprite2D"]
+offset_left = -32.199997
+offset_top = 25.8
+offset_right = 38.800003
+offset_bottom = 48.8
+text = "Press me"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_frw3s")
 
