@@ -23,8 +23,10 @@ func _physics_process(delta: float) -> void:
 func possess(control_entity : ControlEntity) -> void:
 	if control_entity.player != null:
 		return
-		
+	
 	var last_possessed_control_entity : ControlEntity = possessed_control_entity
+	
+	last_possessed_control_entity.current_controller = null
 	
 	if current_controller != null:
 		current_controller.queue_free()
@@ -39,6 +41,8 @@ func possess(control_entity : ControlEntity) -> void:
 	var controller_instance : Controller = controller_script.instantiate()
 	controller_instance.control_entity = control_entity
 	add_child(controller_instance)
+	
+	control_entity.current_controller = controller_instance
 		
 	current_controller = controller_instance
 

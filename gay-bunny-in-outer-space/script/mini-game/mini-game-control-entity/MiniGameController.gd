@@ -13,6 +13,8 @@ var last_event_pos2D : Vector2 = Vector2.ZERO
 # The time of the last event in seconds since engine start.
 var last_event_time : float = -1.0
 
+var player_exit_screen_toggle : bool = false
+
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
@@ -27,6 +29,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if (Input.is_action_just_pressed("mini_game_exit_screen")):
 		mini_game_exit_command.execute(control_entity)
+	
+	if (player_exit_screen_toggle):
+		mini_game_exit_command.execute(control_entity)
+
+func exit_screen() -> void:
+	player_exit_screen_toggle = true
 
 func _mouse_entered_area() -> void:
 	is_mouse_inside = true
