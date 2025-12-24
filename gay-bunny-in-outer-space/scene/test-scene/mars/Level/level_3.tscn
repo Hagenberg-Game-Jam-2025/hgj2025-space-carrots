@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://7dxoxiqayf35"]
+
+[ext_resource type="PackedScene" uid="uid://ci3k23agf4oer" path="res://scene/component/rover/Rover.tscn" id="1_q1amu"]
+[ext_resource type="PackedScene" uid="uid://cfshw6jnqquv6" path="res://script/mini-game/mini-game-01/MiniGame01.tscn" id="2_etjrp"]
+[ext_resource type="PackedScene" uid="uid://5hbpm1gwergc" path="res://scene/component/enviroment-props/scraps/ScrapSteelbar02.tscn" id="3_j05go"]
+[ext_resource type="PackedScene" uid="uid://gv4sym8v7wjj" path="res://scene/component/enviroment-props/scraps/ScrapSolarPanel.tscn" id="4_uaxfb"]
+[ext_resource type="PackedScene" uid="uid://bwvtgwartxt0g" path="res://resource/mesh/RockB.tscn" id="5_u73g6"]
+[ext_resource type="PackedScene" uid="uid://be6nrf0b8j4l0" path="res://resource/mesh/RockA.tscn" id="6_t2co0"]
+[ext_resource type="PackedScene" uid="uid://lsvs8a7urkca" path="res://resource/mesh/RockC.tscn" id="7_06a1e"]
+
+[node name="Level 3" type="Node3D"]
+
+[node name="Rover" parent="." instance=ExtResource("1_q1amu")]
+transform = Transform3D(1, 0, 0, 0, 0.84139764, -0.54041654, 0, 0.54041654, 0.84139764, -477.30325, -10.394503, -31.332771)
+mini_games = Array[PackedScene]([ExtResource("2_etjrp")])
+rover_name = "Rover4039"
+
+[node name="Rover2" parent="." instance=ExtResource("1_q1amu")]
+transform = Transform3D(1, 0, 0, 0, 0.7719575, 0.6356741, 0, -0.6356741, 0.7719575, -4.161171, 42.377335, 320.76788)
+mini_games = Array[PackedScene]([ExtResource("2_etjrp")])
+rover_name = "Rover 5391"
+
+[node name="ScrapSteelbar02" parent="." instance=ExtResource("3_j05go")]
+transform = Transform3D(0.5449661, -0.564053, -0.6203678, 0.71917003, 0.6948341, 0, 0.4310527, -0.44614995, 0.78431106, -56.541626, -16.841328, 84.643875)
+
+[node name="ScrapSolarPanel" parent="." instance=ExtResource("4_uaxfb")]
+transform = Transform3D(-0.23719867, -0.88629127, -0.3977747, 0.029129203, -0.41576493, 0.9090056, -0.9710244, 0.20402807, 0.12443589, -50.730324, -15.553791, 87.98258)
+
+[node name="RockB" parent="." instance=ExtResource("5_u73g6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -106.26785, -36.57, 109.83541)
+
+[node name="RockA" parent="." instance=ExtResource("6_t2co0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -109.10918, -39.74343, 105.99523)
+
+[node name="RockB2" parent="." instance=ExtResource("5_u73g6")]
+transform = Transform3D(-0.17770308, 0, -0.98408425, 0.7504631, 0.64686966, -0.13551646, 0.6365742, -0.7626007, -0.11495073, -108.97423, -33.49602, 106.316345)
+
+[node name="RockA2" parent="." instance=ExtResource("6_t2co0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -106.87738, -43.849243, 110.59006)
+
+[node name="RockB3" parent="." instance=ExtResource("5_u73g6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.11223, -19.399427, 86.798775)
+
+[node name="RockC5" parent="." instance=ExtResource("7_06a1e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.994877, -13.119797, 89.085205)
+
+[node name="RockA5" parent="." instance=ExtResource("6_t2co0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.49141, -16.171467, 90.75436)
+
+[node name="RockB4" parent="." instance=ExtResource("5_u73g6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130.01912, -26.436739, 190.79918)
+
+[node name="RockC6" parent="." instance=ExtResource("7_06a1e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.94636, -27.785416, 190.20844)
+
+[node name="RockB5" parent="." instance=ExtResource("5_u73g6")]
+transform = Transform3D(0.61500114, 0.78852624, 0, -0.78852624, 0.61500114, 0, 0, 0, 1, -132.18755, -20.975763, 188.789)
+
+[node name="Rover3" parent="." instance=ExtResource("1_q1amu")]
+transform = Transform3D(0.9695882, -0.24170817, 0.03841558, 0.19123277, 0.8461685, 0.49742234, -0.15273713, -0.47494859, 0.8666575, -99.58176, -47.02796, 55.27777)
+mini_games = Array[PackedScene]([ExtResource("2_etjrp")])
+rover_name = "Rover 7684"

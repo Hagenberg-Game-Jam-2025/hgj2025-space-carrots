@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://la5rcbk2csa"]
+[gd_scene load_steps=73 format=3 uid="uid://la5rcbk2csa"]
 
 [ext_resource type="Texture2D" uid="uid://bcf20svlxwwj8" path="res://resource/texture/rock_boulder_cracked_diff_1k.jpg" id="1_gr40m"]
 [ext_resource type="Script" uid="uid://uevrkia0cs2q" path="res://script/GameStateMachine.gd" id="1_jolfs"]
@@ -20,8 +20,10 @@
 [ext_resource type="PackedScene" uid="uid://ccrncplwgusod" path="res://scene/test-scene/mars/Level/level1(test).tscn" id="14_pu8fi"]
 [ext_resource type="PackedScene" uid="uid://5hbpm1gwergc" path="res://scene/component/enviroment-props/scraps/ScrapSteelbar02.tscn" id="15_l32ty"]
 [ext_resource type="PackedScene" uid="uid://bm85qtfeyunxm" path="res://scene/component/level/planet-base-building/BuildingInterior.tscn" id="15_pu8fi"]
+[ext_resource type="PackedScene" uid="uid://dl7bwf37n8bk5" path="res://scene/test-scene/mars/Level/level_2.tscn" id="16_4guup"]
 [ext_resource type="PackedScene" uid="uid://clwujqrnqifeg" path="res://scene/component/enviroment-props/scraps/ScrapTiles02.tscn" id="16_vkmah"]
 [ext_resource type="PackedScene" uid="uid://but0i2e0mnbxl" path="res://scene/component/enviroment-props/scraps/ScrapTiles03.tscn" id="17_j8e2g"]
+[ext_resource type="PackedScene" uid="uid://7dxoxiqayf35" path="res://scene/test-scene/mars/Level/level_3.tscn" id="17_keli2"]
 [ext_resource type="PackedScene" uid="uid://dnbukn7tk4ae8" path="res://scene/component/enviroment-props/scraps/ScrapRocketWrack.tscn" id="18_mpru3"]
 [ext_resource type="PackedScene" uid="uid://dsb0y36x380vg" path="res://scene/component/enviroment-props/scraps/ScrapRocketThrustBroken.tscn" id="19_vkmah"]
 [ext_resource type="PackedScene" uid="uid://gv4sym8v7wjj" path="res://scene/component/enviroment-props/scraps/ScrapSolarPanel.tscn" id="20_j8e2g"]
@@ -711,7 +713,7 @@ transform = Transform3D(0.42962876, 0, 0.9030056, 0, 1, 0, -0.9030056, 0, 0.4296
 [node name="LevelManager" type="Node" parent="." node_paths=PackedStringArray("level_container", "planet_base_building")]
 script = ExtResource("14_1dmib")
 planet_base_interior_scene = ExtResource("15_pu8fi")
-levels = Array[PackedScene]([ExtResource("14_pu8fi")])
+levels = Array[PackedScene]([ExtResource("14_pu8fi"), ExtResource("16_4guup"), ExtResource("17_keli2")])
 level_container = NodePath("../LevelContainer")
 planet_base_building = NodePath("../PlanetBaseBuilding")
 metadata/_custom_type_script = "uid://c4u5l5emnotkp"
@@ -793,7 +795,7 @@ transform = Transform3D(0.07851415, -0.0150793195, -0.996799, -0.9963049, 0.0337
 transform = Transform3D(0.087441236, 0.0017404553, -0.9961682, -0.9092815, 0.40859562, -0.079100676, 0.4068923, 0.9127139, 0.037310675, -120.99192, 9.261885, 301.8472)
 
 [node name="ScrapRocketWrack3" parent="ScrapContainer12" instance=ExtResource("18_mpru3")]
-transform = Transform3D(0.087955475, 0.26742545, -0.95955586, -0.9961244, 0.023613047, -0.08472656, 0, 0.9632892, 0.2684659, -129.29115, 5.0714455, 272.0764)
+transform = Transform3D(0.087955475, 0.26742545, -0.95955586, -0.9961244, 0.023613047, -0.08472656, 0, 0.9632892, 0.2684659, -129.42172, 5.0714455, 272.0764)
 
 [node name="ScrapTiles06" parent="ScrapContainer12" instance=ExtResource("16_vkmah")]
 transform = Transform3D(0.8167121, -0.57704544, 0, 0.57704544, 0.8167121, 0, 0, 0, 1, -78.689575, 3.1747246, 229.21642)
