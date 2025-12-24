@@ -385,6 +385,14 @@ skeleton = NodePath("")
 [node name="MiniGameControlEntity" parent="Rover/Rover_Screen/Arms/Screen_arm/Screen_001" instance=ExtResource("2_1imye")]
 transform = Transform3D(-1.7361609, -1.5178007e-07, 6.6345177e-15, 0, -7.5890036e-08, -1.7361617, 1.5178e-07, -1.7361617, 7.5890036e-08, -1.4086254e-08, 0.1612835, 0.0053503513)
 
+[node name="Label3D2" type="Label3D" parent="Rover/Rover_Screen/Arms/Screen_arm/Screen_001"]
+transform = Transform3D(-0.31, -2.8876194e-08, 3.2416665e-08, -3.222997e-08, -0.001996681, -0.30999348, 2.9084372e-08, -0.30999348, 0.001996681, 0.6197956, -0.03439848, -0.5215541)
+modulate = Color(0.46229059, 0.46229059, 0.46229059, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "ESC to Leave"
+font = ExtResource("8_m7gmb")
+font_size = 30
+
 [node name="Screen_arm2" type="MeshInstance3D" parent="Rover/Rover_Screen/Arms/Screen_arm"]
 transform = Transform3D(1, 0, 7.1054274e-15, 7.1054274e-15, 1, 0, 0, 0, 1, 1.1920929e-07, 5.9604645e-08, 5.9604645e-08)
 mesh = SubResource("ArrayMesh_ldvtf")
