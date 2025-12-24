@@ -1103,7 +1103,7 @@ volume_db = -35.0
 [node name="AudioTapes" type="Node3D" parent="."]
 
 [node name="AudioTape" parent="AudioTapes" instance=ExtResource("27_x3p7p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.817, 29.039375, 163.83502)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.817, 31.758505, 163.83502)
 audio_track = ExtResource("28_5af5u")
 
 [node name="AudioTape2" parent="AudioTapes" instance=ExtResource("27_x3p7p")]
