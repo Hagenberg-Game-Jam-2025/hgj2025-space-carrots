@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcy5bax6222ul"]
+[gd_scene load_steps=4 format=3 uid="uid://chgupml3upd52"]
 
 [ext_resource type="Texture2D" uid="uid://hpsqr3tbdn2s" path="res://scene/component/ui/Game-Name.png" id="1_604c8"]
-[ext_resource type="Script" path="res://script/ui/SceneSwitchButtons.gd" id="1_qakhj"]
+[ext_resource type="Script" uid="uid://dsomotv8xiud4" path="res://script/ui/SceneSwitchButtons.gd" id="1_qakhj"]
 [ext_resource type="Texture2D" uid="uid://tj72g34gk6y1" path="res://scene/component/ui/GameJam-Logo.png" id="3_3fj18"]
 
 [node name="UiMainMenu" type="Control"]
@@ -54,7 +54,6 @@ size_flags_horizontal = 4
 text = "Start"
 
 [node name="CreditsButton" type="Button" parent="VBoxContainer/Buttons"]
-visible = false
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -89,4 +88,5 @@ offset_bottom = 1031.979
 text = "Space Carrots!!!!! Zoe McFife, Blergus, Ifynth, Quirinus1, Vanessa, Robert!!!!!!!!!!"
 
 [connection signal="button_up" from="VBoxContainer/Buttons/StartButton" to="VBoxContainer/Buttons" method="_on_start_button_button_up"]
+[connection signal="pressed" from="VBoxContainer/Buttons/CreditsButton" to="VBoxContainer/Buttons" method="_on_credits_button_pressed"]
 [connection signal="button_up" from="VBoxContainer/Buttons/ExitButton" to="VBoxContainer/Buttons" method="_on_exit_button_button_up"]

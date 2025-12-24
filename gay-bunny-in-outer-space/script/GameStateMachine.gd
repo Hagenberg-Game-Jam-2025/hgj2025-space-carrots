@@ -3,6 +3,7 @@ extends Node
 
 static var MAIN_MENU : String = "res://scene/MainMenu.tscn"
 static var SCENE_INTERACTION_TEST : String = "res://scene/test-scene/mars/mars.tscn"
+static var SCENE_CREDITS : String = "res://scene/Credits.tscn"
 
 signal player_died
 

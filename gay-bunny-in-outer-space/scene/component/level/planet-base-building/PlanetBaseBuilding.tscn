@@ -55,4 +55,9 @@ transform = Transform3D(1, 0, 0, 0, 0.9085592, -0.41775608, 0, 0.41775608, 0.908
 mesh = SubResource("BoxMesh_7klca")
 surface_material_override/0 = ExtResource("5_0lhoq")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.96213734, 3.397015, -1.3570255)
+light_color = Color(0.48000002, 0.5580001, 1, 1)
+omni_range = 19.406
+
 [editable path="Space_Capsule"]
