@@ -6,9 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://ddf5jv3pfel43" path="res://scene/component/level/planet-base-building/ui-assets/hologram.png" id="4_mcd4b"]
 [ext_resource type="Texture2D" uid="uid://dua6om0rbnwne" path="res://scene/component/level/planet-base-building/ui-assets/recorder.png" id="5_jdq67"]
 [ext_resource type="FontFile" uid="uid://cbuih6hp54o7h" path="res://script/marker/Pixeled.ttf" id="6_k4hxm"]
-[ext_resource type="Script" uid="uid://d4js83clkl3y7" path="res://script/ui/ImageButton.gd" id="6_xdlbp"]
+[ext_resource type="Script" path="res://script/ui/ImageButton.gd" id="6_xdlbp"]
 
 [node name="BuildingInterior" type="Node2D"]
+scale = Vector2(1.6612394, 1.6612394)
 script = ExtResource("1_xxcrk")
 metadata/_custom_type_script = "uid://bilnpogh155nn"
 
