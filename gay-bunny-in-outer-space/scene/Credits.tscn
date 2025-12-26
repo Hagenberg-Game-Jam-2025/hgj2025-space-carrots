@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c0al8xa5ooj71"]
 
-[ext_resource type="VideoStream" uid="uid://7kome2aaabsd" path="res://scene/output_video.ogv" id="1_njehw"]
+[ext_resource type="VideoStream" uid="uid://b5p57vn3hmw30" path="res://scene/output_video.ogv" id="1_njehw"]
 [ext_resource type="FontFile" uid="uid://cbuih6hp54o7h" path="res://script/marker/Pixeled.ttf" id="2_e17na"]
 
 [sub_resource type="GDScript" id="GDScript_e17na"]
