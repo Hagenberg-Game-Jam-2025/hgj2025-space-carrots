@@ -10,7 +10,7 @@ var audio_track : AudioStream
 var audio_db : float = 16
 
 func _on_interaction_target_on_interact(source: ControlEntity) -> void:
-	var audio_tape_resource : AudioTapeResource = AudioTapeResource.new(audio_track, audio_db)
+	var audio_tape_resource : AudioTapeResource = AudioTapeResource.new(audio_track, audio_db, name)
 	
 	var audio_tape_manager : AudioTapeManager = get_tree().get_first_node_in_group("AudioTapeManager") as AudioTapeManager
 	

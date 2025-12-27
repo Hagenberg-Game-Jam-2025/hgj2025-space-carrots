@@ -12,6 +12,11 @@ func _ready() -> void:
 	finished.connect(_on_finished)
 	
 func queue_audio_track(audio_tape_resource : AudioTapeResource) -> void:
+	# check last tape is the same => don't play again
+	if audio_tracks.size() > 0 and audio_tracks[-1].audio_name == audio_tape_resource.audio_name:
+		# skip tape
+		return
+	
 	audio_tracks.append(audio_tape_resource)
 	
 	print(audio_tracks)
