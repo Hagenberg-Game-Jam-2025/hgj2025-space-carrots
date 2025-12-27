@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://la5rcbk2csa"]
+[gd_scene load_steps=78 format=3 uid="uid://la5rcbk2csa"]
 
 [ext_resource type="Texture2D" uid="uid://bcf20svlxwwj8" path="res://resource/texture/rock_boulder_cracked_diff_1k.jpg" id="1_gr40m"]
 [ext_resource type="Script" uid="uid://uevrkia0cs2q" path="res://script/GameStateMachine.gd" id="1_jolfs"]
@@ -36,9 +36,13 @@
 [ext_resource type="PackedScene" uid="uid://bsoxa5hjbmha7" path="res://scene/component/audio/SfxPlayer.tscn" id="31_rlkvs"]
 [ext_resource type="AudioStream" uid="uid://t26wg2dj8ing" path="res://script/audio-tape/audio-tracks/Captain/Captain_Logbuch_22.wav" id="32_cx81v"]
 [ext_resource type="AudioStream" uid="uid://r2fn2w33tswk" path="res://script/audio-tape/audio-tracks/AF0X1/AF0X1_Protokoll_11.wav" id="33_0nodc"]
+[ext_resource type="AudioStream" uid="uid://grjx6ejm6olm" path="res://resource/audio/death/death1.ogg" id="33_tgvh8"]
 [ext_resource type="AudioStream" uid="uid://cp0pnt1vprw3x" path="res://script/audio-tape/audio-tracks/Sarala/Sarala_Protokoll_18.wav" id="34_4guup"]
+[ext_resource type="AudioStream" uid="uid://d31cv3tcme78y" path="res://resource/audio/death/death2.ogg" id="34_u2lta"]
+[ext_resource type="AudioStream" uid="uid://lclsix2vwpa" path="res://resource/audio/death/death3.ogg" id="35_7almr"]
 [ext_resource type="AudioStream" uid="uid://c5j0vpmsttovf" path="res://script/audio-tape/audio-tracks/Garry/Garry_Protokoll_6.wav" id="35_keli2"]
 [ext_resource type="AudioStream" uid="uid://bai781oarlxu5" path="res://script/audio-tape/audio-tracks/Garry/Garry_Protokoll_71.wav" id="36_dgm8t"]
+[ext_resource type="AudioStream" uid="uid://cq55i3tvoqty8" path="res://resource/audio/death/death4.ogg" id="36_uevih"]
 [ext_resource type="AudioStream" uid="uid://bg6dgu8pyc5ua" path="res://script/audio-tape/audio-tracks/Sarala/Sarala_Protokoll_5.wav" id="37_rn2ud"]
 [ext_resource type="AudioStream" uid="uid://btiv2ii6lm6yq" path="res://script/audio-tape/audio-tracks/Captain/Captain_Logbuch_16.wav" id="38_5cfra"]
 [ext_resource type="AudioStream" uid="uid://tskf0xlyv518" path="res://script/audio-tape/audio-tracks/AF0X1/AF0X1_Protokoll_Verschluesselt.wav" id="39_tgvh8"]
@@ -1096,9 +1100,10 @@ transform = Transform3D(0.99493873, 0.10048327, 0, -0.10048327, 0.99493873, 0, 0
 transform = Transform3D(-0.0025747567, -0.6742581, -0.7384913, 0.94186556, 0.24648456, -0.22832948, 0.33597967, -0.69614744, 0.6344259, 147.82222, -5.9221387, 317.09393)
 
 [node name="MusicPlayer" parent="." instance=ExtResource("30_84p14")]
-volume_db = -35.0
+volume_db = -30.0
 
 [node name="SfxPlayer" parent="." instance=ExtResource("31_rlkvs")]
+_death_sound_pool = [ExtResource("33_tgvh8"), ExtResource("34_u2lta"), ExtResource("35_7almr"), ExtResource("36_uevih")]
 
 [node name="AudioTapes" type="Node3D" parent="."]
 
