@@ -75,10 +75,10 @@ shadow_enabled = true
 transform = Transform3D(-0.999824, 0, 0.018761158, 0, 1, 0, -0.018761158, 0, -0.999824, 11.295377, 5.9604645e-08, -14.333118)
 script = null
 
-[node name="Screen_001" parent="Rover/Rover/Rover_Screen/Arms/Screen_arm" index="1"]
-transform = Transform3D(1, -1.5639765e-14, 2.79876e-15, 1.4210854e-14, 0.9592186, 0.28266412, -7.1054274e-15, -0.28266412, 0.9592186, -1.0664077, -1.0058141, 0.0012959242)
-
 [node name="Label3D" parent="Rover" index="3"]
 text = "Blahaj"
+
+[node name="PlayerDetectionZone" parent="Rover" index="4"]
+visible = false
 
 [editable path="Rover"]
