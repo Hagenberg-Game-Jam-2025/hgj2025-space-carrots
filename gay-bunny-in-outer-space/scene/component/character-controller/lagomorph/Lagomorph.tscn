@@ -24,7 +24,6 @@ enable_pitch_limit = true
 pitch_limit = 90.0
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Anchor/TwistPivot/PitchPivot/CameraAnchor" index="1"]
-visible = false
 light_color = Color(1, 0.7294118, 0.38431373, 1)
 light_energy = 3.261
 spot_range = 68.81
