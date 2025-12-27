@@ -103,5 +103,11 @@ void sky() {
     uv *= 16.0;
     uv += vec3(-TIME * .01, TIME * .005, TIME * .003);
 	
-	COLOR = vec3(.01) + max(stars(uv), vec3(0.0)) + max(fbm_4(EYEDIR * .8), 0.0);
+	vec3 nebula = vec3(fbm_4(EYEDIR * 1.0), fbm_4(EYEDIR * .8 + vec3(.3)), fbm_4(EYEDIR * .9 + vec3(.3)));
+	nebula *= vec3(1.0, .0, .1);
+	nebula *= .6;
+	vec3 nebula2 = vec3(fbm_4(EYEDIR * .9 + vec3(15.3)), fbm_4(EYEDIR * 1.0 + vec3(2.0)), fbm_4(EYEDIR * .9 + vec3(15.3)));
+	nebula2 *= vec3(1.0, .0, .05);
+	nebula2 *= .6;
+	COLOR = vec3(.01) + max(stars(uv), vec3(0.0)) + max(nebula, 0.0) + max(nebula2, 0.0);
 }

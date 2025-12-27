@@ -1,5 +1,7 @@
 shader_type fog;
 
+uniform sampler2D height_map;
+
 float hash1( vec2 p ) {
     p  = 50.0*fract( p*0.3183099 );
     return fract( p.x*p.y*(p.x+p.y) );
@@ -41,6 +43,8 @@ float fbm_4( in vec2 x ) {
 
 void fog() {
 	vec3 pos = vec3(WORLD_POSITION.x, WORLD_POSITION.y - OBJECT_POSITION.y, WORLD_POSITION.z);
+	float height_mod = texture(height_map, pos.xz + vec2(512.0)).x;
+
 	//if (abs(pos.x) < 1.5) {
 		//ALBEDO = vec3(1.0, 1.0, 1.0);
 	//} else if (abs(pos.x) < 3.0) {
@@ -54,7 +58,7 @@ void fog() {
 	//} else {
 		//ALBEDO = vec3(0.7, 0.2, 0.7);
 	//}
-	DENSITY = smoothstep(.1, .1, max(0.0, -pos.y + smoothstep(-.4, 1.2, fbm_4(vec2(pos.x + TIME * 0.1, pos.z + TIME * 0.2) * 0.3)) * 3.0 + 0.1));
+	DENSITY = smoothstep(.1, .1, max(0.0, -height_mod + smoothstep(-.4, 1.2, fbm_4(vec2(pos.x + TIME * 0.1, pos.z + TIME * 0.2) * 0.3)) * 3.0 + 0.1));
 	//DENSITY = max(0.0, 1000000.0 * (-pos.y + fbm_4(vec2(pos.x + TIME, pos.z) / 4.0) * 1.0 + 3.2) / (SDF * SDF * 0.4));
 }
 

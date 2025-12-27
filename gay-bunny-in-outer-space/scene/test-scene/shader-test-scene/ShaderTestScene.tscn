@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://ddgao4j0rviid"]
 
 [ext_resource type="Shader" uid="uid://hdnds6qel3ct" path="res://resource/shader/fog_shader.gdshader" id="2_su11u"]
-[ext_resource type="Shader" uid="uid://r1bigdpt7i7r" path="res://resource/shader/sky_shader.gdshader" id="2_v7fcd"]
+[ext_resource type="Shader" path="res://resource/shader/sky_shader.gdshader" id="2_v7fcd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7xe8u"]
 shader = ExtResource("2_v7fcd")

@@ -50,11 +50,13 @@ void fog() {
 	//}
 	//EMISSION = vec3(.1);
 	//if (pos.y > 0.0) {
-		ALBEDO = vec3(0.2, 0.02, 0.01);
+		ALBEDO = vec3(0.3, 0.02, 0.02) * 2.4;
 	//} else {
 		//ALBEDO = vec3(0.7, 0.2, 0.7);
 	//}
-	DENSITY = smoothstep(.1, .1, max(0.0, -pos.y + smoothstep(-.4, 1.2, fbm_4(vec2(pos.x + TIME * 0.1, pos.z + TIME * 0.2) * 0.3)) * 3.0 + 0.1));
+	if (pos.y < 200.0) {
+		DENSITY = smoothstep(.1, .1, max(0.0, -2.0 + smoothstep(-.6, 1.2, fbm_4(vec2(pos.x + TIME * 1.2, pos.z) * .2)) * 2.8));
+	}
 	//DENSITY = max(0.0, 1000000.0 * (-pos.y + fbm_4(vec2(pos.x + TIME, pos.z) / 4.0) * 1.0 + 3.2) / (SDF * SDF * 0.4));
 }
 

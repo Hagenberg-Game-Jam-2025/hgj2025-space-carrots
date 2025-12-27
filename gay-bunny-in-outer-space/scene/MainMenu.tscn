@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" path="res://resource/shader/main_menu_floor.gdshader" id="1_nn17b"]
 [ext_resource type="Script" path="res://script/ui/MainMenu.gd" id="1_rvc10"]
-[ext_resource type="Shader" path="res://resource/shader/sky_shader.gdshader" id="2_sks6p"]
+[ext_resource type="Shader" uid="uid://r1bigdpt7i7r" path="res://resource/shader/sky_shader.gdshader" id="2_sks6p"]
 [ext_resource type="Shader" uid="uid://hdnds6qel3ct" path="res://resource/shader/fog_shader.gdshader" id="3_lulne"]
 [ext_resource type="PackedScene" uid="uid://chgupml3upd52" path="res://scene/component/ui/UIMainMenu.tscn" id="4_lulne"]
 [ext_resource type="PackedScene" uid="uid://ci3k23agf4oer" path="res://scene/component/rover/Rover.tscn" id="5_tf3dk"]
@@ -53,9 +53,9 @@ material = SubResource("ShaderMaterial_85i58")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.626526, 0.58146477, -12.706946)
-light_energy = 5.255
-light_indirect_energy = 10.1
-light_volumetric_fog_energy = 3.775
+light_energy = 1.737
+light_indirect_energy = 3.859
+light_volumetric_fog_energy = 2.713
 omni_range = 2.259
 omni_attenuation = 0.769
 
