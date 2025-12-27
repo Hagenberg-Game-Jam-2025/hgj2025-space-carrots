@@ -3,7 +3,7 @@
 [ext_resource type="Shader" path="res://resource/shader/main_menu_floor.gdshader" id="1_nn17b"]
 [ext_resource type="Script" path="res://script/ui/MainMenu.gd" id="1_rvc10"]
 [ext_resource type="Shader" path="res://resource/shader/sky_shader.gdshader" id="2_sks6p"]
-[ext_resource type="Shader" path="res://resource/shader/fog_shader.gdshader" id="3_lulne"]
+[ext_resource type="Shader" uid="uid://hdnds6qel3ct" path="res://resource/shader/fog_shader.gdshader" id="3_lulne"]
 [ext_resource type="PackedScene" uid="uid://chgupml3upd52" path="res://scene/component/ui/UIMainMenu.tscn" id="4_lulne"]
 [ext_resource type="PackedScene" uid="uid://ci3k23agf4oer" path="res://scene/component/rover/Rover.tscn" id="5_tf3dk"]
 
@@ -78,7 +78,7 @@ script = null
 [node name="Label3D" parent="Rover" index="3"]
 text = "Blahaj"
 
-[node name="PlayerDetectionZone" parent="Rover" index="4"]
+[node name="MarkerSprite" parent="Rover/PlayerDetectionZone" index="0"]
 visible = false
 
 [editable path="Rover"]
